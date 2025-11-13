@@ -601,7 +601,11 @@ main {
   z-index: -1;
 }
 
-.service-icon-box { margin-bottom: 10px; }
+.service-icon-box {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
 
 .service-icon-box img { margin: auto; }
 
