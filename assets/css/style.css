@@ -1151,15 +1151,16 @@ textarea.form-input::-webkit-resizer { display: none; }
 \*-----------------------------------*/
 
 .beliefs-mission {
-  font-size: var(--fs-4);
+  font-size: var(--fs-3);
   font-weight: var(--fw-500);
   line-height: 1.6;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .beliefs .service {
   margin-bottom: 50px;
+  margin-top: 40px;
 }
 
 .beliefs-values-grid {
@@ -1181,6 +1182,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .beliefs .service-content-box {
   text-align: center;
+}
+
+.beliefs .timeline {
+  margin-top: 50px;
 }
 
 
@@ -1739,13 +1744,5 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
-
-  /**
-   * BELIEFS
-   */
-
-  .beliefs-mission {
-    font-size: var(--fs-3);
-  }
 
 }
