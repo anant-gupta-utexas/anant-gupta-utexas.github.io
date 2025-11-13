@@ -1147,6 +1147,46 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /*-----------------------------------*\
+  #BELIEFS
+\*-----------------------------------*/
+
+.beliefs-mission {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.beliefs .service {
+  margin-bottom: 50px;
+}
+
+.beliefs-values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.beliefs .service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.beliefs .service-icon-box {
+  margin-bottom: 10px;
+}
+
+.beliefs .service-content-box {
+  text-align: center;
+}
+
+
+
+
+/*-----------------------------------*\
   #RESPONSIVE
 \*-----------------------------------*/
 
@@ -1461,7 +1501,15 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: max-content;
     margin-left: auto;
   }
-  
+
+  /**
+   * BELIEFS
+   */
+
+  .beliefs-values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 
@@ -1551,6 +1599,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   .service-list {
     grid-template-columns: 1fr 1fr;
     gap: 20px 25px;
+  }
+
+  /**
+   * BELIEFS
+   */
+
+  .beliefs-values-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /**
@@ -1685,31 +1741,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
   /**
-	 * BELIEFS PAGE
-	 */
+   * BELIEFS
+   */
 
   .beliefs-mission {
     font-size: var(--fs-3);
-    font-weight: var(--fw-500);
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .beliefs-values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .beliefs .service {
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: 580px) {
-    .beliefs-values-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
 }
