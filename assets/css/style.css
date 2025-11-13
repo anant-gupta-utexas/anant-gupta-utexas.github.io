@@ -1684,4 +1684,32 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+  /**
+	 * BELIEFS PAGE
+	 */
+
+  .beliefs-mission {
+    font-size: var(--fs-3);
+    font-weight: var(--fw-500);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .beliefs-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .beliefs .service {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 580px) {
+    .beliefs-values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 }

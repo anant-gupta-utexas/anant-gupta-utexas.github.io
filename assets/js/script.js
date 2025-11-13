@@ -56,3 +56,17 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// beliefs link in about me section
+const beliefsLink = document.querySelector(".beliefs-link");
+if (beliefsLink) {
+  beliefsLink.addEventListener("click", function() {
+    // Find and click the Beliefs nav link
+    for (let i = 0; i < navigationLinks.length; i++) {
+      if (navigationLinks[i].innerHTML.toLowerCase() === "beliefs") {
+        navigationLinks[i].click();
+        break;
+      }
+    }
+  });
+}
