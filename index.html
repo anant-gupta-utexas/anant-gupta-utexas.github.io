@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anant Gupta - AI/ML Engineer</title>
+  <title>Anant Gupta - AI Engineer</title>
 
   <!--
     - favicon
@@ -54,7 +54,7 @@
           <div class="info-content">
             <h1 class="name" title="Anant Gupta">Anant Gupta</h1>
 
-            <p class="title">Senior AI/ML Engineer</p>
+            <p class="title">Senior Data Scientist / AI Engineer</p>
           </div>
 
           <button class="info_more-btn" data-sidebar-btn>
@@ -434,16 +434,259 @@
             <h2 class="h2 article-title">Projects</h2>
           </header>
 
+          <!--
+            - Projects
+          -->
+
           <section class="project-posts">
+
+            <div class="project-section-header">
+              <div class="icon-box">
+                <ion-icon name="rocket-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Featured</h3>
+            </div>
 
             <ul class="project-posts-list">
 
               <li class="project-post-item">
-                <a href="https://github.com/anant-gupta-utexas/Sentiment-Analysis-Amazon-Reviews" target="_blank">
+                <a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank">
 
-                  <figure class="project-banner-box">
-                    <img src="./assets/images/document_topic.png" alt="Recommender Engine" loading="lazy">
-                  </figure>
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">AI/ML</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">SRE</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">SLO Recommendation Engine</h3>
+
+                      <p class="project-text">
+                        An AI-assisted backend system that analyzes telemetry data and structural dependencies
+                        across microservices to recommend achievable availability and latency SLOs.
+                      </p>
+
+                      <p class="project-text">
+                        Models service dependencies as a directed graph using Tarjan's SCC algorithm for
+                        circular dependency detection and PostgreSQL recursive CTEs for efficient subgraph queries.
+                      </p>
+
+                      <p class="project-text">
+                        Production-ready with 13 Prometheus metrics, structured JSON logging, distributed tracing,
+                        Helm charts, GitHub Actions CI/CD, and horizontal autoscaling.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Python</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">FastAPI</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">PostgreSQL</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">OpenTelemetry</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+            </ul>
+
+          </section>
+
+          <!--
+            - Development Utilities
+          -->
+
+          <section class="project-posts">
+
+            <div class="project-section-header">
+              <div class="icon-box">
+                <ion-icon name="construct-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Development Utilities</h3>
+            </div>
+
+            <ul class="project-posts-list">
+
+              <li class="project-no-banner">
+                <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">Template</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">Backend</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">Python Scaffolding</h3>
+
+                      <p class="project-text">
+                        A modern Python project template following Clean Architecture principles with
+                        three-layer architecture (Domain, Application, Infrastructure), full type hints,
+                        and comprehensive documentation structure.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Python</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">FastAPI</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Clean Architecture</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="project-no-banner">
+                <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">Template</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">Backend</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">Go Scaffolding</h3>
+
+                      <p class="project-text">
+                        A modern Go project template following Clean Architecture, DDD Lite, and CQRS-ready
+                        principles with Chi router, sqlc + pgx for type-safe SQL, structured logging,
+                        and multi-stage distroless Docker images.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Go</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Chi</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">DDD</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Clean Architecture</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="project-no-banner">
+                <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">Template</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">Frontend</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">React Scaffolding</h3>
+
+                      <p class="project-text">
+                        A scalable React application scaffolding with TanStack Router, TanStack Query,
+                        shadcn/ui, and multi-tenancy support. Feature-based architecture with
+                        file-based routing and type-safe environment variables.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">React</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">TypeScript</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">TanStack</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Tailwind CSS</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="project-no-banner">
+                <a href="https://github.com/anant-gupta-utexas/claude-workspace-plugins" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">Plugins</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">AI Tooling</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">Claude Workspace Plugins</h3>
+
+                      <p class="project-text">
+                        Production-tested Claude Code plugins for modern development workflows with
+                        specialized tools for backend, frontend, and essential utilities including
+                        documentation, planning, learning coach, and research agents.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Claude Code</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Plugins</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">AI Tooling</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+            </ul>
+
+          </section>
+
+          <!--
+            - Graduate Coursework
+          -->
+
+          <section class="project-posts">
+
+            <div class="project-section-header">
+              <div class="icon-box">
+                <ion-icon name="school-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Graduate Coursework</h3>
+            </div>
+
+            <ul class="project-posts-list">
+
+              <li class="project-no-banner">
+                <a href="https://github.com/anant-gupta-utexas/Sentiment-Analysis-Amazon-Reviews" target="_blank">
 
                   <div class="project-content">
 
@@ -494,12 +737,8 @@
                 </a>
               </li>
 
-              <li class="project-post-item">
+              <li class="project-no-banner">
                 <a href="https://github.com/anant-gupta-utexas/ShopeeProductMatching" target="_blank">
-
-                  <figure class="project-banner-box">
-                    <img src="./assets/images/land_cover_classification.png" alt="Product Matching" loading="lazy">
-                  </figure>
 
                   <div class="project-content">
 
@@ -549,12 +788,8 @@
                 </a>
               </li>
 
-              <li class="project-post-item">
+              <li class="project-no-banner">
                 <a href="https://github.com/anant-gupta-utexas/Causal-Inference-for-Brand-Assessment" target="_blank">
-
-                  <figure class="project-banner-box">
-                    <img src="./assets/images/sageconv_gnn.png" alt="Causal Inference" loading="lazy">
-                  </figure>
 
                   <div class="project-content">
 
@@ -563,11 +798,11 @@
 
                       <span class="dot"></span>
 
-                      <p class="project-category">Statistical Modeling</p>
+                      <p class="project-category">Statistics</p>
 
                       <span class="dot"></span>
 
-                      <p class="project-category">Marketing Analytics</p>
+                      <p class="project-category">Marketing</p>
                     </div>
 
                     <h3 class="h4 project-item-title">Causal Inference & Halo Effects in Brand Perception</h3>
@@ -685,11 +920,11 @@
 
               <li class="timeline-item">
 
-                <h4 class="h4 timeline-item-title">Walmart
+                <h4 class="h4 timeline-item-title">Walmart Global Tech
                   <span class="right-align">Sunnyvale, CA, US</span>
                 </h4>
 
-                <span class="program">Senior AI/ML Engineer
+                <span class="program">Senior Data Scientist / AIML Engineer (GenAI, Merchandising)
                   <span class="right-align-gold">May 2024 - Present</span>
                 </span>
 
@@ -697,29 +932,46 @@
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Built multi-tenant evaluation platform processing 10K+ production queries/month, increasing
-                      GenAI user satisfaction from 47% to 79% through systematic improvements and data-driven insights.
+                      Developed automated root cause analysis system for merchant sales performance, detecting outliers
+                      across 8+ analytical grains and generating LLM-synthesized executive reports, saving 47K hours/year
+                      and $80M profit impact.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Designed LLM framework with agent orchestration enabling 6+ engineering teams to build and
-                      deploy GenAI features, reducing deployment time from 2 weeks to 3 days (85% improvement).
+                      Architected multi-tenant evaluation platform for Wally (GenAI assistant), processing 10K+ production
+                      queries/month with Kafka-based priority queuing and support for offline/online evaluation workflows.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Created classification system with 98% accuracy using LLM-based routing, reducing mean time
-                      to resolution from 7 days to 1.5 days, saving significant operational costs.
+                      Built production-grade evaluation framework for natural language data queries, reducing feature
+                      deployment cycles from 2 weeks to 3 days and enabling 60% faster data source on-boarding
+                      across 15+ merchant-facing features.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Implemented OpenTelemetry tracing across GenAI services, enabling real-time performance
-                      monitoring and rapid debugging of production issues.
+                      Designed and implemented LLM framework with agent orchestration capabilities, enabling 6+
+                      engineering teams to rapidly develop and deploy AI applications through standardized interfaces,
+                      autonomous agent workflows, automated CI/CD integration and comprehensive OpenTelemetry tracing.
+                    </p>
+                  </li>
+
+                  <li class="timeline-text-ul">
+                    <p class="timeline-text-ul-item">
+                      Increased user satisfaction for Wally from 47% to 79% through systematic optimization of
+                      prompt engineering techniques, intelligent LLM routing algorithms, and advanced retrieval strategies.
+                    </p>
+                  </li>
+
+                  <li class="timeline-text-ul">
+                    <p class="timeline-text-ul-item">
+                      Engineered LLM-based classification system to automatically categorize supplier platform tickets,
+                      reducing mean time to resolution from 7 days to 1.5 days and increasing ticket routing accuracy to 98%.
                     </p>
                   </li>
 
@@ -729,11 +981,11 @@
 
               <li class="timeline-item">
 
-                <h4 class="h4 timeline-item-title">Walmart
+                <h4 class="h4 timeline-item-title">Walmart Global Tech
                   <span class="right-align">Sunnyvale, CA, US</span>
                 </h4>
 
-                <span class="program">AI/ML Engineer
+                <span class="program">Data Scientist / AIML Engineer (Merchandising and Pricing)
                   <span class="right-align-gold">Jul 2022 - Apr 2024</span>
                 </span>
 
@@ -741,22 +993,25 @@
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Developed enterprise RAG system achieving 83% retrieval accuracy with advanced
-                      embedding pipelines and vector search, saving 20+ hours/month in manual maintenance.
+                      Designed and implemented enterprise-scale RAG conversational AI system using Langchain, Milvus
+                      vector database, and OpenAI API; built automated real-time embedding pipelines achieving 83%
+                      retrieval accuracy and eliminating 20+ hours of monthly maintenance overhead.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Built data migration pipeline using PySpark reducing processing time from 3 hours to
-                      30 minutes (83% reduction), enabling multi-million dollar clearance markdown optimization.
+                      Led migration of critical Clearance Markdown data pipeline (150M combinations) to a scalable
+                      PySpark solution on GCP (Dataproc, Vertex AI), driving 80% adoption and enabling multi-million
+                      dollar savings through enhanced data processing for markdown decisions.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Drove 80% team adoption through intuitive API design, comprehensive documentation,
-                      and proactive stakeholder engagement across cross-functional teams.
+                      Developed optimized PySpark data pipelines by translating Python scripts and parallelizing
+                      execution, cutting batch time from 3 hours to 30 minutes; ensured reliability with unit tests
+                      in Dockerized environments.
                     </p>
                   </li>
 
@@ -767,7 +1022,7 @@
               <li class="timeline-item">
 
                 <h4 class="h4 timeline-item-title">Spectramedix
-                  <span class="right-align">Gurgaon, India</span>
+                  <span class="right-align">Gurugram, India</span>
                 </h4>
 
                 <span class="program">Data Analyst
@@ -778,22 +1033,24 @@
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Built real-time healthcare analytics dashboards processing patient data with
-                      100% HHS regulatory compliance, enabling data-driven clinical decisions.
+                      Architected end-to-end data pipelines and interactive analytics dashboards using SQL and Tableau,
+                      facilitating streamlined referral optimization and real-time risk management monitoring.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Implemented risk stratification systems using SQL and statistical modeling to
-                      predict patient outcomes and optimize resource allocation.
+                      Performed exploratory data analysis on healthcare claims datasets using SQL and Python,
+                      identifying risk patterns and developing predictive models that improved patient
+                      stratification accuracy by 25%.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Created Tableau visualizations for executive stakeholders, translating complex
-                      healthcare data into actionable insights for strategic planning.
+                      Led cross-functional collaboration between technical and business stakeholders, driving
+                      successful implementation of ML-powered healthcare solutions while ensuring alignment
+                      with business objectives and regulatory requirements.
                     </p>
                   </li>
 
@@ -803,11 +1060,11 @@
 
               <li class="timeline-item">
 
-                <h4 class="h4 timeline-item-title">Collegedunia
-                  <span class="right-align">Gurgaon, India</span>
+                <h4 class="h4 timeline-item-title">Collegedunia Web Private Limited
+                  <span class="right-align">New Delhi, India</span>
                 </h4>
 
-                <span class="program">Operations Manager
+                <span class="program">Operations Manager / Analyst
                   <span class="right-align-gold">Jun 2016 - Dec 2019</span>
                 </span>
 
@@ -815,22 +1072,17 @@
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Led A/B testing initiatives achieving 17% boost in lead generation and 12% revenue
-                      growth through systematic hypothesis testing and statistical analysis.
+                      Implemented A/B testing frameworks for ad placement optimization, leveraging statistical
+                      methods and intelligent monitoring systems, driving a 17% boost in lead generation
+                      and 12% revenue growth.
                     </p>
                   </li>
 
                   <li class="timeline-text-ul">
                     <p class="timeline-text-ul-item">
-                      Built recommendation system using K-Means clustering reducing customer acquisition
-                      costs by 22% through personalized content and targeting strategies.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Managed cross-functional team driving 31% year-over-year revenue growth through
-                      data-driven operations optimization and process improvements.
+                      Developed a K-Means clustering recommendation system for targeted marketing campaigns,
+                      incorporating real-time user behavior data and adaptive feedback loops, reducing customer
+                      acquisition costs by 22%.
                     </p>
                   </li>
 
@@ -847,10 +1099,92 @@
             <h3 class="h3 skill-title">My skills</h3>
 
             <!--
-              AI/ML Stack
+              AI Stack
             -->
 
-            <h5 class="h4 skill-category">AI/ML Stack</h5>
+            <h5 class="h4 skill-category">AI Stack</h5>
+
+            <ul class="skill-list">
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/OpenAI.svg" alt="OpenAI icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  OpenAI
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="sparkles-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  Gemini
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/LangChain.jpeg" alt="LangChain icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  Langchain
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="server-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  Milvus
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="search-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  InspectAI
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/OpenTelemetry.svg" alt="Phoenix icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  Phoenix
+                </div>
+
+              </li>
+
+            </ul>
+
+            <!--
+              Libraries & Frameworks
+            -->
+
+            <h5 class="h4 skill-category">Libraries & Frameworks</h5>
 
             <ul class="skill-list">
 
@@ -893,30 +1227,6 @@
               <li class="skill-item">
 
                 <div class="skill-icon-box">
-                  <img src="./assets/images/LangChain.jpeg" alt="LangChain icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Langchain
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/OpenAI.svg" alt="OpenAI icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  OpenAI
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
                   <img src="./assets/images/Scikit-learn.png" alt="scikit-learn icon" width="40">
                 </div>
 
@@ -926,39 +1236,63 @@
 
               </li>
 
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/mlflow.jpg" alt="MLflow icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  MLflow
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/FastAPI.svg" alt="FastAPI icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  FastAPI
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/pandas.png" alt="Pandas icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  pandas & numpy
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="grid-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  streamlit
+                </div>
+
+              </li>
+
             </ul>
 
             <!--
-              Data & Cloud Platforms
+              Big Data & Cloud
             -->
 
-            <h5 class="h4 skill-category">Data & Cloud Platforms</h5>
+            <h5 class="h4 skill-category">Big Data & Cloud</h5>
 
             <ul class="skill-list">
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/apache_spark.png" alt="PySpark icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  PySpark
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/Kafka.svg" alt="Kafka icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Kafka
-                </div>
-
-              </li>
 
               <li class="skill-item">
 
@@ -967,7 +1301,7 @@
                 </div>
 
                 <div class="skill-content-box">
-                  GCP
+                  GCP (Vertex AI, Dataproc, BigQuery)
                 </div>
 
               </li>
@@ -987,11 +1321,11 @@
               <li class="skill-item">
 
                 <div class="skill-icon-box">
-                  <img src="./assets/images/pandas.png" alt="Pandas icon" width="40">
+                  <img src="./assets/images/apache_spark.png" alt="PySpark icon" width="40">
                 </div>
 
                 <div class="skill-content-box">
-                  Pandas & NumPy
+                  PySpark
                 </div>
 
               </li>
@@ -999,11 +1333,47 @@
               <li class="skill-item">
 
                 <div class="skill-icon-box">
-                  <img src="./assets/images/tableau.svg" alt="Tableau icon" width="40">
+                  <img src="./assets/images/docker.png" alt="Docker icon" width="40">
                 </div>
 
                 <div class="skill-content-box">
-                  Tableau
+                  Docker
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/Kafka.svg" alt="Kafka icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  Kafka
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="sync-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  AirFlow
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="flash-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  Redis
                 </div>
 
               </li>
@@ -1033,42 +1403,6 @@
               <li class="skill-item">
 
                 <div class="skill-icon-box">
-                  <img src="./assets/images/docker.png" alt="Docker icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Docker
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/FastAPI.svg" alt="FastAPI icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  FastAPI
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/mlflow.jpg" alt="MLflow icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  MLflow
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
                   <img src="./assets/images/Git.png" alt="Git icon" width="40">
                 </div>
 
@@ -1086,6 +1420,42 @@
 
                 <div class="skill-content-box">
                   OpenTelemetry
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <img src="./assets/images/tableau.svg" alt="Tableau icon" width="40">
+                </div>
+
+                <div class="skill-content-box">
+                  Tableau
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="extension-puzzle-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  MCP
+                </div>
+
+              </li>
+
+              <li class="skill-item">
+
+                <div class="skill-icon-box">
+                  <ion-icon name="code-slash-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+
+                <div class="skill-content-box">
+                  SQLAlchemy
                 </div>
 
               </li>
