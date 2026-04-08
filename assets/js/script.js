@@ -57,16 +57,17 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-// beliefs link in about me section
-const beliefsLink = document.querySelector(".beliefs-link");
-if (beliefsLink) {
-  beliefsLink.addEventListener("click", function() {
-    // Find and click the Beliefs nav link
-    for (let i = 0; i < navigationLinks.length; i++) {
-      if (navigationLinks[i].innerHTML.toLowerCase() === "beliefs") {
-        navigationLinks[i].click();
-        break;
+// in-page navigation links
+["beliefs"].forEach(function(page) {
+  const link = document.querySelector("." + page + "-link");
+  if (link) {
+    link.addEventListener("click", function() {
+      for (let i = 0; i < navigationLinks.length; i++) {
+        if (navigationLinks[i].innerHTML.toLowerCase() === page) {
+          navigationLinks[i].click();
+          break;
+        }
       }
-    }
-  });
-}
+    });
+  }
+});
