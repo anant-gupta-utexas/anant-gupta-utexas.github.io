@@ -421,6 +421,113 @@
             <ul class="project-posts-list">
 
               <li class="project-post-item">
+                <a href="https://github.com/anant-gupta-utexas/plumb" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">AI/ML</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">DevEx</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">Agentic</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">plumb — measurement framework for agent systems</h3>
+
+                      <p class="project-text">
+                        A minimal, opinionated measurement spine for multi-agent systems. Captures the metrics
+                        that current agent-telemetry tools miss — human acceptance, orchestrator routing quality,
+                        sub-agent handoff round-trips, and cost-per-resolved-task — in a single unified schema.
+                      </p>
+
+                      <p class="project-text">
+                        Four-table SQLite schema (runs, spans, scores, examples) unifies offline evals and
+                        production traces in one place. Two entry points (decorator + context manager) are the
+                        entire public API; everything else is queries. Ships with an ATTACH-based adapter that
+                        backfills 14 coding agents' worth of history with ~200 LOC.
+                      </p>
+
+                      <p class="project-text">
+                        Designed to close the offline ↔ online loop: a failing production run can be promoted to
+                        a regression test case in one call, with paired-McNemar statistical rigor for ship
+                        decisions on model swaps.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Python</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">SQLite</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Pydantic</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">OpenTelemetry</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="project-post-item">
+                <a href="https://github.com/anant-gupta-utexas/atlas" target="_blank">
+
+                  <div class="project-content">
+
+                    <div class="project-meta">
+                      <p class="project-category">Agentic</p>
+
+                      <span class="dot"></span>
+
+                      <p class="project-category">DevEx</p>
+                    </div>
+
+                    <h3 class="h4 project-item-title">atlas — agent orchestrator &amp; Personal OS runtime</h3>
+
+                      <p class="project-text">
+                        A local-first task queue, agent runner, and metrics logger. Its first customer is a
+                        seven-stage dev workflow (research → PRD → SDD/TRD → TDS → plan review → code → review)
+                        where each stage emits a plumb span so the pipeline measures itself end-to-end.
+                      </p>
+
+                      <p class="project-text">
+                        Uses git worktrees as a codegen boundary, a post-commit git hook as the acceptance
+                        signal, and a TOML-based model-routing config so cheap and expensive models each earn
+                        their keep on the stages that benefit from them.
+                      </p>
+
+                      <p class="project-text">
+                        Built as the runtime half of a personal AI ops stack — atlas schedules and executes,
+                        plumb measures what happened, and the two together produce publishable data on how
+                        agent-assisted dev workflows actually perform.
+                      </p>
+
+                      <div class="project-tech">
+                        <span class="tech">Python</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">CLI</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">SQLite</span>
+                      </div>
+                      <div class="project-tech">
+                        <span class="tech">Git Worktrees</span>
+                      </div>
+
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="project-post-item">
                 <a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank">
 
                   <div class="project-content">
