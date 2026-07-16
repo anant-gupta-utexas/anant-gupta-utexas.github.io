@@ -18,15 +18,27 @@
 
   <link rel="preload" href="assets/fonts/instrument-serif-normal-2.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/libre-franklin-normal-2.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260716b">
+  <script>
+    // Set theme before first paint to avoid a flash. Stored choice wins;
+    // otherwise follow the OS preference.
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved ? saved === 'dark'
+          : matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 <div class="app-shell" style="display:grid;grid-template-columns:200px 1fr;min-height:100vh">
 
 <!-- ======= SIDEBAR ======= -->
-<div class="sidebar" style="border-right:1px solid #1d2126">
+<div class="sidebar" style="border-right:1px solid var(--ink)">
 <div class="sidebar-inner" style="position:sticky;top:0;height:100vh;box-sizing:border-box;padding:36px 24px;display:flex;flex-direction:column">
-  <a href="#s-about" style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;letter-spacing:-.01em">AG<span style="color:oklch(0.52 0.11 240)">.</span></a>
+  <a href="#s-about" style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;letter-spacing:-.01em">AG<span style="color:var(--accent)">.</span></a>
   <nav style="display:flex;flex-direction:column;gap:14px;margin-top:56px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">
     <a href="#s-about" class="nav-link" data-nav="s-about" style="transition:color .2s">About</a>
     <a href="#s-think" class="nav-link" data-nav="s-think" style="transition:color .2s">How I Think</a>
@@ -37,7 +49,14 @@
     <a href="#s-stack" class="nav-link" data-nav="s-stack" style="transition:color .2s">The Stack</a>
     <a href="#s-contact" class="nav-link" data-nav="s-contact" style="transition:color .2s">Contact</a>
   </nav>
-  <div class="sidebar-tagline" style="margin-top:auto;font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:rgba(29,33,38,.5)">est. 2016,<br>still climbing</div>
+  <button type="button" id="cmdk-open" class="cmdk-hint" style="margin-top:auto" aria-label="Open command palette">
+    <span>Search</span><kbd>⌘K</kbd>
+  </button>
+  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme (light / dark)">
+    <span class="theme-toggle-icon" aria-hidden="true"></span>
+    <span class="theme-toggle-label">Dark</span>
+  </button>
+  <div class="sidebar-tagline" style="margin-top:16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:rgba(var(--ink-rgb),.5)">est. 2016,<br>still climbing</div>
 </div>
 </div>
 
@@ -45,254 +64,254 @@
 <div style="min-width:0">
 
 <!-- 01 ABOUT / HERO -->
-<section id="s-about" data-screen-label="About" style="padding:96px 72px 72px;border-bottom:1px solid #1d2126;animation:fadeUp .7s ease both">
-  <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.52 0.11 240)">Anant Gupta — Staff Data Scientist / AIML Engineer · Walmart Global Tech</div>
-  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,4.6vw,62px);line-height:1.08;letter-spacing:-.015em;margin:22px 0 0;max-width:14em">I build AI systems that work in production — and I <em style="color:oklch(0.52 0.11 240)">ensure</em> they actually do.</h1>
-  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:30px;font-size:13.5px;color:rgba(29,33,38,.65)">
-    <span><strong style="color:#1d2126">9+ years</strong> — analyst to specialist</span>
-    <span><strong style="color:#1d2126">Deep on</strong> agentic systems, DevEx &amp; evaluation</span>
-    <span><strong style="color:#1d2126">Allergic to</strong> hype</span>
+<section id="s-about" data-screen-label="About" style="padding:96px 72px 72px;border-bottom:1px solid var(--ink);animation:fadeUp .7s ease both" data-num="01">
+  <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">Anant Gupta — Staff Data Scientist / AIML Engineer · Walmart Global Tech</div>
+  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,4.6vw,62px);line-height:1.08;letter-spacing:-.015em;margin:22px 0 0;max-width:14em">I build AI systems that work in production — and I <em style="color:var(--accent)">ensure</em> they actually do.</h1>
+  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:30px;font-size:13.5px;color:rgba(var(--ink-rgb),.65)">
+    <span><strong style="color:var(--ink)">9+ years</strong> — analyst to specialist</span>
+    <span><strong style="color:var(--ink)">Deep on</strong> agentic systems, DevEx &amp; evaluation</span>
+    <span><strong style="color:var(--ink)">Allergic to</strong> hype</span>
   </div>
-  <div style="max-width:44em;margin-top:48px;border-top:1px solid rgba(29,33,38,.25);padding-top:28px">
-    <p style="font-size:16.5px;line-height:1.7;margin:0"><em style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 19px; color: oklch(0.52 0.11 240);">Namaste.</em> I've held the title of Data Scientist but built pipelines like a Data Engineer, analyzed data like an Analyst, and shaped models like an ML Engineer. What's constant: I enjoy building framework code, helping people think through hard problems, and having a good chuckle along the way.</p>
-    <p style="font-size:16.5px;line-height:1.7;margin:16px 0 0;color:rgba(29,33,38,.7)">When work starts to feel routine, I've learned to treat it as a signal — usually it means it's time for a harder problem. That instinct has moved me from civil engineering to production generative AI, one deliberate step at a time.</p>
+  <div style="max-width:44em;margin-top:48px;border-top:1px solid rgba(var(--ink-rgb),.25);padding-top:28px">
+    <p style="font-size:16.5px;line-height:1.7;margin:0"><em style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 19px; color: var(--accent);">Namaste.</em> I've held the title of Data Scientist but built pipelines like a Data Engineer, analyzed data like an Analyst, and shaped models like an ML Engineer. What's constant: I enjoy building framework code, helping people think through hard problems, and having a good chuckle along the way.</p>
+    <p style="font-size:16.5px;line-height:1.7;margin:16px 0 0;color:rgba(var(--ink-rgb),.7)">When work starts to feel routine, I've learned to treat it as a signal — usually it means it's time for a harder problem. That instinct has moved me from civil engineering to production generative AI, one deliberate step at a time.</p>
   </div>
 </section>
 
 <!-- 02 HOW I THINK -->
-<section id="s-think" data-screen-label="How I Think" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-think" data-screen-label="How I Think" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="02">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">How I think</h2>
-  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(29,33,38,.55);margin-top:14px">"Just because you can build it doesn't mean you should — judgment is the bottleneck."</div>
-  <div style="display:grid;grid-template-columns:1fr 340px;gap:56px;margin-top:34px;align-items:start">
+  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(var(--ink-rgb),.55);margin-top:14px">"Just because you can build it doesn't mean you should — judgment is the bottleneck."</div>
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:56px;margin-top:34px;align-items:center">
     <div style="display:flex;flex-direction:column">
-      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid #1d2126;align-items:baseline">
-        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">a.</span>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--ink);align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--accent);min-width:28px">a.</span>
         <div>
           <div style="font-weight:600;font-size:16.5px">Just because you can build it doesn't mean you should.</div>
-          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">I ask "why are we solving this?" before writing code. Projects that don't solve a user problem or focuses on vanity metrics aren't a win — they only exist for good PR.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.6);margin-top:6px">I ask "why are we solving this?" before writing code. Projects that don't solve a user problem or focuses on vanity metrics aren't a win — they only exist for good PR.</div>
         </div>
       </div>
-      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(29,33,38,.25);align-items:baseline">
-        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">b.</span>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(var(--ink-rgb),.25);align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--accent);min-width:28px">b.</span>
         <div>
           <div style="font-weight:600;font-size:16.5px">Reliability comes from architecture discipline, not model quality.</div>
-          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">Determinism inside non-deterministic systems. Observability from day one, before it's an organizational requirement.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.6);margin-top:6px">Determinism inside non-deterministic systems. Observability from day one, before it's an organizational requirement.</div>
         </div>
       </div>
-      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126;align-items:baseline">
-        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">c.</span>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid var(--ink);align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--accent);min-width:28px">c.</span>
         <div>
           <div style="font-weight:600;font-size:16.5px">"How do we know this is good?" is a design input.</div>
-          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">Built objective evaluation infrastructure before anyone required it. It became a foundational platform.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.6);margin-top:6px">Built objective evaluation infrastructure before anyone required it. It became a foundational platform.</div>
         </div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px">
       <svg viewBox="0 0 340 320" style="width:100%;height:auto;overflow:visible">
-        <circle cx="110" cy="115" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
-        <circle cx="230" cy="115" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
-        <circle cx="170" cy="195" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
-        <circle cx="110" cy="115" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
-        <circle cx="230" cy="115" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
-        <circle cx="170" cy="195" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
-        <text x="82" y="98" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">DETECTIVE</text>
-        <text x="82" y="111" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">MINDSET</text>
-        <text x="260" y="108" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">ENGINEERING</text>
-        <text x="170" y="268" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">BUSINESS IMPACT</text>
-        <text x="170" y="150" font-family="Instrument Serif" font-style="italic" font-size="18" fill="#1d2126" text-anchor="middle">judgment</text>
+        <circle cx="110" cy="115" r="98" fill="var(--accent-11)"></circle>
+        <circle cx="230" cy="115" r="98" fill="var(--accent-11)"></circle>
+        <circle cx="170" cy="195" r="98" fill="var(--accent-11)"></circle>
+        <circle cx="110" cy="115" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
+        <circle cx="230" cy="115" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
+        <circle cx="170" cy="195" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
+        <text x="82" y="98" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">DETECTIVE</text>
+        <text x="82" y="111" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">MINDSET</text>
+        <text x="260" y="108" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">ENGINEERING</text>
+        <text x="170" y="268" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">BUSINESS IMPACT</text>
+        <text x="170" y="150" font-family="Instrument Serif" font-style="italic" font-size="18" fill="var(--ink)" text-anchor="middle">judgment</text>
       </svg>
-      <div style="font-size:12px;line-height:1.55;color:rgba(29,33,38,.55);text-align:center;max-width:26em;margin:0 auto">The overlap is where I work. The intersection isn't a skill — it's a habit of choosing.</div>
+      <div style="font-size:12px;line-height:1.55;color:rgba(var(--ink-rgb),.55);text-align:center;max-width:26em;margin:0 auto">The overlap is where I work. The intersection isn't a skill — it's a habit of choosing.</div>
     </div>
   </div>
 </section>
 
 <!-- 03 THE CLIMB -->
-<section id="s-climb" data-screen-label="The Climb" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-climb" data-screen-label="The Climb" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="03">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The climb</h2>
-  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:40em">Don't get caught up in titles. The title matters less than the capabilities you build and the value you deliver. Here's the ladder — each rung a decision, each decision a lesson.</p>
+  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:40em">Don't get caught up in titles. The title matters less than the capabilities you build and the value you deliver. Here's the ladder — each rung a decision, each decision a lesson.</p>
   <div style="display:flex;flex-direction:column;margin-top:40px;max-width:52em">
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid #1d2126">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2016</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">THE PIVOT</div></div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--ink)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2016</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">THE PIVOT</div></div>
       <div>
         <div style="font-weight:600;font-size:16px">Trained as a civil engineer. Chose to start over.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">By graduation it was clear that path wasn't the future. So: bottom rung of a new ladder, on purpose.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: it's okay to change direction when your path doesn't match your future.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">By graduation it was clear that path wasn't the future. So: bottom rung of a new ladder, on purpose.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(var(--ink-rgb),.55);margin-top:8px">Lesson: it's okay to change direction when your path doesn't match your future.</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2016–19</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L1 · ANALYST</div></div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2016–19</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">L1 · ANALYST</div></div>
       <div>
         <div style="font-weight:600;font-size:16px">Learned the craft in fast, chaotic digital-marketing analytics.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">SQL, Python, visualization — and the discovery that I loved the technical, data-heavy work while craving more structure.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: stay connected to your network; the next door usually opens through people.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">SQL, Python, visualization — and the discovery that I loved the technical, data-heavy work while craving more structure.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(var(--ink-rgb),.55);margin-top:8px">Lesson: stay connected to your network; the next door usually opens through people.</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2020–22</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L2 · DATA SCIENTIST</div></div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2020–22</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">L2 · DATA SCIENTIST</div></div>
       <div>
         <div style="font-weight:600;font-size:16px">Healthcare analytics, plus an intense analytics master's at UT Austin.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Ran lots of proof-of-concept modeling and learned the hard truth: POCs teach, but only production creates value. Grad school reframed data science as problem framing + delivery, not just modeling.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: learn to bridge the gap from prototype to production.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Ran lots of proof-of-concept modeling and learned the hard truth: POCs teach, but only production creates value. Grad school reframed data science as problem framing + delivery, not just modeling.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(var(--ink-rgb),.55);margin-top:8px">Lesson: learn to bridge the gap from prototype to production.</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2022–</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L3 · ARCHITECT</div></div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2022–</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">L3 · ARCHITECT</div></div>
       <div>
         <div style="font-weight:600;font-size:16px">A mentor reset the whole trajectory with one idea.</div>
-        <div style="border-left:2px solid oklch(0.52 0.11 240);padding-left:18px;margin-top:12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.5;color:#1d2126">"ML without operations and engineering is just research with zero business value. Engineering is a one-time investment that compounds forever."</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:12px">So I did the unglamorous work — retraining, deploying, refactoring legacy code — until engineering clicked. Then everything changed: I started thinking like an architect before starting any project.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: engineering skills are force multipliers.</div>
+        <div style="border-left:2px solid var(--accent);padding-left:18px;margin-top:12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--ink)">"ML without operations and engineering is just research with zero business value. Engineering is a one-time investment that compounds forever."</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:12px">So I did the unglamorous work — retraining, deploying, refactoring legacy code — until engineering clicked. Then everything changed: I started thinking like an architect before starting any project.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(var(--ink-rgb),.55);margin-top:8px">Lesson: engineering skills are force multipliers.</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">Now</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">→ L4 · SPECIALIST</div></div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid var(--ink)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">Now</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">→ L4 · SPECIALIST</div></div>
       <div>
         <div style="font-weight:600;font-size:16px">The LLM chapter — the frontier meets the measurement instinct.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Building generative-AI systems where the novelty feeds a curious brain and the work balances research with engineering. Going deep on agentic systems, evaluation, and orchestration of long-running, human-in-the-loop AI work.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Building generative-AI systems where the novelty feeds a curious brain and the work balances research with engineering. Going deep on agentic systems, evaluation, and orchestration of long-running, human-in-the-loop AI work.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 04 WORK -->
-<section id="s-work" data-screen-label="Work" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-work" data-screen-label="Work" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="04">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I've built professionally</h2>
-  <p style="font-size:15.5px;line-height:1.7;color:rgba(29,33,38,.7);margin:18px 0 0;max-width:44em">Over 9+ years I've gone from operations analytics to building production generative-AI platforms at enterprise scale — evaluation systems, LLM frameworks used across teams, and automated analysis tools that put AI-generated insight directly in front of decision-makers. The common thread: I build AI that has to work in production, that other people can build on, and that we can actually measure. Research that can't ship doesn't interest me.</p>
+  <p style="font-size:15.5px;line-height:1.7;color:rgba(var(--ink-rgb),.7);margin:18px 0 0;max-width:44em">Over 9+ years I've gone from operations analytics to building production generative-AI platforms at enterprise scale — evaluation systems, LLM frameworks used across teams, and automated analysis tools that put AI-generated insight directly in front of decision-makers. The common thread: I build AI that has to work in production, that other people can build on, and that we can actually measure. Research that can't ship doesn't interest me.</p>
   <div style="display:flex;flex-direction:column;margin-top:36px">
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid #1d2126">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid var(--ink)">
       <div>
         <div style="font-weight:600;font-size:16.5px">A production evaluation platform for generative-AI systems.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Replaced slow, subjective, manual testing with automated, objective, continuously-run evaluation wired into the delivery pipeline — quality measured on every change instead of guessed at, now foundational to how AI ships across the org.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Replaced slow, subjective, manual testing with automated, objective, continuously-run evaluation wired into the delivery pipeline — quality measured on every change instead of guessed at, now foundational to how AI ships across the org.</div>
       </div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">distributed systems · async jobs · LLM-as-judge · retrieval quality · CI/CD · platform engineering</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(var(--ink-rgb),.55)">distributed systems · async jobs · LLM-as-judge · retrieval quality · CI/CD · platform engineering</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
       <div>
         <div style="font-weight:600;font-size:16.5px">A root cause analysis framework that turns detection into action — at company scale.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Built the framework that lets domain teams (pricing, replenishment, space) compose end-to-end workflows: detect an anomalous business signal, quantify what caused it, recommend the corrective action, keep a human-in-the-loop on the risky ones.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Built the framework that lets domain teams (pricing, replenishment, space) compose end-to-end workflows: detect an anomalous business signal, quantify what caused it, recommend the corrective action, keep a human-in-the-loop on the risky ones.</div>
       </div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">anomaly detection · causal attribution · agent orchestration · audit &amp; traceability · human-in-the-loop</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(var(--ink-rgb),.55)">anomaly detection · causal attribution · agent orchestration · audit &amp; traceability · human-in-the-loop</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
       <div>
         <div style="font-weight:600;font-size:16.5px">A natural-language-to-data query engine that democratized data access.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Let non-technical employees query complex databases in plain language — cutting analytical bottlenecks, saving thousands of hours of manual work, and freeing data experts from repetitive support tasks for high-value strategic work.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Let non-technical employees query complex databases in plain language — cutting analytical bottlenecks, saving thousands of hours of manual work, and freeing data experts from repetitive support tasks for high-value strategic work.</div>
       </div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">text-to-SQL · self-service analytics · semantic layers</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(var(--ink-rgb),.55)">text-to-SQL · self-service analytics · semantic layers</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
       <div>
         <div style="font-weight:600;font-size:16.5px">An LLM application framework adopted across multiple engineering teams.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Extracted common patterns from production AI systems into a shared framework — provider-abstracted inference, memory management, agent orchestration, observability baked in — so teams stopped rebuilding the same infrastructure.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Extracted common patterns from production AI systems into a shared framework — provider-abstracted inference, memory management, agent orchestration, observability baked in — so teams stopped rebuilding the same infrastructure.</div>
       </div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">framework design · developer experience · agent orchestration · observability</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(var(--ink-rgb),.55)">framework design · developer experience · agent orchestration · observability</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid var(--ink)">
       <div>
         <div style="font-weight:600;font-size:16.5px">A retrieval-augmented conversational AI, optimized for reliability.</div>
-        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Refactored the architecture to reduce model hops, improve determinism, and add telemetry at every inference boundary — making a probabilistic system debuggable and maintainable.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:6px">Refactored the architecture to reduce model hops, improve determinism, and add telemetry at every inference boundary — making a probabilistic system debuggable and maintainable.</div>
       </div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">RAG architecture · prompt engineering · designing for determinism</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(var(--ink-rgb),.55)">RAG architecture · prompt engineering · designing for determinism</div>
     </div>
   </div>
-  <p style="font-size:13px;line-height:1.6;color:rgba(29,33,38,.5);margin:20px 0 0;max-width:44em">The breadth beneath the depth: enterprise RAG on vector databases, a massive pipeline migration to distributed compute on cloud, A/B-testing frameworks and recommenders in marketing, healthcare risk-stratification modeling.</p>
+  <p style="font-size:13px;line-height:1.6;color:rgba(var(--ink-rgb),.5);margin:20px 0 0;max-width:44em">The breadth beneath the depth: enterprise RAG on vector databases, a massive pipeline migration to distributed compute on cloud, A/B-testing frameworks and recommenders in marketing, healthcare risk-stratification modeling.</p>
 </section>
 
 <!-- 05 BUILDS -->
-<section id="s-builds" data-screen-label="Builds" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-builds" data-screen-label="Builds" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="05">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I build personally</h2>
-  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(29,33,38,.55);margin-top:14px">"Theory without practice is research; practice without production is a hobby."</div>
-  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:42em">Small, instrumented systems for my own life and learning — one measurement layer, one orchestrator. Built because the problems are interesting and I want to stay sharp. Nobody assigned any of this.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid #1d2126">
-    <div style="padding:28px;border-right:1px solid rgba(29,33,38,.25);border-bottom:1px solid rgba(29,33,38,.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">plumb</span><a href="https://github.com/anant-gupta-utexas/plumb" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(var(--ink-rgb),.55);margin-top:14px">"Theory without practice is research; practice without production is a hobby."</div>
+  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:42em">Small, instrumented systems for my own life and learning — one measurement layer, one orchestrator. Built because the problems are interesting and I want to stay sharp. Nobody assigned any of this.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid var(--ink)">
+    <div style="padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid rgba(var(--ink-rgb),.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">plumb</span><a href="https://github.com/anant-gupta-utexas/plumb" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
       <div style="font-weight:600;font-size:14px;margin-top:10px">A measurement spine for multi-agent systems.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Four tables, two entry points; everything else is a query. Measures what telemetry tools miss — human acceptance, routing quality, handoff quality, cost-per-resolved-task. A failing production run becomes a regression test in one call.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">The whole design is an exercise in restraint.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · SQLite · Pydantic</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Four tables, two entry points; everything else is a query. Measures what telemetry tools miss — human acceptance, routing quality, handoff quality, cost-per-resolved-task. A failing production run becomes a regression test in one call.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The whole design is an exercise in restraint.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · SQLite · Pydantic</div>
     </div>
-    <div style="padding:28px;border-bottom:1px solid rgba(29,33,38,.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">atlas</span><a href="https://github.com/anant-gupta-utexas/atlas" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+    <div style="padding:28px;border-bottom:1px solid rgba(var(--ink-rgb),.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">atlas</span><a href="https://github.com/anant-gupta-utexas/atlas" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
       <div style="font-weight:600;font-size:14px;margin-top:10px">A local-first agent orchestrator and task runtime.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">First customer: a multi-stage dev workflow (research → spec → design → review → code) where every stage emits a measurement span — the pipeline measures itself end to end. Git worktrees as the code-gen boundary.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">Built to be measured, not just to run.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · CLI · SQLite · git worktrees</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">First customer: a multi-stage dev workflow (research → spec → design → review → code) where every stage emits a measurement span — the pipeline measures itself end to end. Git worktrees as the code-gen boundary.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">Built to be measured, not just to run.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · CLI · SQLite · git worktrees</div>
     </div>
-    <div style="padding:28px;border-right:1px solid rgba(29,33,38,.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">content-pipeline</span><a href="https://github.com/anant-gupta-utexas/content-pipeline" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+    <div style="padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">content-pipeline</span><a href="https://github.com/anant-gupta-utexas/content-pipeline" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
       <div style="font-weight:600;font-size:14px;margin-top:10px">Curated ingestion for my knowledge base.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Capture → extract → classify: turns a deliberately-chosen information diet into structured, usable knowledge. Instrumented with plumb from day one.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">The engine behind curation over algorithmic reading.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · LLM classification · plumb-instrumented</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Capture → extract → classify: turns a deliberately-chosen information diet into structured, usable knowledge. Instrumented with plumb from day one.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The engine behind curation over algorithmic reading.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · LLM classification · plumb-instrumented</div>
     </div>
     <div style="padding:28px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">slo-recommendation</span><a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">slo-recommendation</span><a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
       <div>
         <div>
           <div style="font-weight:600;font-size:14px;margin-top:10px">A GNN-based SLO recommender for microservice graphs.</div>
-          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Models service dependencies as a directed graph and trains a graph neural network to suggest achievable availability/latency SLOs with confidence. Production-shaped: metrics, structured logging, tracing, CI/CD.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Models service dependencies as a directed graph and trains a graph neural network to suggest achievable availability/latency SLOs with confidence. Production-shaped: metrics, structured logging, tracing, CI/CD.</div>
         </div>
         <div>
-          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">The research↔production bridge, made concrete — an ML-research-flavored technique wrapped in production engineering.</div>
-          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · FastAPI · PostgreSQL · GNN · OpenTelemetry</div>
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The research↔production bridge, made concrete — an ML-research-flavored technique wrapped in production engineering.</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · FastAPI · PostgreSQL · GNN · OpenTelemetry</div>
         </div>
       </div>
     </div>
   </div>
   
   <div style="margin-top:28px">
-    <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,33,38,.45)">Utilities &amp; templates</div>
+    <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(var(--ink-rgb),.45)">Utilities &amp; templates</div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
-      <a href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">ai-workx — Claude Code plugin marketplace ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">python-scaffolding ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">go-scaffolding ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">react-scaffolding ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">ai-workx — Claude Code plugin marketplace ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">python-scaffolding ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">go-scaffolding ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">react-scaffolding ↗</a>
     </div>
   </div>
   
 </section>
 
 <!-- 06 STAYING AHEAD -->
-<section id="s-ahead" data-screen-label="Staying Ahead" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-ahead" data-screen-label="Staying Ahead" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="06">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">How I stay ahead</h2>
-  <p style="font-size:15.5px;line-height:1.7;color:rgba(29,33,38,.7);margin:18px 0 0;max-width:44em">The field moves fast. My answer is a system, not a feed: a ~200-page personal knowledge base — inspired by Andrej Karpathy's practice of keeping a personal wiki — synthesized from the articles, papers, talks, and authors I <em>choose</em> to learn from. I ingest a source, distill it, cross-link it, and periodically re-weave the whole thing so the ideas stay connected.</p>
+  <p style="font-size:15.5px;line-height:1.7;color:rgba(var(--ink-rgb),.7);margin:18px 0 0;max-width:44em">The field moves fast. My answer is a system, not a feed: a ~200-page personal knowledge base — inspired by Andrej Karpathy's practice of keeping a personal wiki — synthesized from the articles, papers, talks, and authors I <em>choose</em> to learn from. I ingest a source, distill it, cross-link it, and periodically re-weave the whole thing so the ideas stay connected.</p>
   <div style="display:flex;align-items:center;gap:0;margin-top:36px;flex-wrap:wrap">
-    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">SOURCES I TRUST</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
-    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CURATE</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
-    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">DISTILL</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
-    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CONNECT</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
-    <div style="padding:16px 22px;border:1px solid #1d2126;background:#1d2126;color:#f1f2f3;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">BUILD</div>
+    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">SOURCES I TRUST</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
+    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CURATE</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
+    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">DISTILL</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
+    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CONNECT</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
+    <div style="padding:16px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">BUILD</div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;max-width:52em">
     <div>
-      <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,33,38,.45)">Current topic clusters</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(var(--ink-rgb),.45)">Current topic clusters</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent evaluation</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent harnesses &amp; runtimes</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent security</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">dev-productivity measurement</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">AI economics</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent evaluation</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent harnesses &amp; runtimes</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent security</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">dev-productivity measurement</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">AI economics</span>
       </div>
     </div>
-    <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(29,33,38,.7);align-self:center">My information diet is curated by taste, not by an engagement algorithm. The pipeline that feeds it is a project card above.</div>
+    <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(var(--ink-rgb),.7);align-self:center">My information diet is curated by taste, not by an engagement algorithm. The pipeline that feeds it is a project card above.</div>
   </div>
 </section>
 
 <!-- 07 THE STACK -->
-<section id="s-stack" data-screen-label="The Stack" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+<section id="s-stack" data-screen-label="The Stack" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="07">
   <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The agent stack, and where I work in it</h2>
-  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:42em">"Agent" hides more than it explains. The useful unit isn't the agent — it's the stack of layers that turns model output into bounded action. Here's that stack, and an honest map of where I've built, where I've shipped for myself, and where I've gone deep by study.</p>
-  <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:18px;font-size:12.5px;color:rgba(29,33,38,.65)">
-    <span><span style="color:oklch(0.52 0.11 240)">●</span>&nbsp; built in production</span>
-    <span><span style="color:oklch(0.52 0.11 240 / 0.55)">◐</span>&nbsp; built for myself</span>
-    <span><span style="color:rgba(29,33,38,.4)">○</span>&nbsp; studied</span>
+  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:42em">"Agent" hides more than it explains. The useful unit isn't the agent — it's the stack of layers that turns model output into bounded action. Here's that stack, and an honest map of where I've built, where I've shipped for myself, and where I've gone deep by study.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:18px;font-size:12.5px;color:rgba(var(--ink-rgb),.65)">
+    <span><span style="color:var(--accent)">●</span>&nbsp; built in production</span>
+    <span><span style="color:var(--accent-55)">◐</span>&nbsp; built for myself</span>
+    <span><span style="color:rgba(var(--ink-rgb),.4)">○</span>&nbsp; studied</span>
   </div>
-  <div class="layer-explorer" style="display:grid;grid-template-columns:minmax(260px,400px) minmax(320px,1fr);gap:0;margin-top:28px;border:1px solid #1d2126">
-    <div style="display:flex;flex-direction:column;border-right:1px solid #1d2126">
+  <div class="layer-explorer" style="display:grid;grid-template-columns:minmax(260px,400px) minmax(320px,1fr);gap:0;margin-top:28px;border:1px solid var(--ink)">
+    <div style="display:flex;flex-direction:column;border-right:1px solid var(--ink)">
       <div class="layer-list">
         <button type="button" class="layer-row" data-layer="0" data-tier="study" data-active="true">
           <span class="layer-num">01</span>
@@ -353,25 +372,39 @@
         <div class="layer-detail-tags" data-field="tags">request path · capture front-ends</div>
       </div>
     </div>
-  <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(29,33,38,.7);margin:28px 0 0;max-width:38em">Three layers I've shipped to production, three I've built for myself, four I've studied hard enough to know where they fail. I'd rather show you the real map than a wall of logos.</p>
+  <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(var(--ink-rgb),.7);margin:28px 0 0;max-width:38em">Three layers I've shipped to production, three I've built for myself, four I've studied hard enough to know where they fail. I'd rather show you the real map than a wall of logos.</p>
 </section>
 
 <!-- CONTACT -->
-<section id="s-contact" data-screen-label="Contact" style="padding:72px;background:#1d2126;color:#f1f2f3">
+<section id="s-contact" data-screen-label="Contact" style="padding:72px;background:var(--ink-fixed);color:var(--paper-fixed)" data-num="08">
   <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.4;max-width:24em">"I want to be remembered as someone who bridged gaps, created leaders, and built systems that empowered others to do their best work."</div>
   <div style="display:flex;flex-wrap:wrap;gap:36px;margin-top:48px;font-size:14px">
-    <a href="mailto:anant.gupta@utexas.edu" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">anant.gupta@utexas.edu</a>
-    <a href="https://linkedin.com/in/anant-utexas" target="_blank" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">LinkedIn ↗</a>
-    <a href="https://github.com/anant-gupta-utexas" target="_blank" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">GitHub ↗</a>
+    <a href="mailto:anant.gupta@utexas.edu" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">anant.gupta@utexas.edu</a>
+    <a href="https://linkedin.com/in/anant-utexas" target="_blank" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">LinkedIn ↗</a>
+    <a href="https://github.com/anant-gupta-utexas" target="_blank" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">GitHub ↗</a>
   </div>
-  <div style="font-size:13px;color:rgba(241,242,243,.5);margin-top:48px;line-height:1.6">Off hours: 12 books a year, board games, travel, and cooking that ranges from "surprisingly good" to "let's order pizza."<br>Sunnyvale, CA · © 2026 Anant Gupta</div>
+  <div style="font-size:13px;color:rgba(var(--paper-fixed-rgb),.5);margin-top:48px;line-height:1.6">Off hours: 12 books a year, board games, travel, and cooking that ranges from "surprisingly good" to "let's order pizza."<br>Sunnyvale, CA · © 2026 Anant Gupta</div>
 </section>
 
 </div>
 </div>
 
+  <!-- Command palette (⌘K / Ctrl+K) — progressive enhancement -->
+  <div id="cmdk" class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+    <div class="cmdk-box" role="combobox" aria-expanded="true" aria-haspopup="listbox">
+      <input class="cmdk-input" type="text" placeholder="Jump to a section, open a repo…" autocomplete="off" spellcheck="false" aria-label="Command palette search">
+      <ul class="cmdk-list" role="listbox" aria-label="Commands"></ul>
+      <div class="cmdk-foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+  <div id="cmdk-toast" class="cmdk-toast" role="status" aria-live="polite"></div>
+
   <!-- Layer dataset for the interactive stack explorer (progressive enhancement) -->
   <script id="layers-data" type="application/json">[{"name": "Interfaces & channels", "tier": "study", "body": "Where work enters the system \u2014 Slack, email, webhook, IDE, browser. Studied as the front of the request path; a capture front-end sits adjacent, turning a browser session into structured input.", "tags": "request path \u00b7 capture front-ends", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Control plane & session ownership", "tier": "study", "body": "Which user, which session, which run owns this turn. The boundary I'm most careful to keep separate from authorization \u2014 session is not permission.", "tags": "session ownership \u00b7 run identity", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Runtime, workflows & durable execution", "tier": "self", "body": "atlas \u2014 a local-first agent orchestrator and task runtime. A multi-stage dev workflow (research \u2192 spec \u2192 design \u2192 review \u2192 code) where every stage emits a measurement span and git worktrees are the code-gen boundary. Built to be measured, not just to run.", "tags": "durable execution \u00b7 retry/resume \u00b7 worktree isolation \u00b7 atlas", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Model engine & inference", "tier": "study", "body": "The one job the model owns: prepared request \u2192 output. Studied for provider abstraction and cost/latency trade-offs; the reason my professional framework was provider-abstracted from day one.", "tags": "provider abstraction \u00b7 cost/latency trade-offs", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Context, retrieval & memory", "tier": "prod", "body": "Shipped enterprise RAG on vector databases; refactored a retrieval-augmented conversational system to cut model hops, sharpen determinism, and add telemetry at every inference boundary. Transcript, context, and memory kept as three separate things \u2014 in code and in language.", "tags": "enterprise RAG \u00b7 retrieval optimization \u00b7 memory management \u00b7 designing for determinism", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Tools, MCP & capability surfaces", "tier": "prod", "body": "Authored an LLM framework adopted across engineering teams \u2014 provider-abstracted inference, agent orchestration, and capability surfaces with observability baked in. Also shipped a natural-language data query engine that exposes a semantic layer over governed datasets through an MCP tool layer \u2014 the capability surface is the semantic model, not raw SQL. I keep capability exposure and execution authority as separate concerns: a tool says what may be asked for, not what actually runs.", "tags": "framework design \u00b7 agent orchestration \u00b7 MCP \u00b7 semantic layers \u00b7 governed data access \u00b7 capability vs. execution", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Execution surfaces", "tier": "self", "body": "Where the system actually acts \u2014 browser, shell, filesystem, external API. I favor deliberately read-only execution surfaces: a human navigates, the tool only reads, local-only, no phone-home. Good taste about blast radius.", "tags": "read-only by design \u00b7 sandboxed capture", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Identity, trust, policy & approvals", "tier": "study", "body": "Where side effects become real and a human decides whether an action proceeds. Mapped the threat landscape \u2014 prompt injection, system- vs model-level defenses, policy-as-code, sandboxing. Approval is not isolation; sensitive systems need both. A growing focus.", "tags": "prompt-injection defense \u00b7 policy-as-code \u00b7 approval gates", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Observability, evaluation & feedback loops", "tier": "prod", "body": "Built a production evaluation platform for generative-AI systems \u2014 automated, objective, continuously-run eval wired into the delivery pipeline, before the org required it. Extended the instinct into the open with plumb, a measurement spine for multi-agent systems: four tables, two entry points, everything else a query. Observability gives evidence; evaluation turns evidence into judgment \u2014 I keep them distinct.", "tags": "eval-driven development \u00b7 LLM-as-judge \u00b7 trajectory vs. outcome \u00b7 pass^k \u00b7 plumb", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Infrastructure substrate", "tier": "self", "body": "Every agent app inherits its substrate. Migrated a massive pipeline to distributed compute on cloud; every personal build runs on a shared SQLite measurement layer so the whole system is instrumented from the ground.", "tags": "distributed compute \u00b7 shared measurement layer", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}]</script>
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=20260716b" defer></script>
 </body>
 </html>
