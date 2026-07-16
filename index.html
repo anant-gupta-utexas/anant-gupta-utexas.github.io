@@ -1,1394 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anant Gupta - AI Engineer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anant Gupta — Staff Data Scientist / AI Engineer</title>
+  <meta name="description" content="Anant Gupta — Staff Data Scientist / AIML Engineer at Walmart Global Tech. I build AI systems that work in production, and measure whether they actually do. Evaluation systems, LLM frameworks, agent orchestration.">
+  <meta name="author" content="Anant Gupta">
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/new_logo.png" type="image/x-icon">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anant Gupta — Staff Data Scientist / AI Engineer">
+  <meta property="og:description" content="I build AI systems that have to work in production — and I measure whether they actually do.">
+  <meta property="og:url" content="https://anant-gupta-utexas.github.io/">
+  <meta name="twitter:card" content="summary">
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="canonical" href="https://anant-gupta-utexas.github.io/">
+  <link rel="icon" href="assets/images/new_logo.png" type="image/png">
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/instrument-serif-normal-2.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/libre-franklin-normal-2.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-
-  <!--
-    Ref for particles:- https://vincentgarreau.com/particles.js/
-  -->
-
-  <div id="particles-js"></div>
-    <!-- count particles -->
-  <div class="count-particles">
-  <!--
-    - #MAIN
-  -->
-
-    <main>
-
-      <!--
-        - #SIDEBAR
-      -->
-      <aside class="sidebar" data-sidebar>
-
-        <div class="sidebar-info">
-
-          <figure class="avatar-box">
-            <img src="./assets/images/my-image.png?v=3" alt="Anant Gupta" width="80">
-          </figure>
-
-          <div class="info-content">
-            <h1 class="name" title="Anant Gupta">Anant Gupta</h1>
-
-            <p class="title">Senior Data Scientist / AI Engineer</p>
-          </div>
-
-          <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
-
-            <ion-icon name="chevron-down"></ion-icon>
-          </button>
-
-        </div>
-
-        <div class="sidebar-info_more">
-
-          <div class="separator"></div>
-
-          <ul class="contacts-list">
-
-            <li class="contact-item">
-
-              <div class="icon-box">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Email</p>
-
-                <a href="mailto:anant.gupta@utexas.edu" class="contact-link">anant.gupta@utexas.edu</a>
-              </div>
-
-            </li>
-
-            <li class="contact-item">
-
-              <div class="icon-box">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">LinkedIn</p>
-
-                <a href="https://www.linkedin.com/in/anant-utexas" class="contact-link" target="_blank">anant-utexas</a>
-              </div>
-
-            </li>
-
-            <li class="contact-item">
-
-              <div class="icon-box">
-                <ion-icon name="logo-github"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">GitHub</p>
-
-                <a href="https://github.com/anant-gupta-utexas" class="contact-link" target="_blank">anant-gupta-utexas</a>
-              </div>
-
-            </li>
-
-            <li class="contact-item">
-
-              <div class="icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Location</p>
-
-                <address>Sunnyvale, CA, USA</address>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </div>
-
-      </aside>
-
-
-      <!--
-        - #main-content
-      -->
-
-      <div class="main-content">
-
-        <!--
-          - #NAVBAR
-        -->
-
-        <nav class="navbar">
-
-          <ul class="navbar-list">
-
-            <li class="navbar-item">
-              <button class="navbar-link  active" data-nav-link>About</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Beliefs</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Projects</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Resume</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Contact</button>
-            </li>
-
-          </ul>
-
-        </nav>
-
-
-        <!--
-          - #ABOUT
-        -->
-
-        <article class="about  active" data-page="about">
-
-          <header>
-            <h2 class="h2 article-title">About me</h2>
-          </header>
-
-          <section class="about-text">
-            <p>
-              Namaste! I'm Anant, and I spend my time building
-              <a class="about-p-highlight">AI systems that don't break in production</a>
-              (usually), reading books that make me question everything, cooking meals that range from
-              'surprisingly good' to 'let's order pizza,' and gaming when I should probably be sleeping.
-              Over the past 8+ years, I've gone from operations management to leading
-              <a class="about-p-highlight">GenAI platform development</a>
-              at Walmart, proving that career pivots are real and also that I enjoy a good challenge—whether
-              it's improving user satisfaction, building
-              <a class="about-p-highlight">evaluation platforms and RAG systems</a>,
-              or finally beating that boss fight.
-            </p>
-            <p>
-              I'm an <a class="about-p-highlight">end-to-end solution architect</a> who prioritizes
-              sound judgment over transient tools—shipping 0-to-1 GenAI applications and enabling
-              engineering teams to move faster. Check out my
-              <a class="about-p-highlight beliefs-link" style="cursor: pointer;">beliefs</a>.
-            </p>
-          </section>
-
-
-          <!--
-            - How I Think
-          -->
-
-          <section class="service">
-
-            <h3 class="h3 service-title">How I Think</h3>
-
-            <div class="how-i-think-layout">
-
-              <div class="venn-container">
-                <svg viewBox="0 0 360 360" class="venn-diagram">
-
-                  <circle cx="140" cy="155" r="105" class="venn-circle venn-circle-red" />
-                  <circle cx="230" cy="125" r="105" class="venn-circle venn-circle-blue" />
-                  <circle cx="185" cy="230" r="105" class="venn-circle venn-circle-green" />
-
-                <text x="60" y="145" class="venn-label">Detective</text>
-                <text x="60" y="162" class="venn-label">Mindset</text>
-
-                <text x="310" y="80" class="venn-label" text-anchor="end">Cross-Platform</text>
-                <text x="310" y="97" class="venn-label" text-anchor="end">Engineering</text>
-
-                <text x="185" y="310" class="venn-label" text-anchor="middle">Business</text>
-                <text x="185" y="327" class="venn-label" text-anchor="middle">Impact</text>
-
-                  <text x="185" y="175" class="venn-center-label" text-anchor="middle">JUDGMENT</text>
-
-                </svg>
-              </div>
-
-              <div class="thinking-principles">
-                <div class="thinking-card">
-                  <ion-icon name="search-outline" class="thinking-icon"></ion-icon>
-                  <p>Ask &ldquo;why are we solving this?&rdquo; before diving into solutions</p>
-                </div>
-                <div class="thinking-card">
-                  <ion-icon name="bulb-outline" class="thinking-icon"></ion-icon>
-                  <p>Just because you can build it doesn't mean you should&mdash;judgment is the bottleneck</p>
-                </div>
-                <div class="thinking-card">
-                  <ion-icon name="rocket-outline" class="thinking-icon"></ion-icon>
-                  <p>Theory without practice is research; practice without production is hobby</p>
-                </div>
-              </div>
-
-            </div>
-
-          </section>
-
-        </article>
-
-
-        <!--
-          - #BELIEFS
-        -->
-
-        <article class="beliefs" data-page="beliefs">
-
-          <header>
-            <h2 class="h2 article-title">What I Believe</h2>
-          </header>
-
-          <section class="about-text">
-            <p class="beliefs-mission">
-              I aim to transform cutting-edge research into real-world impact through curiosity-driven
-              problem-solving.
-            </p>
-          </section>
-
-          <!--
-            - Core Values
-          -->
-
-          <section class="service">
-
-            <h3 class="h3 service-title">Core Values</h3>
-
-            <ul class="service-list beliefs-values-grid">
-
-              <li class="service-item">
-
-                <div class="service-icon-box">
-                  <ion-icon name="trending-up-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Growth Mindset</h4>
-
-                  <p class="service-item-text">
-                    Push boundaries, embrace challenges, and view boredom as a signal to level up
-                  </p>
-                </div>
-
-              </li>
-
-              <li class="service-item">
-
-                <div class="service-icon-box">
-                  <ion-icon name="people-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Knowledge Sharing</h4>
-
-                  <p class="service-item-text">
-                    Document learnings and build bridges between teams—what helped you will help others
-                  </p>
-                </div>
-
-              </li>
-
-              <li class="service-item">
-
-                <div class="service-icon-box">
-                  <ion-icon name="rocket-outline" style="font-size: 40px; color: var(--orange-yellow-crayola);"></ion-icon>
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Operational Excellence</h4>
-
-                  <p class="service-item-text">
-                    Ship to production. ML without operations has zero business value
-                  </p>
-                </div>
-
-              </li>
-
-            </ul>
-
-          </section>
-
-          <!--
-            - Key Principles
-          -->
-
-          <section class="timeline">
-
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="compass-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Principles I Live By</h3>
-            </div>
-
-            <ol class="timeline-list">
-
-              <li class="timeline-item">
-                <p class="timeline-text">
-                  Always ask "Why are we solving this problem?" before diving into solutions
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <p class="timeline-text">
-                  Engineering skills are a one-time investment that compounds forever
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <p class="timeline-text">
-                  True leadership is measured by the leaders you create, not just the solutions you ship
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <p class="timeline-text">
-                  Theory without practice is research; practice without production is hobby
-                </p>
-              </li>
-
-            </ol>
-
-          </section>
-
-          <!--
-            - Legacy
-          -->
-
-          <section class="about-text" style="margin-top: 60px;">
-            <p style="font-style: italic; text-align: center; color: var(--light-gray); font-size: var(--fs-5);">
-              "I want to be remembered as someone who bridged gaps, created leaders, and built systems
-              that empowered others to do their best work."
-            </p>
-          </section>
-
-        </article>
-
-
-        <!--
-          - #PORTFOLIO
-        -->
-
-        <article class="projects" data-page="projects">
-
-          <header>
-            <h2 class="h2 article-title">Projects</h2>
-          </header>
-
-          <!--
-            - Projects
-          -->
-
-          <section class="project-posts">
-
-            <div class="project-section-header">
-              <div class="icon-box">
-                <ion-icon name="rocket-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Featured</h3>
-            </div>
-
-            <ul class="project-posts-list">
-
-              <li class="project-post-item">
-                <a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">AI/ML</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">SRE</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">SLO Recommendation Engine</h3>
-
-                      <p class="project-text">
-                        An AI-assisted backend system that analyzes telemetry data and structural dependencies
-                        across microservices to recommend achievable availability and latency SLOs.
-                      </p>
-
-                      <p class="project-text">
-                        Models service dependencies as a directed graph using Tarjan's SCC algorithm for
-                        circular dependency detection and PostgreSQL recursive CTEs for efficient subgraph queries.
-                      </p>
-
-                      <p class="project-text">
-                        Production-ready with 13 Prometheus metrics, structured JSON logging, distributed tracing,
-                        Helm charts, GitHub Actions CI/CD, and horizontal autoscaling.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Python</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">FastAPI</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">PostgreSQL</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">OpenTelemetry</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-            </ul>
-
-          </section>
-
-          <!--
-            - Development Utilities
-          -->
-
-          <section class="project-posts">
-
-            <div class="project-section-header">
-              <div class="icon-box">
-                <ion-icon name="construct-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Development Utilities</h3>
-            </div>
-
-            <ul class="project-posts-list">
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Plugins</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">AI Tooling</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">AI Workx</h3>
-
-                      <p class="project-text">
-                        Production-tested Claude Code plugins for modern development workflows with
-                        specialized tools for backend, frontend, and essential utilities including
-                        documentation, planning, learning coach, and research agents.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Claude Code</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Plugins</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">AI Tooling</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Template</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Backend</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">Python Scaffolding</h3>
-
-                      <p class="project-text">
-                        A modern Python project template following Clean Architecture principles with
-                        three-layer architecture (Domain, Application, Infrastructure), full type hints,
-                        and comprehensive documentation structure.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Python</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">FastAPI</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Clean Architecture</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Template</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Backend</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">Go Scaffolding</h3>
-
-                      <p class="project-text">
-                        A modern Go project template following Clean Architecture, DDD Lite, and CQRS-ready
-                        principles with Chi router, sqlc + pgx for type-safe SQL, structured logging,
-                        and multi-stage distroless Docker images.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Go</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Chi</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">DDD</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Clean Architecture</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Template</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Frontend</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">React Scaffolding</h3>
-
-                      <p class="project-text">
-                        A scalable React application scaffolding with TanStack Router, TanStack Query,
-                        shadcn/ui, and multi-tenancy support. Feature-based architecture with
-                        file-based routing and type-safe environment variables.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">React</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">TypeScript</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">TanStack</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Tailwind CSS</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-            </ul>
-
-          </section>
-
-          <!--
-            - Graduate Coursework
-          -->
-
-          <section class="project-posts">
-
-            <div class="project-section-header">
-              <div class="icon-box">
-                <ion-icon name="school-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Graduate Coursework</h3>
-            </div>
-
-            <ul class="project-posts-list">
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/Sentiment-Analysis-Amazon-Reviews" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">NLP</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Sentiment Analysis</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Recommender System</p>
-
-                    </div>
-
-                    <h3 class="h4 project-item-title">Customer Reviews-Based Recommender Engine</h3>
-                      <p class="project-text">
-                        Built a recommendation system that analyzes customer feedback on mens jackets to recommend
-                        specific brands based on user preferences and sentiment patterns.
-                      </p>
-
-                      <p class="project-text">
-                        Implemented sentiment analysis using VADER and cosine similarity scoring with TF-IDF
-                        vectorizers and spaCy embeddings to match products with user needs.
-                      </p>
-
-                      <p class="project-text">
-                        Demonstrated how NLP techniques can transform unstructured customer reviews into
-                        actionable product recommendations for e-commerce applications.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Python</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">VADER</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">TF-IDF</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">spaCy</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/ShopeeProductMatching" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Deep Learning</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">NLP</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Computer Vision</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">E-Commerce Product Matching</h3>
-                      <p class="project-text">
-                        Developed a multi-modal deep learning system to identify duplicate products across
-                        vendors using both text and image features for e-commerce applications.
-                      </p>
-
-                      <p class="project-text">
-                        Addressed multi-class classification with limited data using advanced architectures
-                        including BERT for text embeddings and EfficientNet for image processing.
-                      </p>
-
-                      <p class="project-text">
-                        Combined Word2Vec semantic understanding with deep learning to achieve robust
-                        product matching across different vendor listings and formats.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Python</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">BERT</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">EfficientNet</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Word2Vec</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="project-no-banner">
-                <a href="https://github.com/anant-gupta-utexas/Causal-Inference-for-Brand-Assessment" target="_blank">
-
-                  <div class="project-content">
-
-                    <div class="project-meta">
-                      <p class="project-category">Causal Inference</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Statistics</p>
-
-                      <span class="dot"></span>
-
-                      <p class="project-category">Marketing</p>
-                    </div>
-
-                    <h3 class="h4 project-item-title">Causal Inference & Halo Effects in Brand Perception</h3>
-                      <p class="project-text">
-                        Analyzed 2012 U.S. presidential election survey data using Structural Equation Models
-                        to quantify latent variables and measure spillover effects on candidate preferences.
-                      </p>
-
-                      <p class="project-text">
-                        Applied causal inference techniques to understand how brand attributes influence
-                        overall perception through halo effects and indirect pathways.
-                      </p>
-
-                      <p class="project-text">
-                        Demonstrated sophisticated statistical modeling to extract actionable insights from
-                        complex survey data for brand strategy and positioning decisions.
-                      </p>
-
-                      <div class="project-tech">
-                        <span class="tech">Python</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">SEM</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Statistical Analysis</span>
-                      </div>
-                      <div class="project-tech">
-                        <span class="tech">Marketing Analytics</span>
-                      </div>
-
-                  </div>
-
-                </a>
-              </li>
-
-            </ul>
-
-          </section>
-
-        </article>
-
-
-        <!--
-          - #RESUME
-        -->
-
-        <article class="resume" data-page="resume">
-
-          <header>
-            <h2 class="h2 article-title">Resume</h2>
-          </header>
-
-          <section class="timeline">
-
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Education</h3>
-            </div>
-
-            <ol class="timeline-list">
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">University of Texas at Austin
-                  <span class="right-align">Austin, TX, US</span>
-                </h4>
-
-                <span class="program">MS in Business Analytics
-                  <span class="right-align-gold">Graduated May 2022</span>
-                </span>
-
-                <p class="timeline-text">
-                  Advanced Machine Learning, Statistical Modeling, Causal Inference,
-                  Marketing Analytics, Optimization, Data Mining, Predictive Analytics
-                </p>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">NIT Kurukshetra
-                  <span class="right-align">Kurukshetra, India</span>
-                </h4>
-
-                <span class="program">B.Tech in Civil Engineering
-                  <span class="right-align-gold">Graduated May 2016</span>
-                </span>
-
-                <p class="timeline-text">
-                  Mathematics, Statistics, Operations Research, Data Analysis,
-                  Engineering Fundamentals, Project Management
-                </p>
-
-              </li>
-
-            </ol>
-
-          </section>
-
-          <section class="timeline">
-
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Experience</h3>
-            </div>
-
-            <ol class="timeline-list">
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Walmart Global Tech
-                  <span class="right-align">Sunnyvale, CA, US</span>
-                </h4>
-
-                <span class="program">Senior Data Scientist / AIML Engineer (GenAI, Merchandising)
-                  <span class="right-align-gold">May 2024 - Present</span>
-                </span>
-
-                <ul>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Developed automated root cause analysis system for merchant sales performance, detecting outliers
-                      across 8+ analytical grains and generating LLM-synthesized executive reports, saving 47K hours/year
-                      and $80M profit impact.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Architected multi-tenant evaluation platform for Wally (GenAI assistant), processing 10K+ production
-                      queries/month with Kafka-based priority queuing and support for offline/online evaluation workflows.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Built production-grade evaluation framework for natural language data queries, reducing feature
-                      deployment cycles from 2 weeks to 3 days and enabling 60% faster data source on-boarding
-                      across 15+ merchant-facing features.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Designed and implemented LLM framework with agent orchestration capabilities, enabling 6+
-                      engineering teams to rapidly develop and deploy AI applications through standardized interfaces,
-                      autonomous agent workflows, automated CI/CD integration and comprehensive OpenTelemetry tracing.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Increased user satisfaction for Wally from 47% to 79% through systematic optimization of
-                      prompt engineering techniques, intelligent LLM routing algorithms, and advanced retrieval strategies.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Engineered LLM-based classification system to automatically categorize supplier platform tickets,
-                      reducing mean time to resolution from 7 days to 1.5 days and increasing ticket routing accuracy to 98%.
-                    </p>
-                  </li>
-
-                </ul>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Walmart Global Tech
-                  <span class="right-align">Sunnyvale, CA, US</span>
-                </h4>
-
-                <span class="program">Data Scientist / AIML Engineer (Merchandising and Pricing)
-                  <span class="right-align-gold">Jul 2022 - Apr 2024</span>
-                </span>
-
-                <ul>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Designed and implemented enterprise-scale RAG conversational AI system using Langchain, Milvus
-                      vector database, and OpenAI API; built automated real-time embedding pipelines achieving 83%
-                      retrieval accuracy and eliminating 20+ hours of monthly maintenance overhead.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Led migration of critical Clearance Markdown data pipeline (150M combinations) to a scalable
-                      PySpark solution on GCP (Dataproc, Vertex AI), driving 80% adoption and enabling multi-million
-                      dollar savings through enhanced data processing for markdown decisions.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Developed optimized PySpark data pipelines by translating Python scripts and parallelizing
-                      execution, cutting batch time from 3 hours to 30 minutes; ensured reliability with unit tests
-                      in Dockerized environments.
-                    </p>
-                  </li>
-
-                </ul>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Spectramedix
-                  <span class="right-align">Gurugram, India</span>
-                </h4>
-
-                <span class="program">Data Analyst
-                  <span class="right-align-gold">Mar 2020 - Jul 2021</span>
-                </span>
-
-                <ul>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Architected end-to-end data pipelines and interactive analytics dashboards using SQL and Tableau,
-                      facilitating streamlined referral optimization and real-time risk management monitoring.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Performed exploratory data analysis on healthcare claims datasets using SQL and Python,
-                      identifying risk patterns and developing predictive models that improved patient
-                      stratification accuracy by 25%.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Led cross-functional collaboration between technical and business stakeholders, driving
-                      successful implementation of ML-powered healthcare solutions while ensuring alignment
-                      with business objectives and regulatory requirements.
-                    </p>
-                  </li>
-
-                </ul>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Collegedunia Web Private Limited
-                  <span class="right-align">New Delhi, India</span>
-                </h4>
-
-                <span class="program">Operations Manager / Analyst
-                  <span class="right-align-gold">Jun 2016 - Dec 2019</span>
-                </span>
-
-                <ul>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Implemented A/B testing frameworks for ad placement optimization, leveraging statistical
-                      methods and intelligent monitoring systems, driving a 17% boost in lead generation
-                      and 12% revenue growth.
-                    </p>
-                  </li>
-
-                  <li class="timeline-text-ul">
-                    <p class="timeline-text-ul-item">
-                      Developed a K-Means clustering recommendation system for targeted marketing campaigns,
-                      incorporating real-time user behavior data and adaptive feedback loops, reducing customer
-                      acquisition costs by 22%.
-                    </p>
-                  </li>
-
-                </ul>
-
-              </li>
-
-            </ol>
-
-          </section>
-
-          <section class="skill">
-
-            <h3 class="h3 skill-title">My skills</h3>
-
-            <!--
-              AI/ML Stack
-            -->
-
-            <h5 class="h4 skill-category">AI/ML Stack</h5>
-
-            <ul class="skill-list">
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/python.png" alt="Python icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Python
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/pytorch.png" alt="PyTorch icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  PyTorch
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/tensorflow.png" alt="TensorFlow icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  TensorFlow
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/LangChain.jpeg" alt="LangChain icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Langchain
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/OpenAI.svg" alt="OpenAI icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  OpenAI
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/Scikit-learn.png" alt="scikit-learn icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  scikit-learn
-                </div>
-
-              </li>
-
-            </ul>
-
-            <!--
-              Data & Cloud Platforms
-            -->
-
-            <h5 class="h4 skill-category">Data & Cloud Platforms</h5>
-
-            <ul class="skill-list">
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/apache_spark.png" alt="PySpark icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  PySpark
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/Kafka.svg" alt="Kafka icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Kafka
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/GCP.svg" alt="GCP icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  GCP
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/Azure.svg" alt="Azure icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Azure ML
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/pandas.png" alt="Pandas icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Pandas & NumPy
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/tableau.svg" alt="Tableau icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Tableau
-                </div>
-
-              </li>
-
-            </ul>
-
-            <!--
-              Engineering & Tools
-            -->
-
-            <h5 class="h4 skill-category">Engineering & Tools</h5>
-
-            <ul class="skill-list">
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/sql.png" alt="SQL icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  SQL
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/docker.png" alt="Docker icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Docker
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/FastAPI.svg" alt="FastAPI icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  FastAPI
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/mlflow.jpg" alt="MLflow icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  MLflow
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/Git.png" alt="Git icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  Git & CI/CD
-                </div>
-
-              </li>
-
-              <li class="skill-item">
-
-                <div class="skill-icon-box">
-                  <img src="./assets/images/OpenTelemetry.svg" alt="OpenTelemetry icon" width="40">
-                </div>
-
-                <div class="skill-content-box">
-                  OpenTelemetry
-                </div>
-
-              </li>
-
-            </ul>
-
-          </section>
-
-
-        </article>
-
-        <!--
-          - #CONTACT
-        -->
-
-        <article class="contact" data-page="contact">
-
-          <header>
-            <h2 class="h2 article-title">Contact</h2>
-          </header>
-
-          <section class="mapbox" data-mapbox>
-            <figure>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50833.15911854438!2d-122.06408283715825!3d37.368830294892784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7815c08c193%3A0xe475a47ca3c0bfc0!2sSunnyvale%2C%20CA!5e0!3m2!1sen!2sus!4v1709831216914!5m2!1sen!2sus"
-                width="400" height="300"
-                style="border:0;" allowfullscreen=""
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </figure>
-          </section>
-
-          <section class="contact-form">
-
-            <h3 class="h3 form-title">Contact Form</h3>
-
-            <form
-              action="https://docs.google.com/forms/d/e/1FAIpQLSeFbZCghXLqqVEtawpsh4CaiyhFer93LoKePsMSuY09WXQTLw/formResponse"
-              class="form" target="_blank"
-              data-form>
-
-              <div class="input-wrapper">
-                <input type="text" name="entry.1325375650" class="form-input" placeholder="Full name" required data-form-input>
-
-                <input type="email" name="entry.45159176" class="form-input" placeholder="Email address" required data-form-input>
-              </div>
-
-              <textarea name="entry.2104378170" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-              <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-
-            </form>
-
-          </section>
-
-        </article>
-
-      </div>
-
-    </main>
-
+<div class="app-shell" style="display:grid;grid-template-columns:200px 1fr;min-height:100vh">
+
+<!-- ======= SIDEBAR ======= -->
+<div class="sidebar" style="border-right:1px solid #1d2126">
+<div class="sidebar-inner" style="position:sticky;top:0;height:100vh;box-sizing:border-box;padding:36px 24px;display:flex;flex-direction:column">
+  <a href="#s-about" style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;letter-spacing:-.01em">AG<span style="color:oklch(0.52 0.11 240)">.</span></a>
+  <nav style="display:flex;flex-direction:column;gap:14px;margin-top:56px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">
+    <a href="#s-about" class="nav-link" data-nav="s-about" style="transition:color .2s">About</a>
+    <a href="#s-think" class="nav-link" data-nav="s-think" style="transition:color .2s">How I Think</a>
+    <a href="#s-climb" class="nav-link" data-nav="s-climb" style="transition:color .2s">The Climb</a>
+    <a href="#s-work" class="nav-link" data-nav="s-work" style="transition:color .2s">Work</a>
+    <a href="#s-builds" class="nav-link" data-nav="s-builds" style="transition:color .2s">Builds</a>
+    <a href="#s-ahead" class="nav-link" data-nav="s-ahead" style="transition:color .2s">Staying Ahead</a>
+    <a href="#s-stack" class="nav-link" data-nav="s-stack" style="transition:color .2s">The Stack</a>
+    <a href="#s-contact" class="nav-link" data-nav="s-contact" style="transition:color .2s">Contact</a>
+  </nav>
+  <div class="sidebar-tagline" style="margin-top:auto;font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:rgba(29,33,38,.5)">est. 2016,<br>still climbing</div>
+</div>
+</div>
+
+<!-- ======= MAIN ======= -->
+<div style="min-width:0">
+
+<!-- 01 ABOUT / HERO -->
+<section id="s-about" data-screen-label="About" style="padding:96px 72px 72px;border-bottom:1px solid #1d2126;animation:fadeUp .7s ease both">
+  <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.52 0.11 240)">Anant Gupta — Staff Data Scientist / AIML Engineer · Walmart Global Tech</div>
+  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,4.6vw,62px);line-height:1.08;letter-spacing:-.015em;margin:22px 0 0;max-width:14em">I build AI systems that have to work in production — and I <em style="color:oklch(0.52 0.11 240)">measure</em> whether they actually do.</h1>
+  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:30px;font-size:13.5px;color:rgba(29,33,38,.65)">
+    <span><strong style="color:#1d2126">9+ years</strong> — analyst to specialist</span>
+    <span><strong style="color:#1d2126">Deep on</strong> agentic systems &amp; evaluation</span>
+    <span><strong style="color:#1d2126">Allergic to</strong> hype</span>
   </div>
+  <div style="max-width:44em;margin-top:48px;border-top:1px solid rgba(29,33,38,.25);padding-top:28px">
+    <p style="font-size:16.5px;line-height:1.7;margin:0"><em style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 19px; color: oklch(0.52 0.11 240);">Namaste.</em> I've held the title of Data Scientist but built pipelines like a Data Engineer, analyzed data like an Analyst, and shaped models like an ML Engineer. What's constant: I enjoy building framework code, helping people think through hard problems, and having a good chuckle along the way.</p>
+    <p style="font-size:16.5px;line-height:1.7;margin:16px 0 0;color:rgba(29,33,38,.7)">I get bored on purpose. Boredom is data — it means you've mastered the current level and it's time for a harder problem. That signal has moved me from civil engineering to production generative AI, one deliberate climb at a time.</p>
+  </div>
+</section>
 
-  <!-- scripts -->
-  <script src="assets/js/particles.js"></script>
-  <script src="assets/js/app.js"></script>
+<!-- 02 HOW I THINK -->
+<section id="s-think" data-screen-label="How I Think" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">How I think</h2>
+  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(29,33,38,.55);margin-top:14px">"Just because you can build it doesn't mean you should — judgment is the bottleneck."</div>
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:56px;margin-top:34px;align-items:start">
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid #1d2126;align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">a.</span>
+        <div>
+          <div style="font-weight:600;font-size:16.5px">Just because you can build it doesn't mean you should.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">I ask "why are we solving this?" before writing code. Projects that don't solve a user problem or focuses on vanity metrics aren't a win — they only exist for good PR.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(29,33,38,.25);align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">b.</span>
+        <div>
+          <div style="font-weight:600;font-size:16.5px">Reliability comes from architecture discipline, not model quality.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">Determinism inside non-deterministic systems. Observability from day one, before it's an organizational requirement.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(29,33,38,.25);align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">c.</span>
+        <div>
+          <div style="font-weight:600;font-size:16.5px">"How do we know this is good?" is a design input.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">Built objective evaluation infrastructure before anyone required it. It became a foundational platform.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126;align-items:baseline">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:oklch(0.52 0.11 240);min-width:28px">d.</span>
+        <div>
+          <div style="font-weight:600;font-size:16.5px">I design the process, not just the feature.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.6);margin-top:6px">Authored an LLM framework adopted by multiple engineering teams — write the spec, propose the framework, socialize it.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <svg sc-camel-view-box="0 0 340 320" style="width:100%;height:auto">
+        <circle cx="110" cy="115" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
+        <circle cx="230" cy="115" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
+        <circle cx="170" cy="195" r="98" fill="oklch(0.52 0.11 240 / 0.11)"></circle>
+        <circle cx="110" cy="115" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
+        <circle cx="230" cy="115" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
+        <circle cx="170" cy="195" r="98" fill="none" stroke="#1d2126" stroke-width="1.2"></circle>
+        <text x="82" y="98" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">DETECTIVE</text>
+        <text x="82" y="111" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">MINDSET</text>
+        <text x="260" y="108" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">ENGINEERING</text>
+        <text x="170" y="268" font-family="Libre Franklin" font-weight="600" font-size="10" fill="#1d2126" text-anchor="middle" letter-spacing="0.5">BUSINESS IMPACT</text>
+        <text x="170" y="150" font-family="Instrument Serif" font-style="italic" font-size="18" fill="#1d2126" text-anchor="middle">judgment</text>
+      </svg>
+      <div style="font-size:12px;line-height:1.55;color:rgba(29,33,38,.55);text-align:center;max-width:26em;margin:0 auto">The overlap is where I work. The intersection isn't a skill — it's a habit of choosing.</div>
+    </div>
+  </div>
+</section>
 
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
+<!-- 03 THE CLIMB -->
+<section id="s-climb" data-screen-label="The Climb" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The climb</h2>
+  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:40em">Don't get caught up in titles. The title matters less than the capabilities you build and the value you deliver. Here's the ladder — each rung a decision, each decision a lesson.</p>
+  <div style="display:flex;flex-direction:column;margin-top:40px;max-width:52em">
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid #1d2126">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2016</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">THE PIVOT</div></div>
+      <div>
+        <div style="font-weight:600;font-size:16px">Trained as a civil engineer. Chose to start over.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">By graduation it was clear that path wasn't the future. So: bottom rung of a new ladder, on purpose.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: it's okay to change direction when your path doesn't match your future.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2016–19</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L1 · ANALYST</div></div>
+      <div>
+        <div style="font-weight:600;font-size:16px">Learned the craft in fast, chaotic digital-marketing analytics.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">SQL, Python, visualization — and the discovery that I loved the technical, data-heavy work while craving more structure.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: stay connected to your network; the next door usually opens through people.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2020–22</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L2 · DATA SCIENTIST</div></div>
+      <div>
+        <div style="font-weight:600;font-size:16px">Healthcare analytics, plus an intense analytics master's at UT Austin.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Ran lots of proof-of-concept modeling and learned the hard truth: POCs teach, but only production creates value. Grad school reframed data science as problem framing + delivery, not just modeling.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: learn to bridge the gap from prototype to production.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">2022–</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">L3 · ARCHITECT</div></div>
+      <div>
+        <div style="font-weight:600;font-size:16px">A mentor reset the whole trajectory with one idea.</div>
+        <div style="border-left:2px solid oklch(0.52 0.11 240);padding-left:18px;margin-top:12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.5;color:#1d2126">"ML without operations and engineering is just research with zero business value. Engineering is a one-time investment that compounds forever."</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:12px">So I did the unglamorous work — retraining, deploying, refactoring legacy code — until engineering clicked. Then everything changed: I started thinking like an architect before starting any project.</div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:rgba(29,33,38,.55);margin-top:8px">Lesson: engineering skills are force multipliers.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126">
+      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:oklch(0.52 0.11 240)">Now</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(29,33,38,.45);margin-top:4px">→ L4 · SPECIALIST</div></div>
+      <div>
+        <div style="font-weight:600;font-size:16px">The LLM chapter — the frontier meets the measurement instinct.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Building generative-AI systems where the novelty feeds a curious brain and the work balances research with engineering. Going deep on agentic systems, evaluation, and orchestration of long-running, human-in-the-loop AI work.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- 04 WORK -->
+<section id="s-work" data-screen-label="Work" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I've built professionally</h2>
+  <p style="font-size:15.5px;line-height:1.7;color:rgba(29,33,38,.7);margin:18px 0 0;max-width:44em">Over 9+ years I've gone from operations analytics to building production generative-AI platforms at enterprise scale — evaluation systems, LLM frameworks used across teams, and automated analysis tools that put AI-generated insight directly in front of decision-makers. The common thread: I build AI that has to work in production, that other people can build on, and that we can actually measure. Research that can't ship doesn't interest me.</p>
+  <div style="display:flex;flex-direction:column;margin-top:36px">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid #1d2126">
+      <div>
+        <div style="font-weight:600;font-size:16.5px">A production evaluation platform for generative-AI systems.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Replaced slow, subjective, manual testing with automated, objective, continuously-run evaluation wired into the delivery pipeline — quality measured on every change instead of guessed at.</div>
+      </div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">distributed systems · async jobs · LLM-as-judge · retrieval quality · CI/CD · platform engineering</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div>
+        <div style="font-weight:600;font-size:16.5px">An automated root-cause-analysis system for business analysts.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Turned a multi-hour manual investigation into a near-instant automated drill-down producing narrative reports — consumable directly by senior non-technical stakeholders, not just data dumps.</div>
+      </div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">multi-dimensional drill-down · structured output · adaptive reporting</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div>
+        <div style="font-weight:600;font-size:16.5px">A natural-language-to-data query engine that democratized data access.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Let non-technical employees query complex databases in plain language — cutting analytical bottlenecks, saving thousands of hours of manual work, and freeing data experts from repetitive support tasks for high-value strategic work.</div>
+      </div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">text-to-SQL · self-service analytics · semantic layers</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25)">
+      <div>
+        <div style="font-weight:600;font-size:16.5px">An LLM application framework adopted across multiple engineering teams.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Extracted common patterns from production AI systems into a shared framework — provider-abstracted inference, memory management, agent orchestration, observability baked in — so teams stopped rebuilding the same infrastructure.</div>
+      </div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">framework design · developer experience · agent orchestration · observability</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;padding:24px 0;border-top:1px solid rgba(29,33,38,.25);border-bottom:1px solid #1d2126">
+      <div>
+        <div style="font-weight:600;font-size:16.5px">A retrieval-augmented conversational AI, optimized for reliability.</div>
+        <div style="font-size:14px;line-height:1.65;color:rgba(29,33,38,.65);margin-top:6px">Refactored the architecture to reduce model hops, improve determinism, and add telemetry at every inference boundary — making a probabilistic system debuggable and maintainable.</div>
+      </div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.8;color:rgba(29,33,38,.55)">RAG architecture · prompt engineering · designing for determinism</div>
+    </div>
+  </div>
+  <p style="font-size:13px;line-height:1.6;color:rgba(29,33,38,.5);margin:20px 0 0;max-width:44em">The breadth beneath the depth: enterprise RAG on vector databases, a massive pipeline migration to distributed compute on cloud, A/B-testing frameworks and recommenders in marketing, healthcare risk-stratification modeling.</p>
+</section>
 
+<!-- 05 BUILDS -->
+<section id="s-builds" data-screen-label="Builds" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I build personally</h2>
+  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(29,33,38,.55);margin-top:14px">"Theory without practice is research; practice without production is a hobby."</div>
+  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:42em">Small, instrumented systems for my own life and learning — one measurement layer, one orchestrator. Built because the problems are interesting and I want to stay sharp. Nobody assigned any of this.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid #1d2126">
+    <div style="padding:28px;border-right:1px solid rgba(29,33,38,.25);border-bottom:1px solid rgba(29,33,38,.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">plumb</span><a href="https://github.com/anant-gupta-utexas/plumb" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="font-weight:600;font-size:14px;margin-top:10px">A measurement spine for multi-agent systems.</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Four tables, two entry points; everything else is a query. Measures what telemetry tools miss — human acceptance, routing quality, handoff quality, cost-per-resolved-task. A failing production run becomes a regression test in one call.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">The whole design is an exercise in restraint.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · SQLite · Pydantic</div>
+    </div>
+    <div style="padding:28px;border-bottom:1px solid rgba(29,33,38,.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">atlas</span><a href="https://github.com/anant-gupta-utexas/atlas" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="font-weight:600;font-size:14px;margin-top:10px">A local-first agent orchestrator and task runtime.</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">First customer: a multi-stage dev workflow (research → spec → design → review → code) where every stage emits a measurement span — the pipeline measures itself end to end. Git worktrees as the code-gen boundary.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">Built to be measured, not just to run.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · CLI · SQLite · git worktrees</div>
+    </div>
+    <div style="padding:28px;border-right:1px solid rgba(29,33,38,.25);border-bottom:1px solid rgba(29,33,38,.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">content-pipeline</span><a href="https://github.com/anant-gupta-utexas/content-pipeline" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="font-weight:600;font-size:14px;margin-top:10px">Curated ingestion for my knowledge base.</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Capture → extract → classify: turns a deliberately-chosen information diet into structured, usable knowledge. Instrumented with plumb from day one.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">The engine behind curation over algorithmic reading.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · LLM classification · plumb-instrumented</div>
+    </div>
+    <div style="padding:28px;border-bottom:1px solid rgba(29,33,38,.25)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">scraping-extension</span><a href="https://github.com/anant-gupta-utexas/scraping-extension" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="font-weight:600;font-size:14px;margin-top:10px">A read-only capture front-end for the pipeline.</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">A Chrome MV3 extension that serializes pages you're already reading into clean, structured data. A human navigates; the tool only reads. Local-only, no phone-home.</div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55);margin-top:10px">Deliberately the lower-risk design. Good taste about blast radius.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Chrome MV3 · JavaScript</div>
+    </div>
+    <div style="padding:28px;grid-column:1 / -1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">slo-recommendation</span><a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:oklch(0.52 0.11 240)">repo ↗</a></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:10px">
+        <div>
+          <div style="font-weight:600;font-size:14px">A GNN-based SLO recommender for microservice graphs.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(29,33,38,.65);margin-top:6px">Models service dependencies as a directed graph and trains a graph neural network to suggest achievable availability/latency SLOs with confidence. Production-shaped: metrics, structured logging, tracing, CI/CD.</div>
+        </div>
+        <div>
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(29,33,38,.55)">The research↔production bridge, made concrete — an ML-research-flavored technique wrapped in production engineering.</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(29,33,38,.5);margin-top:12px">Python · FastAPI · PostgreSQL · GNN · OpenTelemetry</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div style="margin-top:28px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,33,38,.45)">Utilities &amp; templates</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+      <a href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">ai-workx — Claude Code plugin marketplace ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">python-scaffolding ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">go-scaffolding ↗</a>
+      <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(29,33,38,.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">react-scaffolding ↗</a>
+    </div>
+  </div>
+  
+</section>
+
+<!-- 06 STAYING AHEAD -->
+<section id="s-ahead" data-screen-label="Staying Ahead" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">How I stay ahead</h2>
+  <p style="font-size:15.5px;line-height:1.7;color:rgba(29,33,38,.7);margin:18px 0 0;max-width:44em">The field moves fast. My answer is a system, not a feed: a ~200-page personal knowledge base — inspired by Andrej Karpathy's practice of keeping a personal wiki — synthesized from the articles, papers, talks, and authors I <em>choose</em> to learn from. I ingest a source, distill it, cross-link it, and periodically re-weave the whole thing so the ideas stay connected.</p>
+  <div style="display:flex;align-items:center;gap:0;margin-top:36px;flex-wrap:wrap">
+    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">SOURCES I TRUST</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
+    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CURATE</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
+    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">DISTILL</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
+    <div style="padding:16px 22px;border:1px solid #1d2126;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CONNECT</div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:oklch(0.52 0.11 240)">→</div>
+    <div style="padding:16px 22px;border:1px solid #1d2126;background:#1d2126;color:#f1f2f3;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">BUILD</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;max-width:52em">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,33,38,.45)">Current topic clusters</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent evaluation</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent harnesses &amp; runtimes</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">agent security</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">dev-productivity measurement</span>
+        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(29,33,38,.3);border-radius:999px">AI economics</span>
+      </div>
+    </div>
+    <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(29,33,38,.7);align-self:center">My information diet is curated by taste, not by an engagement algorithm. The pipeline that feeds it is a project card above.</div>
+  </div>
+</section>
+
+<!-- 07 THE STACK -->
+<section id="s-stack" data-screen-label="The Stack" style="padding:64px 72px 72px;border-bottom:1px solid #1d2126">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The agent stack, and where I work in it</h2>
+  <p style="font-size:15px;line-height:1.65;color:rgba(29,33,38,.65);margin:16px 0 0;max-width:42em">"Agent" hides more than it explains. The useful unit isn't the agent — it's the stack of layers that turns model output into bounded action. Here's that stack, and an honest map of where I've built, where I've shipped for myself, and where I've gone deep by study.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:18px;font-size:12.5px;color:rgba(29,33,38,.65)">
+    <span><span style="color:oklch(0.52 0.11 240)">●</span>&nbsp; built in production</span>
+    <span><span style="color:oklch(0.52 0.11 240 / 0.55)">◐</span>&nbsp; built for myself</span>
+    <span><span style="color:rgba(29,33,38,.4)">○</span>&nbsp; studied</span>
+  </div>
+  <div class="layer-explorer" style="display:grid;grid-template-columns:minmax(260px,400px) minmax(320px,1fr);gap:0;margin-top:28px;border:1px solid #1d2126">
+    <div style="display:flex;flex-direction:column;border-right:1px solid #1d2126">
+      <div class="layer-list">
+        <button type="button" class="layer-row" data-layer="0" data-tier="study" data-active="true">
+          <span class="layer-num">01</span>
+          <span class="layer-sym">○</span>
+          <span class="layer-name">Interfaces &amp; channels</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="1" data-tier="study">
+          <span class="layer-num">02</span>
+          <span class="layer-sym">○</span>
+          <span class="layer-name">Control plane &amp; session ownership</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="2" data-tier="self">
+          <span class="layer-num">03</span>
+          <span class="layer-sym">◐</span>
+          <span class="layer-name">Runtime, workflows &amp; durable execution</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="3" data-tier="study">
+          <span class="layer-num">04</span>
+          <span class="layer-sym">○</span>
+          <span class="layer-name">Model engine &amp; inference</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="4" data-tier="prod">
+          <span class="layer-num">05</span>
+          <span class="layer-sym">●</span>
+          <span class="layer-name">Context, retrieval &amp; memory</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="5" data-tier="prod">
+          <span class="layer-num">06</span>
+          <span class="layer-sym">●</span>
+          <span class="layer-name">Tools, MCP &amp; capability surfaces</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="6" data-tier="self">
+          <span class="layer-num">07</span>
+          <span class="layer-sym">◐</span>
+          <span class="layer-name">Execution surfaces</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="7" data-tier="study">
+          <span class="layer-num">08</span>
+          <span class="layer-sym">○</span>
+          <span class="layer-name">Identity, trust, policy &amp; approvals</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="8" data-tier="prod">
+          <span class="layer-num">09</span>
+          <span class="layer-sym">●</span>
+          <span class="layer-name">Observability, evaluation &amp; feedback loops</span>
+        </button>
+        <button type="button" class="layer-row" data-layer="9" data-tier="self">
+          <span class="layer-num">10</span>
+          <span class="layer-sym">◐</span>
+          <span class="layer-name">Infrastructure substrate</span>
+        </button>
+      </div>
+    </div>
+          <div class="layer-detail" id="layer-detail">
+        <div class="layer-detail-meta">LAYER <span data-field="num">01</span> · <span data-field="tier">STUDIED</span></div>
+        <div class="layer-detail-name" data-field="name">Interfaces &amp; channels</div>
+        <p class="layer-detail-body" data-field="body">Where work enters the system — Slack, email, webhook, IDE, browser. Studied as the front of the request path; my capture front-end (scraping-extension) sits adjacent, turning a browser session into structured input.</p>
+        <div class="layer-detail-tags" data-field="tags">request path · capture front-ends · scraping-extension</div>
+      </div>
+    </div>
+  <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(29,33,38,.7);margin:28px 0 0;max-width:38em">Three layers I've shipped to production, three I've built for myself, four I've studied hard enough to know where they fail. I'd rather show you the real map than a wall of logos.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="s-contact" data-screen-label="Contact" style="padding:72px;background:#1d2126;color:#f1f2f3">
+  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.4;max-width:24em">"I want to be remembered as someone who bridged gaps, created leaders, and built systems that empowered others to do their best work."</div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;margin-top:48px;font-size:14px">
+    <a href="mailto:anant.gupta@utexas.edu" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">anant.gupta@utexas.edu</a>
+    <a href="https://linkedin.com/in/anant-utexas" target="_blank" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">LinkedIn ↗</a>
+    <a href="https://github.com/anant-gupta-utexas" target="_blank" style="color:#f1f2f3;border-bottom:1px solid rgba(241,242,243,.4);padding-bottom:3px" data-hv="hv2">GitHub ↗</a>
+  </div>
+  <div style="font-size:13px;color:rgba(241,242,243,.5);margin-top:48px;line-height:1.6">Off hours: 12 books a year, board games, travel, and cooking that ranges from "surprisingly good" to "let's order pizza."<br>Sunnyvale, CA · © 2026 Anant Gupta</div>
+</section>
+
+</div>
+</div>
+
+  <!-- Layer dataset for the interactive stack explorer (progressive enhancement) -->
+  <script id="layers-data" type="application/json">[{"name": "Interfaces & channels", "tier": "study", "body": "Where work enters the system \u2014 Slack, email, webhook, IDE, browser. Studied as the front of the request path; my capture front-end (scraping-extension) sits adjacent, turning a browser session into structured input.", "tags": "request path \u00b7 capture front-ends \u00b7 scraping-extension", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Control plane & session ownership", "tier": "study", "body": "Which user, which session, which run owns this turn. The boundary I'm most careful to keep separate from authorization \u2014 session is not permission.", "tags": "session ownership \u00b7 run identity", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Runtime, workflows & durable execution", "tier": "self", "body": "atlas \u2014 a local-first agent orchestrator and task runtime. A multi-stage dev workflow (research \u2192 spec \u2192 design \u2192 review \u2192 code) where every stage emits a measurement span and git worktrees are the code-gen boundary. Built to be measured, not just to run.", "tags": "durable execution \u00b7 retry/resume \u00b7 worktree isolation \u00b7 atlas", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Model engine & inference", "tier": "study", "body": "The one job the model owns: prepared request \u2192 output. Studied for provider abstraction and cost/latency trade-offs; the reason my professional framework was provider-abstracted from day one.", "tags": "provider abstraction \u00b7 cost/latency trade-offs", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Context, retrieval & memory", "tier": "prod", "body": "Shipped enterprise RAG on vector databases; refactored a retrieval-augmented conversational system to cut model hops, sharpen determinism, and add telemetry at every inference boundary. Transcript, context, and memory kept as three separate things \u2014 in code and in language.", "tags": "enterprise RAG \u00b7 retrieval optimization \u00b7 memory management \u00b7 designing for determinism", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Tools, MCP & capability surfaces", "tier": "prod", "body": "Authored an LLM framework adopted across engineering teams \u2014 provider-abstracted inference, agent orchestration, and capability surfaces with observability baked in. Also shipped a natural-language data query engine that exposes a semantic layer over governed datasets through an MCP tool layer \u2014 the capability surface is the semantic model, not raw SQL. I keep capability exposure and execution authority as separate concerns: a tool says what may be asked for, not what actually runs.", "tags": "framework design \u00b7 agent orchestration \u00b7 MCP \u00b7 semantic layers \u00b7 governed data access \u00b7 capability vs. execution", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Execution surfaces", "tier": "self", "body": "Where the system actually acts \u2014 browser, shell, filesystem, external API. My scraping-extension is a deliberately read-only execution surface: a human navigates, the tool only reads, local-only, no phone-home. Good taste about blast radius.", "tags": "read-only by design \u00b7 sandboxed capture \u00b7 scraping-extension", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Identity, trust, policy & approvals", "tier": "study", "body": "Where side effects become real and a human decides whether an action proceeds. Mapped the threat landscape \u2014 prompt injection, system- vs model-level defenses, policy-as-code, sandboxing. Approval is not isolation; sensitive systems need both. A growing focus.", "tags": "prompt-injection defense \u00b7 policy-as-code \u00b7 approval gates", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Observability, evaluation & feedback loops", "tier": "prod", "body": "Built a production evaluation platform for generative-AI systems \u2014 automated, objective, continuously-run eval wired into the delivery pipeline, before the org required it. Extended the instinct into the open with plumb, a measurement spine for multi-agent systems: four tables, two entry points, everything else a query. Observability gives evidence; evaluation turns evidence into judgment \u2014 I keep them distinct.", "tags": "eval-driven development \u00b7 LLM-as-judge \u00b7 trajectory vs. outcome \u00b7 pass^k \u00b7 plumb", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Infrastructure substrate", "tier": "self", "body": "Every agent app inherits its substrate. Migrated a massive pipeline to distributed compute on cloud; every personal build runs on a shared SQLite measurement layer so the whole system is instrumented from the ground.", "tags": "distributed compute \u00b7 shared measurement layer", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}]</script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
