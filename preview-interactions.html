@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interaction previews — pick what to keep</title>
+  <meta name="robots" content="noindex">
+  <!-- Reuse the real site's fonts + palette so previews look production-accurate -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    :root {
+      --ink: #1d2126;
+      --paper: #f1f2f3;
+      --accent: oklch(0.52 0.11 240);
+      --dim: rgba(29,33,38,.55);
+      --hair: rgba(29,33,38,.18);
+    }
+    /* dark-mode demo scope only (feature 3) — real site would apply to :root */
+    body { background: var(--paper); color: var(--ink); }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 56px 28px 120px; }
+    .pgtitle { font-family:'Instrument Serif',serif; font-size:40px; margin:0; }
+    .pgsub { color:var(--dim); font-size:15px; line-height:1.6; margin:12px 0 0; max-width:52ch; }
+    .demo {
+      border:1px solid var(--ink); margin-top:36px; padding:0; border-radius:2px; overflow:hidden;
+    }
+    .demo > header {
+      display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+      padding:16px 22px; border-bottom:1px solid var(--hair); background:rgba(29,33,38,.02);
+    }
+    .demo h2 { font-family:'Instrument Serif',serif; font-weight:400; font-size:22px; margin:0; }
+    .badge {
+      font-family:ui-monospace,Menlo,monospace; font-size:10.5px; letter-spacing:.06em;
+      padding:4px 9px; border:1px solid var(--hair); border-radius:999px; white-space:nowrap;
+      text-transform:uppercase; color:var(--dim);
+    }
+    .badge.subtle { color:oklch(0.52 0.11 240); border-color:oklch(0.52 0.11 240 / .4); }
+    .badge.standout { color:#8a5a00; border-color:rgba(138,90,0,.35); }
+    .demo .note { padding:14px 22px 0; font-size:13px; color:var(--dim); line-height:1.6; }
+    .demo .stage { padding:22px; }
+    .btn {
+      font:inherit; font-size:13px; cursor:pointer; background:var(--ink); color:var(--paper);
+      border:0; padding:9px 16px; border-radius:2px;
+    }
+    .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--ink); }
+    kbd { font-family:ui-monospace,Menlo,monospace; font-size:11px; border:1px solid var(--hair);
+      border-bottom-width:2px; border-radius:4px; padding:2px 6px; background:#fff; }
+
+    /* ---------- Feature 1: scroll reveal ---------- */
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    .reveal-card { border:1px solid var(--hair); padding:18px; }
+    .reveal-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+    /* ---------- Feature 4: climb timeline ---------- */
+    .timeline { position:relative; padding-left:34px; }
+    .timeline::before {
+      content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+      background:var(--hair);
+    }
+    .timeline .prog {
+      position:absolute; left:9px; top:6px; width:2px; background:var(--accent);
+      height:0; transition:height .1s linear;
+    }
+    .rung { position:relative; padding:0 0 26px; }
+    .rung::before {
+      content:""; position:absolute; left:-30px; top:4px; width:12px; height:12px;
+      border-radius:50%; border:2px solid var(--hair); background:var(--paper);
+      transition:border-color .3s, background .3s, transform .3s;
+    }
+    .rung.lit::before { border-color:var(--accent); background:var(--accent); transform:scale(1.15); }
+    .rung .yr { font-family:'Instrument Serif',serif; font-style:italic; font-size:14px; color:var(--accent); }
+    .rung .ti { font-weight:600; font-size:15px; margin-top:2px; }
+
+    /* ---------- Feature 5: stack explorer ---------- */
+    .exp { display:grid; grid-template-columns:minmax(200px,260px) 1fr; border:1px solid var(--ink); }
+    .exp .list { display:flex; flex-direction:column; border-right:1px solid var(--ink); }
+    .exp .row {
+      display:flex; gap:10px; align-items:baseline; padding:11px 14px; border:0; text-align:left;
+      border-bottom:1px solid var(--hair); background:transparent; color:var(--ink); font:inherit; cursor:pointer;
+      transition:background .2s, color .2s;
+    }
+    .exp .row:last-child { border-bottom:0; }
+    .exp .row:hover { background:rgba(29,33,38,.06); }
+    .exp .row[aria-selected="true"] { background:var(--ink); color:var(--paper); }
+    .exp .num { font-family:ui-monospace,Menlo,monospace; font-size:10px; color:var(--accent); }
+    .exp .row[aria-selected="true"] .num { color:oklch(0.72 0.1 240); }
+    .exp .panel { padding:22px 26px; }
+    .exp .panel .meta { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:.06em; color:var(--accent); }
+    .exp .panel .pname { font-family:'Instrument Serif',serif; font-size:24px; margin-top:8px; }
+    .exp .panel .pbody { font-size:14px; line-height:1.65; color:rgba(29,33,38,.72); margin-top:10px; }
+    /* the "smooth panel transition" being demoed */
+    .exp .panel.swap { animation:panelIn .28s ease; }
+    @keyframes panelIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    .hint { font-size:12px; color:var(--dim); margin-top:10px; }
+
+    /* ---------- Feature 2: command palette ---------- */
+    .cmdk-overlay {
+      position:fixed; inset:0; background:rgba(29,33,38,.35); backdrop-filter:blur(2px);
+      display:none; align-items:flex-start; justify-content:center; z-index:100;
+    }
+    .cmdk-overlay.open { display:flex; animation:fade .15s ease; }
+    @keyframes fade { from{opacity:0} to{opacity:1} }
+    .cmdk {
+      margin-top:14vh; width:min(560px,90vw); background:var(--paper); border:1px solid var(--ink);
+      border-radius:6px; overflow:hidden; box-shadow:0 24px 60px rgba(29,33,38,.28);
+      animation:pop .16s ease;
+    }
+    @keyframes pop { from{transform:translateY(-8px);opacity:.6} to{transform:none;opacity:1} }
+    .cmdk input {
+      width:100%; box-sizing:border-box; border:0; border-bottom:1px solid var(--hair);
+      padding:16px 18px; font:inherit; font-size:15px; background:transparent; outline:none; color:var(--ink);
+    }
+    .cmdk ul { list-style:none; margin:0; padding:6px; max-height:320px; overflow:auto; }
+    .cmdk li {
+      display:flex; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:4px; cursor:pointer;
+      font-size:14px;
+    }
+    .cmdk li[aria-selected="true"] { background:var(--ink); color:var(--paper); }
+    .cmdk li .k { font-family:ui-monospace,Menlo,monospace; font-size:11px; opacity:.6; }
+    .cmdk li[aria-selected="true"] .k { opacity:.8; }
+
+    /* ---------- Feature 3: dark mode (page-wide demo toggle) ---------- */
+    body.dark { --ink:#e8eaed; --paper:#15181c; --dim:rgba(232,234,237,.55); --hair:rgba(232,234,237,.16); }
+    body.dark .cmdk input, body.dark .cmdk li { color:var(--ink); }
+    body.dark kbd { background:#20242a; }
+    body { transition:background .35s ease, color .35s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation:none !important; transition:none !important; }
+      .reveal { opacity:1; transform:none; }
+    }
+    @media (max-width:640px){ .exp{grid-template-columns:1fr} .reveal-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="pgtitle">Interaction previews</h1>
+  <p class="pgsub">Each card is a live, isolated demo of one candidate interaction for the portfolio. Play with them, then tell me which to wire into the real <code>index.html</code>. Nothing here touches the actual site. Badges mark <span style="color:oklch(0.52 0.11 240)">subtle</span> vs <span style="color:#8a5a00">standout</span> motion.</p>
+
+  <div style="margin-top:24px; display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+    <button class="btn" id="openCmd">Open command palette (or press <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd>)</button>
+    <button class="btn ghost" id="darkToggle">Toggle dark mode</button>
+  </div>
+
+  <!-- FEATURE 1 -->
+  <section class="demo">
+    <header><h2>1 · Scroll-reveal</h2><span class="badge subtle">subtle</span></header>
+    <p class="note">Sections and cards fade + rise as they scroll into view. Reuses your existing <code>fadeUp</code> feel. Scroll this card in and out of view to replay.</p>
+    <div class="stage">
+      <div class="reveal-grid">
+        <div class="reveal reveal-card"><strong>plumb</strong><div style="color:var(--dim);font-size:13px;margin-top:6px">A measurement spine for multi-agent systems.</div></div>
+        <div class="reveal reveal-card" style="transition-delay:.08s"><strong>atlas</strong><div style="color:var(--dim);font-size:13px;margin-top:6px">A local-first agent orchestrator.</div></div>
+        <div class="reveal reveal-card" style="transition-delay:.16s"><strong>content-pipeline</strong><div style="color:var(--dim);font-size:13px;margin-top:6px">Curated ingestion for a knowledge base.</div></div>
+        <div class="reveal reveal-card" style="transition-delay:.24s"><strong>slo-recommendation</strong><div style="color:var(--dim);font-size:13px;margin-top:6px">A GNN-based SLO recommender.</div></div>
+      </div>
+      <div class="hint">Staggered by ~80ms per card. Honors <code>prefers-reduced-motion</code>.</div>
+    </div>
+  </section>
+
+  <!-- FEATURE 2 -->
+  <section class="demo">
+    <header><h2>2 · Command palette (⌘K)</h2><span class="badge standout">standout</span></header>
+    <p class="note">Press <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd> (or the button up top) to jump to any section or open any repo. Type to filter, <kbd>↑</kbd><kbd>↓</kbd> to move, <kbd>Enter</kbd> to go, <kbd>Esc</kbd> to close. Very on-brand for an engineer's site.</p>
+    <div class="stage"><button class="btn" onclick="openCmd()">Launch palette</button></div>
+  </section>
+
+  <!-- FEATURE 3 -->
+  <section class="demo">
+    <header><h2>3 · Dark mode</h2><span class="badge subtle">practical</span></header>
+    <p class="note">Toggle at the top of the page flips the whole preview. Your palette is already tokenized, so this is a clean CSS-variable swap; the real version would remember the choice and respect the system preference.</p>
+    <div class="stage"><button class="btn ghost" onclick="toggleDark()">Toggle dark mode</button> <span class="hint" style="margin-left:8px">Watch the whole page transition.</span></div>
+  </section>
+
+  <!-- FEATURE 4 -->
+  <section class="demo">
+    <header><h2>4 · Animated Climb timeline</h2><span class="badge standout">standout</span></header>
+    <p class="note">The vertical rail fills as you scroll through the section and each rung lights up when reached. A visual upgrade to your existing "The Climb". Scroll slowly over it.</p>
+    <div class="stage">
+      <div class="timeline" id="tl">
+        <div class="prog" id="tlprog"></div>
+        <div class="rung"><div class="yr">2016</div><div class="ti">Trained as a civil engineer. Chose to start over.</div></div>
+        <div class="rung"><div class="yr">2016–19</div><div class="ti">Learned the craft in fast, chaotic analytics.</div></div>
+        <div class="rung"><div class="yr">2020–22</div><div class="ti">Healthcare analytics + UT Austin master's.</div></div>
+        <div class="rung"><div class="yr">2022–</div><div class="ti">A mentor reset the whole trajectory.</div></div>
+        <div class="rung"><div class="yr">Now</div><div class="ti">The LLM chapter — frontier meets measurement.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 5 -->
+  <section class="demo">
+    <header><h2>5 · Stack explorer — keyboard + smooth swap</h2><span class="badge subtle">subtle polish</span></header>
+    <p class="note">Enhances the explorer you already have: click a row <em>or</em> use <kbd>↑</kbd><kbd>↓</kbd> after focusing the list, and the detail panel transitions in instead of snapping.</p>
+    <div class="stage">
+      <div class="exp">
+        <div class="list" id="explist" tabindex="0" role="listbox" aria-label="Stack layers">
+          <button class="row" role="option" aria-selected="true"><span class="num">01</span><span>Interfaces &amp; channels</span></button>
+          <button class="row" role="option" aria-selected="false"><span class="num">02</span><span>Runtime &amp; durable execution</span></button>
+          <button class="row" role="option" aria-selected="false"><span class="num">03</span><span>Context, retrieval &amp; memory</span></button>
+          <button class="row" role="option" aria-selected="false"><span class="num">04</span><span>Tools, MCP &amp; capability</span></button>
+          <button class="row" role="option" aria-selected="false"><span class="num">05</span><span>Observability &amp; evaluation</span></button>
+        </div>
+        <div class="panel" id="exppanel">
+          <div class="meta">LAYER 01 · STUDIED</div>
+          <div class="pname">Interfaces &amp; channels</div>
+          <div class="pbody">Where work enters the system — Slack, email, webhook, IDE, browser.</div>
+        </div>
+      </div>
+      <div class="hint">Focus the list, then use arrow keys.</div>
+    </div>
+  </section>
+
+  <p class="pgsub" style="margin-top:40px">Tell me which numbers to ship — e.g. "1, 3, and 5" — and I'll wire only those into the real site with motion tuned to match.</p>
+</div>
+
+<!-- command palette overlay -->
+<div class="cmdk-overlay" id="cmdk">
+  <div class="cmdk" role="dialog" aria-label="Command palette">
+    <input id="cmdkInput" placeholder="Jump to a section or open a repo…" autocomplete="off">
+    <ul id="cmdkList"></ul>
+  </div>
+</div>
+
+<script>
+/* ---------- Feature 1: scroll reveal ---------- */
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
+  }, { threshold:.2 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+/* ---------- Feature 4: climb timeline ---------- */
+(function(){
+  var tl=document.getElementById('tl'), prog=document.getElementById('tlprog'),
+      rungs=[].slice.call(document.querySelectorAll('#tl .rung'));
+  function onScroll(){
+    var r=tl.getBoundingClientRect(), vh=innerHeight;
+    var start=vh*0.85, end=vh*0.15;
+    var pct=(start - r.top)/(r.height + (start-end));
+    pct=Math.max(0,Math.min(1,pct));
+    prog.style.height=(pct*100)+'%';
+    rungs.forEach(function(rg){
+      var rr=rg.getBoundingClientRect();
+      rg.classList.toggle('lit', rr.top < vh*0.6);
+    });
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+
+/* ---------- Feature 5: stack explorer ---------- */
+(function(){
+  var data=[
+    ['LAYER 01 · STUDIED','Interfaces & channels','Where work enters the system — Slack, email, webhook, IDE, browser.'],
+    ['LAYER 02 · BUILT FOR MYSELF','Runtime & durable execution','A local-first agent orchestrator where every stage emits a measurement span.'],
+    ['LAYER 03 · BUILT IN PRODUCTION','Context, retrieval & memory','Enterprise RAG on vector databases; transcript, context and memory kept distinct.'],
+    ['LAYER 04 · BUILT IN PRODUCTION','Tools, MCP & capability','Provider-abstracted inference and capability surfaces with observability baked in.'],
+    ['LAYER 05 · BUILT IN PRODUCTION','Observability & evaluation','A production evaluation platform, continuously-run before the org required it.']
+  ];
+  var rows=[].slice.call(document.querySelectorAll('#explist .row'));
+  var panel=document.getElementById('exppanel'), list=document.getElementById('explist');
+  function select(i){
+    rows.forEach(function(r,j){ r.setAttribute('aria-selected', j===i); });
+    var d=data[i];
+    panel.innerHTML='<div class="meta">'+d[0]+'</div><div class="pname">'+d[1]+'</div><div class="pbody">'+d[2]+'</div>';
+    panel.classList.remove('swap'); void panel.offsetWidth; panel.classList.add('swap');
+  }
+  rows.forEach(function(r,i){ r.addEventListener('click', function(){ select(i); }); });
+  list.addEventListener('keydown', function(e){
+    var cur=rows.findIndex(function(r){ return r.getAttribute('aria-selected')==='true'; });
+    if(e.key==='ArrowDown'){ e.preventDefault(); select(Math.min(rows.length-1,cur+1)); }
+    if(e.key==='ArrowUp'){ e.preventDefault(); select(Math.max(0,cur-1)); }
+  });
+})();
+
+/* ---------- Feature 2: command palette ---------- */
+var CMD=[
+  {label:'Go to About', k:'section', act:function(){ flash('About'); }},
+  {label:'Go to How I Think', k:'section', act:function(){ flash('How I Think'); }},
+  {label:'Go to The Climb', k:'section', act:function(){ flash('The Climb'); }},
+  {label:'Go to Work', k:'section', act:function(){ flash('Work'); }},
+  {label:'Go to Builds', k:'section', act:function(){ flash('Builds'); }},
+  {label:'Go to The Stack', k:'section', act:function(){ flash('The Stack'); }},
+  {label:'Open plumb repo', k:'↗ github', act:function(){ flash('plumb repo'); }},
+  {label:'Open atlas repo', k:'↗ github', act:function(){ flash('atlas repo'); }},
+  {label:'Copy email address', k:'clipboard', act:function(){ flash('email copied'); }},
+  {label:'Toggle dark mode', k:'theme', act:toggleDark}
+];
+var overlay=document.getElementById('cmdk'), input=document.getElementById('cmdkInput'),
+    listEl=document.getElementById('cmdkList'), sel=0, filtered=CMD.slice();
+function render(){
+  listEl.innerHTML='';
+  filtered.forEach(function(c,i){
+    var li=document.createElement('li');
+    li.setAttribute('aria-selected', i===sel);
+    li.innerHTML='<span>'+c.label+'</span><span class="k">'+c.k+'</span>';
+    li.addEventListener('click', function(){ c.act(); closeCmd(); });
+    listEl.appendChild(li);
+  });
+}
+function openCmd(){ overlay.classList.add('open'); input.value=''; filtered=CMD.slice(); sel=0; render(); setTimeout(function(){input.focus();},20); }
+function closeCmd(){ overlay.classList.remove('open'); }
+input && input.addEventListener('input', function(){
+  var q=input.value.toLowerCase();
+  filtered=CMD.filter(function(c){ return c.label.toLowerCase().includes(q); });
+  sel=0; render();
+});
+addEventListener('keydown', function(e){
+  if((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); overlay.classList.contains('open')?closeCmd():openCmd(); return; }
+  if(!overlay.classList.contains('open')) return;
+  if(e.key==='Escape') closeCmd();
+  if(e.key==='ArrowDown'){ e.preventDefault(); sel=Math.min(filtered.length-1,sel+1); render(); }
+  if(e.key==='ArrowUp'){ e.preventDefault(); sel=Math.max(0,sel-1); render(); }
+  if(e.key==='Enter' && filtered[sel]){ filtered[sel].act(); closeCmd(); }
+});
+overlay.addEventListener('click', function(e){ if(e.target===overlay) closeCmd(); });
+document.getElementById('openCmd').addEventListener('click', openCmd);
+function flash(msg){
+  var t=document.createElement('div');
+  t.textContent='→ '+msg+' (demo)';
+  t.style.cssText='position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:4px;font-size:13px;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.25)';
+  document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 1400);
+}
+
+/* ---------- Feature 3: dark mode ---------- */
+function toggleDark(){ document.body.classList.toggle('dark'); }
+document.getElementById('darkToggle').addEventListener('click', toggleDark);
+</script>
+</body>
+</html>
