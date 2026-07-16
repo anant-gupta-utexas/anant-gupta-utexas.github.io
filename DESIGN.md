@@ -139,8 +139,8 @@ Quiet and purposeful. Everything is wrapped for accessibility:
 
 ## 6. Theming (dark mode)
 
-- Toggle in the sidebar; state saved to `localStorage.theme` and defaulted from
-  `prefers-color-scheme`.
+- Toggle in the sidebar; state saved to `localStorage.theme`. **Dark is the
+  default** for first-time visitors; a returning visitor's saved choice wins.
 - An **inline script in `<head>`** sets `data-theme` *before first paint* to
   avoid a flash — keep it there and inline.
 - Because everything is tokenized, dark mode is a single variable swap. A new

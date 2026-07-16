@@ -100,15 +100,6 @@
       try { localStorage.setItem("theme", isDark ? "light" : "dark"); } catch (e) {}
       applyLabel();
     });
-    // If the user hasn't chosen explicitly, track OS changes live.
-    try {
-      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-        if (localStorage.getItem("theme")) return;
-        if (e.matches) root.setAttribute("data-theme", "dark");
-        else root.removeAttribute("data-theme");
-        applyLabel();
-      });
-    } catch (e) {}
   }
 
   /* ---- 4. Command palette (Cmd/Ctrl+K) ---------------------------- */
