@@ -476,6 +476,16 @@ img { max-width: 100%; height: auto; }
   .cmdk-hint { margin-top: 18px !important; align-self: flex-start; }
   .theme-toggle { margin-top: 0 !important; }
   .cmdk-box { margin-top: 8vh; }
+  /* How I Think + Work: collapse fixed 2-col grids so the fixed-px
+     sidebar column (340px / 300px) can't overflow or crush the 1fr text.
+     Grid source order stacks points-then-diagram / description-then-tags. */
+  #s-think > div[style*="grid-template-columns:1fr 340px"],
+  #s-work div[style*="grid-template-columns:1fr 300px"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  /* Venn diagram: cap width + center so it doesn't span edge-to-edge */
+  #s-think svg { max-width: 300px; margin: 0 auto; }
 }
 
 /* ---- Reduced motion: disable the enhancement animations ---- */
