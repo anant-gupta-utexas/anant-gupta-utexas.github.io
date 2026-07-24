@@ -285,15 +285,6 @@ section[data-num] {
   padding-top: 104px !important;
 }
 section#s-about[data-num] { padding-top: 108px !important; }
-section[data-num]::before {
-  content: attr(data-num) " / " attr(data-screen-label);
-  position: absolute;
-  top: 44px; left: 72px;
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(var(--ink-rgb), .38);
-}
-section#s-contact[data-num]::before { color: rgba(var(--paper-fixed-rgb), .5); }
 body {
   margin: 0;
   background: var(--paper);
@@ -469,23 +460,22 @@ img { max-width: 100%; height: auto; }
   .sidebar-inner nav { flex-direction: row !important; flex-wrap: wrap; gap: 12px 18px !important; margin-top: 20px !important; }
   .sidebar-tagline { display: none; }
   section { padding-left: 28px !important; padding-right: 28px !important; padding-top: 72px !important; }
-  section[data-num]::before { left: 28px; top: 32px; }
   .layer-explorer { grid-template-columns: 1fr !important; }
   .layer-list { border-right: 0 !important; border-bottom: 1px solid var(--ink); }
   /* Controls sit inline on mobile instead of pinned to the column bottom */
   .cmdk-hint { margin-top: 18px !important; align-self: flex-start; }
   .theme-toggle { margin-top: 0 !important; }
   .cmdk-box { margin-top: 8vh; }
-  /* How I Think + Work: collapse fixed 2-col grids so the fixed-px
-     sidebar column (340px / 300px) can't overflow or crush the 1fr text.
-     Grid source order stacks points-then-diagram / description-then-tags. */
-  #s-think > div[style*="grid-template-columns:1fr 340px"],
+  /* About + Work: collapse fixed 2-col grids so the fixed-px
+     sidebar column can't overflow or crush the 1fr text.
+     Grid source order stacks text-then-diagram / description-then-tags. */
+  .about-venn,
   #s-work div[style*="grid-template-columns:1fr 300px"] {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
   /* Venn diagram: cap width + center so it doesn't span edge-to-edge */
-  #s-think svg { max-width: 300px; margin: 0 auto; }
+  #s-about svg { max-width: 300px; margin: 0 auto; }
 }
 
 /* ---- Reduced motion: disable the enhancement animations ---- */

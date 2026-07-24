@@ -128,8 +128,7 @@
 
     var COMMANDS = [
       { label: "About", hint: "section", run: function () { go("s-about"); } },
-      { label: "How I Think", hint: "section", run: function () { go("s-think"); } },
-      { label: "The Climb", hint: "section", run: function () { go("s-climb"); } },
+      { label: "The Journey", hint: "section", run: function () { go("s-climb"); } },
       { label: "Work", hint: "section", run: function () { go("s-work"); } },
       { label: "Builds", hint: "section", run: function () { go("s-builds"); } },
       { label: "Staying Ahead", hint: "section", run: function () { go("s-ahead"); } },
