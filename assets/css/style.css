@@ -252,6 +252,8 @@
   --accent: oklch(0.52 0.11 240);
   --accent-11: oklch(0.52 0.11 240 / 0.11);
   --accent-55: oklch(0.52 0.11 240 / 0.55);
+  --accent-strong: oklch(0.52 0.11 240);   /* solid accent fill for selected states */
+  --on-accent: #ffffff;                     /* text/icon color on an accent fill */
   /* fixed colors that must NOT invert (the always-dark contact panel) */
   --ink-fixed: #1d2126;
   --ink-fixed-rgb: 29,33,38;
@@ -267,6 +269,8 @@
   --accent: oklch(0.72 0.11 240);      /* brighter accent for dark bg */
   --accent-11: oklch(0.72 0.11 240 / 0.14);
   --accent-55: oklch(0.72 0.11 240 / 0.55);
+  --accent-strong: oklch(0.62 0.13 240);   /* solid accent fill for selected states */
+  --on-accent: #ffffff;                     /* text/icon color on an accent fill */
   color-scheme: dark;
 }
 
@@ -415,14 +419,29 @@ img { max-width: 100%; height: auto; }
 /* ---- Layer explorer (The Stack) ---- */
 .layer-list { display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
 .layer-row {
+  position: relative;
   display: flex; gap: 12px; align-items: baseline;
-  padding: 13px 18px; border: 0; border-bottom: 1px solid rgba(var(--ink-rgb),.18);
+  padding: 13px 18px 13px 22px; border: 0; border-bottom: 1px solid rgba(var(--ink-rgb),.18);
   cursor: pointer; text-align: left; width: 100%;
   background: transparent; color: var(--ink); font: inherit;
-  transition: background .2s, color .2s;
+  transition: background .2s, color .2s, padding .18s;
+}
+/* left accent bar marks the active row; hover shows a faint preview of it */
+.layer-row::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--accent); transform: scaleY(0); transform-origin: center;
+  transition: transform .2s;
 }
 .layer-row:last-child { border-bottom: 0; }
 .layer-row:hover { background: rgba(var(--ink-rgb),.06); }
+.layer-row:hover::before { transform: scaleY(.4); opacity: .5; }
+/* trailing chevron hints the row expands a detail panel */
+.layer-row::after {
+  content: "›"; margin-left: auto; align-self: center;
+  font-size: 16px; line-height: 1; color: rgba(var(--ink-rgb),.3);
+  transition: transform .2s, color .2s;
+}
+.layer-row:hover::after { color: var(--accent); transform: translateX(2px); }
 .layer-num { font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; color: var(--accent); }
 .layer-sym { font-size: 12px; min-width: 14px; }
 .layer-name { font-size: 13.5px; font-weight: 500; }
@@ -435,19 +454,33 @@ img { max-width: 100%; height: auto; }
 .layer-row[data-tier="study"] .layer-sym { color: rgba(var(--ink-rgb),.4); }
 .layer-row[data-tier="study"] .layer-name { opacity: .6; }
 
-/* active row — inverts against the current theme */
-.layer-row[data-active="true"] { background: var(--ink); color: var(--paper); }
-.layer-row[data-active="true"]:hover { background: var(--ink); }
-.layer-row[data-active="true"] .layer-num { color: var(--accent); }
-.layer-row[data-active="true"] .layer-sym { color: rgba(var(--paper-rgb),.8); }
-.layer-row[data-active="true"][data-tier="prod"] .layer-sym { color: var(--accent); }
-.layer-row[data-active="true"] .layer-name { font-weight: 600; opacity: 1; }
+/* active row — filled with the accent color so it clearly stands apart */
+.layer-row[data-active] { background: var(--accent-strong); color: var(--on-accent); }
+.layer-row[data-active]:hover { background: var(--accent-strong); }
+.layer-row[data-active]::before { transform: scaleY(1); opacity: 1; background: var(--on-accent); }
+.layer-row[data-active]::after { content: "●"; font-size: 8px; color: var(--on-accent); transform: none; }
+.layer-row[data-active] .layer-num { color: var(--on-accent); }
+.layer-row[data-active] .layer-sym { color: var(--on-accent); }
+.layer-row[data-active][data-tier="prod"] .layer-sym { color: var(--on-accent); }
+.layer-row[data-active] .layer-name { font-weight: 600; opacity: 1; color: var(--on-accent); }
 
 .layer-detail { padding: 32px 36px; min-height: 320px; }
 .layer-detail-meta { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--accent); letter-spacing: .06em; }
 .layer-detail-name { font-family: 'Instrument Serif', serif; font-size: 28px; margin-top: 10px; }
 .layer-detail-body { font-size: 14.5px; line-height: 1.7; color: rgba(var(--ink-rgb),.7); margin: 14px 0 0; max-width: 36em; }
 .layer-detail-tags { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; line-height: 1.8; color: rgba(var(--ink-rgb),.5); margin-top: 20px; }
+
+/* ---- Work section: 2x2 cards with pill-style capability tags ---- */
+.work-card:hover { background: rgba(var(--ink-rgb),.03); }
+.work-tag {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 10.5px; letter-spacing: .02em;
+  padding: 4px 9px;
+  border: 1px solid rgba(var(--ink-rgb),.22);
+  border-radius: 999px;
+  color: rgba(var(--ink-rgb),.6);
+  white-space: nowrap;
+}
 
 /* =====================================================================
    Responsive — the design is a 2-col shell (sidebar + main).
@@ -466,14 +499,15 @@ img { max-width: 100%; height: auto; }
   .cmdk-hint { margin-top: 18px !important; align-self: flex-start; }
   .theme-toggle { margin-top: 0 !important; }
   .cmdk-box { margin-top: 8vh; }
-  /* About + Work: collapse fixed 2-col grids so the fixed-px
-     sidebar column can't overflow or crush the 1fr text.
-     Grid source order stacks text-then-diagram / description-then-tags. */
-  .about-venn,
-  #s-work div[style*="grid-template-columns:1fr 300px"] {
+  /* About: collapse the text/diagram grid so the fixed-px diagram
+     column can't overflow or crush the text. */
+  .about-venn {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
+  /* Work: collapse the 2x2 card grid to a single column. */
+  .work-grid { grid-template-columns: 1fr !important; }
+  .work-card { border-right: 0 !important; }
   /* Venn diagram: cap width + center so it doesn't span edge-to-edge */
   #s-about svg { max-width: 300px; margin: 0 auto; }
 }
