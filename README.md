@@ -1,88 +1,37 @@
-# Anant Gupta - Portfolio
+# anant-gupta-utexas.github.io
 
-Personal portfolio website showcasing my professional experience, projects, and skills in AI/ML Engineering.
+Personal portfolio — [anant-gupta-utexas.github.io](https://anant-gupta-utexas.github.io).
 
-🔗 **Live Site**: [https://anant-gupta-utexas.github.io](https://anant-gupta-utexas.github.io)
+Staff AI Engineer / Data Scientist at Walmart Global Tech. I build AI systems
+for production, with a focus on evaluation, agentic systems, and the
+infrastructure teams need to run them reliably.
 
-## About
+## Stack
 
-AI/ML Engineer with 8+ years of experience building production-grade GenAI systems. I bridge AI research with production reality—building evaluation platforms, RAG systems, and agent orchestration frameworks that work at scale.
+Hand-authored static site. No framework, no build step, no external requests.
 
-## Features
+- `index.html` — all content and structure
+- `assets/css/style.css` — design tokens + component styles (dark canonical, light override)
+- `assets/js/main.js` — progressive enhancement (theme toggle, scroll-spy)
+- `assets/fonts/` — self-hosted WOFF2 (Cormorant Garamond, Inter, IBM Plex Mono)
 
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Single Page Application**: Smooth navigation between sections
-- **Particle Effects**: Interactive background animations
-- **Dark Theme**: Modern, easy-on-the-eyes design
+The visual system — tokens, type roles, layout rules, component specs — is
+documented in [DESIGN.md](DESIGN.md). Read it before making visual changes.
 
-## Sections
+## Local development
 
-- **About**: Professional summary and areas of focus
-- **Resume**: Education, work experience, and technical skills
-- **Projects**: Academic and personal projects with detailed descriptions
-- **Contact**: Get in touch via email or contact form
+Serve the repo root with any static server:
 
-## Tech Stack
-
-- HTML5
-- CSS3 (Custom Properties, Flexbox, Grid)
-- Vanilla JavaScript
-- Particles.js for animations
-- IonIcons for icons
-- Google Fonts (Poppins)
-
-## Local Development
-
-1. Clone this repository:
 ```bash
-git clone https://github.com/anant-gupta-utexas/anant-gupta-utexas.github.io.git
+python3 -m http.server 8000
 ```
 
-2. Navigate to the project directory:
-```bash
-cd anant-gupta-utexas.github.io
-```
+Then open `http://localhost:8000`. There is nothing to install or compile.
 
-3. Open `index.html` in your browser or use a local server:
-```bash
-# Using Python
-python -m http.server 8000
+When `style.css` or `main.js` change, bump the `?v=` token on their links in
+`index.html` so returning visitors don't get a stale cached copy.
 
-# Using Node.js
-npx serve
-```
+## Deploy
 
-4. Visit `http://localhost:8000` in your browser
-
-## Customization
-
-To customize this portfolio for your own use:
-
-1. **Personal Information**: Update the sidebar section in `index.html` (lines 46-165)
-2. **About Section**: Modify the bio and services (lines 186-287)
-3. **Resume**: Update education and experience (lines 295-520)
-4. **Skills**: Adjust skill categories and items (lines 523-773)
-5. **Projects**: Replace with your own projects (lines 783-959)
-6. **Contact**: Update contact form and map location (lines 965-1003)
-
-## Assets
-
-- **Images**: Located in `./assets/images/`
-- **CSS**: Custom styles in `./assets/css/style.css`
-- **JavaScript**:
-  - Navigation and form handling: `./assets/js/script.js`
-  - Particle effects: `./assets/js/app.js` and `./assets/js/particles.js`
-
-## Contact
-
-- **Email**: anant.gupta@utexas.edu
-- **LinkedIn**: [linkedin.com/in/anant-utexas](https://www.linkedin.com/in/anant-utexas)
-- **GitHub**: [github.com/anant-gupta-utexas](https://github.com/anant-gupta-utexas)
-
-## License
-
-This project is open source and available for personal use. Feel free to fork and customize for your own portfolio.
-
----
-
-**Built with ❤️ by Anant Gupta**
+GitHub Pages serves `main` at the repo root. Pushing to `main` deploys the
+live site within about a minute — treat every push as a production deploy.

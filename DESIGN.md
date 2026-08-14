@@ -5,181 +5,149 @@ hand-authored static site: **plain HTML + one CSS file + one JS file**, no
 build step, no framework. GitHub Pages serves the repo root as-is; a push to
 `main` deploys within ~1 minute.
 
-- **`index.html`** — all content and structure. Section styles are inline
-  (that's how the design was exported); shared/stateful styles live in CSS.
-- **`assets/css/style.css`** — design tokens, fonts, and component styles.
-- **`assets/js/main.js`** — progressive-enhancement interactivity only.
-- **`assets/fonts/`** — self-hosted WOFF2 (no CDN, no network dependency).
+- **`index.html`** — all content and structure. Semantic sections, no inline styles.
+- **`assets/css/style.css`** — design tokens, fonts, layout, and every component style.
+- **`assets/js/main.js`** — progressive enhancement only (theme toggle, scroll-spy).
+  The site is fully usable with JS disabled.
+- **`assets/fonts/`** — self-hosted WOFF2, latin subset (no CDN, no network dependency).
 
-> The visual language is **editorial / print-inspired**: restrained, typographic,
-> lots of intentional whitespace, one accent color. Restraint *is* the aesthetic —
-> when in doubt, remove rather than add.
+> The visual language is **editorial-meets-engineering**: deep blue-charcoal
+> rather than pure black, warm off-white serif headlines, clean sans body,
+> monospace technical labels, one muted cyan accent, thin low-contrast borders,
+> modest 4–8px corners, almost no shadows, generous whitespace. No gradients,
+> glows, neon, oversized pills, or colorful SaaS-style cards. The dark theme
+> should feel editorial and sophisticated — it hints at engineering without
+> cosplaying as engineering.
 
 ---
 
 ## 1. Color tokens
 
-All colors are CSS custom properties defined in `:root` (light) and
-`:root[data-theme="dark"]` (dark) in `style.css`. **Never hard-code a color in
-markup or CSS** — always use a token, so dark mode keeps working.
+All colors are CSS custom properties. **Dark is the canonical theme** and lives
+on `:root`; light mode overrides on `:root[data-theme="light"]`. Never
+hard-code a color in markup — always use a token so the theme toggle keeps
+working.
 
-| Token | Light | Dark | Use |
+| Token | Dark (default) | Light | Use |
 | --- | --- | --- | --- |
-| `--ink` | `#1d2126` | `#e7e9ec` | Primary text, borders, dark panels |
-| `--paper` | `#f1f2f3` | `#16191d` | Page background, inverted text |
-| `--accent` | `oklch(0.52 0.11 240)` | `oklch(0.72 0.11 240)` | The one accent — links, active nav, emphasis |
-| `--accent-11` | accent @ 11% | accent @ 14% | Faint accent fills (e.g. Venn circles) |
-| `--accent-55` | accent @ 55% | accent @ 55% | Mid-strength accent (tier symbols) |
+| `--bg-page` | `#07131B` | `#F6F6F3` | Page canvas |
+| `--bg-sidebar` | `#050D14` | `#EFEFEA` | Nav rail / mobile bar |
+| `--bg-surface` | `#0F1B23` | `#FCFCFA` | Cards, panels |
+| `--bg-surface-hover` | `#12232D` | `#F2F2ED` | Card hover |
+| `--text-primary` | `#F1F3F3` | `#171F24` | Headings, strongest text |
+| `--text-body` | `#BCC1C3` | `#3A454B` | Regular paragraphs |
+| `--text-secondary` | `#959A9D` | `#5C676D` | Supporting copy |
+| `--text-muted` | `#6C767B` | `#79838A` | Dates, secondary labels |
+| `--text-faint` | `#455258` | `#A6AEB3` | Least important info |
+| `--accent` | `#54CAD9` | `#0F7A8A` | THE one accent (cyan/teal) |
+| `--accent-bright` | `#61DCE8` | `#0B6472` | Hover states of accent text |
+| `--accent-muted` | `#2C7883` | `#7CB9C1` | Subtle accent borders |
+| `--accent-bg` | cyan @ 8% | teal @ 7% | Faint accent fills |
+| `--border` | `#263239` | `#DFDFD9` | Card / rail borders |
+| `--border-subtle` | body-text @ 12% | ink @ 12% | Section rules, row dividers |
+| `--rule` | body-text @ 20% | ink @ 20% | Stronger separators |
+| `--tag-border` | `#455258` | `#B9C0C4` | Tag chips, ghost buttons |
+| `--timeline-rail` | accent @ 35% | accent @ 30% | Timeline / stack spine |
 
-**Translucent shades** use the RGB-triple tokens so they invert with the theme:
+**Cyan budget:** the accent appears only where it communicates — active nav,
+section eyebrows, timeline markers, repo links, primary CTA, the `.` at the end
+of headlines, and stack-panel focus markers. Keep it well under 10% of any
+viewport. If a change makes the page "glow", remove accent, don't add.
 
-```css
-color: rgba(var(--ink-rgb), .65);   /* 65%-opacity ink; flips in dark mode */
-border: 1px solid rgba(var(--ink-rgb), .25);
-```
-
-Common ink opacities in use: `.7 .65 .6 .55 .5 .45 .4 .3 .25 .18`.
-
-**Fixed (never-invert) tokens** — for elements that must stay dark in *both*
-themes (the Contact panel):
-
-| Token | Value |
-| --- | --- |
-| `--ink-fixed` / `--ink-fixed-rgb` | `#1d2126` / `29,33,38` |
-| `--paper-fixed` / `--paper-fixed-rgb` | `#f1f2f3` / `241,242,243` |
-
-> Rule of thumb: content colors use `--ink` / `--paper`. Only the intentionally
-> always-dark Contact section uses the `*-fixed` tokens.
-
----
+The important thing is that the background is **not pure black** — `#07131B`
+has enough blue in it to feel rich rather than terminal-black.
 
 ## 2. Typography
 
-Two self-hosted families, subset by `unicode-range`:
+Three self-hosted families, three fixed roles. Do not lean on bold — the
+design depends on typography and spacing, not weight.
 
-| Family | Role | Where |
+| Family | Weights | Role |
 | --- | --- | --- |
-| **Instrument Serif** (400, + italic) | Display / editorial | Logo, section headings, hero, pull-quotes, taglines, layer names |
-| **Libre Franklin** (400/500/600) | Body / UI | Paragraphs, nav, labels, everything else |
-| `ui-monospace, Menlo` | Mono accents | Tags, kbd, section markers, tech chips |
+| Cormorant Garamond | 400, 500, 400i | Display: `h1`, section titles, connect statement |
+| Inter | 400, 500, 600 | Body copy, card text, layer names |
+| IBM Plex Mono | 400, 500 | Nav, eyebrows, tags, dates, buttons, repo names, footer |
 
-**Type scale** (px, as used in markup — not a rigid ramp, but stay near these):
-
-```
-11  11.5  12  12.5   → labels, tags, section markers, mono chips
-13  13.5  14  14.5   → body copy, card descriptions, italic asides
-15  15.5  16  16.5   → lead paragraphs, card titles
-17  18  22  24       → pull-quotes, layer detail name, project names
-32                   → logo
-38                   → section headings (h2)
-clamp(24px,2.6vw,34px)  → contact quote
-clamp(42px,4.6vw,62px)  → hero headline (fluid)
-```
-
-- Headings & display: `font-weight: 400` Instrument Serif (never bold it — the
-  serif carries the weight).
-- Emphasis inside display text: wrap in `<em style="color:var(--accent)">` —
-  italic + accent (e.g. hero "*ensure*").
-- Body emphasis: `font-weight: 600` Libre Franklin.
-- Italic Instrument Serif is the "voice" style — taglines, lessons, asides.
-
----
+Scale: hero title `clamp(44px, 4.2vw, 62px)` at line-height 0.98 and
+letter-spacing −0.025em; section titles `clamp(34px, 3vw, 48px)`; body 16/1.65;
+small 13–14px; mono labels 10.5–12px, uppercase, letter-spacing 0.05–0.08em.
+Headlines end with a cyan period (`<span class="accent">.</span>`) — that tiny
+accent is enough; never colorize half a headline.
 
 ## 3. Layout
 
-- **Shell:** CSS grid `200px 1fr` — sticky left sidebar + scrolling main
-  column (`.app-shell`). Collapses to a single column under **820px**.
-- **Section padding:** `104px 72px 72px` desktop (top bumped for rhythm),
-  `72px 28px` mobile. Sections separated by a `1px solid var(--ink)` bottom
-  border.
-- **Content width:** cap prose with `max-width` in `em` (`40–52em`) so lines
-  don't run too long.
-- **Section markers:** each `<section>` has `data-num="NN"` +
-  `data-screen-label="…"`; CSS renders `NN / LABEL` in the top-left gutter via
-  `::before`. **When adding a section, set both attributes** or the marker
-  won't show.
-
----
-
-## 4. Components & patterns
-
-- **Sidebar masthead:** logo `AG.` (accent period) → italic tagline
-  (`est. 2016, still climbing`) → nav → `⌘K` hint + theme toggle pinned bottom
-  (`margin-top:auto` on the first pinned control).
-- **Nav scroll-spy:** `.nav-link` dims to `rgba(var(--ink-rgb),.4)`;
-  `.is-active` goes accent. Driven by an IntersectionObserver in `main.js`.
-- **Card rows** (Work / The Climb): a `grid` row with a `1px` top hairline;
-  the *last* card in a group carries `border-bottom:1px solid var(--ink)` to
-  close the stack. **If you add/remove a last card, move that closing border.**
-- **The Stack explorer:** a list of `.layer-row` buttons + a `.layer-detail`
-  panel. Data lives in the `#layers-data` JSON `<script>`; `main.js` renders
-  the active layer. Supports click + arrow keys, with a swap animation.
-- **Command palette (`⌘K`):** overlay in `index.html` (`#cmdk`), logic in
-  `main.js`. To add a command, push to the `COMMANDS` array (label, hint, run).
-- **Hover states:** converted from the design's `style-hover` to
-  `[data-hv="hvN"]:hover` rules in CSS (`hv1` = accent border, `hv2` = paper
-  border). Reuse these instead of inline `:hover`.
-
----
-
-## 5. Motion
-
-Quiet and purposeful. Everything is wrapped for accessibility:
-
-```css
-@media (prefers-reduced-motion: reduce) { /* animations disabled */ }
+```
+┌────────────┬──────────────────────────────┐
+│ sidebar    │ main (max 1180px, centered)  │
+│ 168px      │ 48px side gutters            │
+│ sticky     │ sections: 72px vertical pad  │
+└────────────┴──────────────────────────────┘
 ```
 
-- `fadeUp` — hero entrance.
-- `panelIn` — Stack detail swap (`.layer-detail.swap`).
-- Theme + palette transitions: `.16s–.3s ease`.
-- Keep new motion in this register. No parallax, no particles, no auto-play.
+- One continuous charcoal canvas; sections separated by `--border-subtle`
+  1px rules, **not** alternating background blocks.
+- Sidebar: brand (`ANANT` cyan / `GUPTA` primary, mono), numbered nav
+  (`01 About` …), footer utilities (theme toggle, email, GitHub, LinkedIn).
+  Active nav item = cyan text + 2px cyan tick at the rail's left edge — no
+  pill backgrounds.
+- Sections and ids: `#about` (hero), `#journey`, `#work`, `#builds`,
+  `#thinking`, `#connect`. Eyebrows are unnumbered (`The Journey`); only the
+  sidebar nav carries the `01`–`06` numerals.
+- **Hero** is a two-column grid (copy | portrait) with the three facts
+  (Currently / Focus / Outside work) as a full-width band on row 2, divided by
+  vertical hairlines and sitting under a rule. Placement is explicit
+  (`grid-row`/`grid-column`) so the band stays last regardless of DOM order.
+  Below 880px everything stacks and the band's dividers flip from vertical to
+  horizontal — reset `.meta-block + .meta-block`'s `border-left`, not just
+  `.meta-block`, or the vertical rules survive the stack.
 
----
+**Breakpoints:** ≤1140px the hero meta column drops below the copy as a 4-up
+strip; ≤880px the sidebar is replaced by a sticky mobile top bar (brand + nav
+row + toggle) and all grids collapse to one column; ≤560px meta goes 1-col and
+connect buttons go full-width.
 
-## 6. Theming (dark mode)
+## 4. Components
 
-- Toggle in the sidebar; state saved to `localStorage.theme`. **Dark is the
-  default** for first-time visitors; a returning visitor's saved choice wins.
-- An **inline script in `<head>`** sets `data-theme` *before first paint* to
-  avoid a flash — keep it there and inline.
-- Because everything is tokenized, dark mode is a single variable swap. A new
-  element automatically supports dark mode **if it only uses tokens**.
+- **Cards** (`.card`): `--bg-surface`, 1px `--border`, radius 8, padding 26px.
+  Hover: surface-hover + accent-ish border + `translateY(-1px)` at 160ms. No
+  shadows. Tags pinned to the bottom via flex `margin-top: auto`.
+- **Tags** (`.tag`): transparent, 1px `--tag-border`, radius 4, mono 11px.
+  Never filled, never colorful.
+- **Buttons** (`.btn`): ghost outline, mono uppercase, radius 6. Primary CTA
+  = accent border + accent text, hover fills with `--accent-bg` only.
+- **Journey path** (`.path`): horizontal timeline — a 1px full-width rail at
+  accent-35% with a 10px hollow circle (1.5px accent border, page-color fill)
+  at the start of each of the five phase columns. Era in cyan mono, phase
+  title in Inter 600, description in secondary. Below 980px it flips to a
+  vertical rail with the same ingredients.
+- **Stack panel** (`.stack-panel`): one outlined surface panel listing the
+  seven agent-stack layers. Marker circles: hollow = adjacent layer, filled
+  cyan = concentration area. `Infrastructure` is the foundation row —
+  stronger top rule + faint `--accent-bg` tint. A vertical spine connects
+  markers (hidden on mobile).
+- **Portrait** (`.hero-portrait`): aspect 4/5, radius 8, hairline border,
+  `object-fit: cover`. `assets/images/portrait.jpg` is pre-cropped to 4:5 at
+  704×880, so it fills the frame without the browser cropping further — keep
+  any replacement at that ratio. The photograph is the page's source of warmth;
+  don't recolor the UI to compete with it.
 
----
+## 5. Theme toggle
 
-## 7. How to make common changes
+Inline head script applies the saved theme before first paint (default dark).
+`main.js` flips `data-theme` on `<html>`, persists to `localStorage`, and
+relabels the buttons — the label names the mode it switches **to** (shows
+"Light" while dark). Both the sidebar and mobile-bar toggles share the
+`.theme-toggle` class and stay in sync.
 
-- **Edit copy:** find the text in `index.html` and edit in place.
-- **Add a project card:** copy an existing card row; keep the closing
-  `border-bottom` on whichever card is now last.
-- **Add a nav section:** add the `<section id data-num data-screen-label>`, add a
-  matching `.nav-link` in the sidebar, and add a `Go to …` entry to `COMMANDS`
-  in `main.js`.
-- **Change a color globally:** edit the token in `:root` (and its dark
-  counterpart). Never search-replace hex values in markup.
-- **Bust caches after CSS/JS edits:** the `<link>`/`<script>` carry a
-  `?v=YYYYMMDD…` query — bump it so returning visitors get the new file.
+## 6. Conventions
 
----
-
-## 8. Conventions & guardrails
-
-- **Plain static only** — no build step, no framework, no npm. If a change
-  needs a bundler, reconsider it.
-- **Tokens, not literals** — every color goes through a CSS variable.
-- **Progressive enhancement** — the page must read fully with JS disabled; JS
-  only *enhances* (scroll-spy, palette, explorer, theme).
-- **Self-contained** — no external CDNs, fonts, or scripts. Everything ships in
-  the repo (matters for privacy and offline/first-paint).
-- **Accessibility** — honor `prefers-reduced-motion`; keep focus styles
-  (`:focus-visible`); keep `aria-*` on the palette and toggle.
-- **Deploy is live** — pushing `main` publishes immediately. Preview locally
-  (`python3 -m http.server`) before merging.
-
-### Known cleanup opportunity
-
-`assets/images/` still contains ~90 images from the **previous** portfolio
-(`project-*`, tech-stack logos, `blog-*`, avatars) that this design does **not**
-reference. They're kept for now but can be pruned to slim the repo — the current
-site only needs `assets/images/new_logo.png` (favicon).
+- **Cache-busting:** `style.css` and `main.js` are linked with a `?v=YYYYMMDD`
+  token in `index.html`. Bump it on every CSS/JS change or returning visitors
+  keep the stale cached file.
+- **Icons:** tiny inline SVGs, `stroke="currentColor"`, 13px, feather-style.
+  No icon fonts, no external sets.
+- **Accessibility:** skip-link, `:focus-visible` outlines, `aria-label`s on
+  icon-only controls, `prefers-reduced-motion` kills transitions and smooth
+  scroll.
+- **Content edits** happen directly in `index.html` — keep the copy voice
+  factual and understated; the design carries the polish.
