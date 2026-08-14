@@ -1,368 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anant Gupta — Staff Data Scientist / AI Engineer</title>
-  <meta name="description" content="Anant Gupta — Staff Data Scientist / AIML Engineer at Walmart Global Tech. I build AI systems for production, and spend most of my time on whether they actually work. Evaluation systems, LLM frameworks, agent orchestration.">
+  <title>Anant Gupta — Staff AI Engineer / Data Scientist · Walmart Global Tech</title>
+  <meta name="description" content="Anant Gupta — Staff AI Engineer / Data Scientist at Walmart Global Tech. Most of my work sits at the intersection of evaluation, agentic systems, and the infrastructure that makes them useful and reliable.">
   <meta name="author" content="Anant Gupta">
+  <meta name="theme-color" content="#050D14">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Anant Gupta — Staff Data Scientist / AI Engineer">
-  <meta property="og:description" content="I build AI systems for production, and spend most of my time on whether they actually work.">
+  <meta property="og:title" content="Anant Gupta — Staff AI Engineer / Data Scientist">
+  <meta property="og:description" content="Most of my work sits at the intersection of evaluation, agentic systems, and the infrastructure that makes them useful and reliable.">
   <meta property="og:url" content="https://anant-gupta-utexas.github.io/">
   <meta name="twitter:card" content="summary">
 
   <link rel="canonical" href="https://anant-gupta-utexas.github.io/">
   <link rel="icon" href="assets/images/new_logo.png" type="image/png">
 
-  <link rel="preload" href="assets/fonts/instrument-serif-normal-2.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/libre-franklin-normal-2.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20260724a">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-v21-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-mono-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=20260813g">
   <script>
-    // Set theme before first paint to avoid a flash. A returning visitor's
-    // saved choice wins; otherwise the site defaults to dark.
+    // Apply the saved theme before first paint so there's no flash.
+    // Dark is the default for first-time visitors.
     (function () {
-      try {
-        var saved = localStorage.getItem('theme');
-        var dark = saved ? saved === 'dark' : true;
-        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {}
+      var t = 'dark';
+      try { if (localStorage.getItem('theme') === 'light') t = 'light'; } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
-<div class="app-shell" style="display:grid;grid-template-columns:200px 1fr;min-height:100vh">
+<a class="skip-link" href="#about">Skip to content</a>
+
+<div class="shell">
+
+<!-- ======= MOBILE TOP BAR (hidden ≥881px) ======= -->
+<header class="mobile-bar">
+  <div class="mobile-bar-top">
+    <a class="brand" href="#about"><span class="brand-accent">ANANT</span> GUPTA</a>
+    <button type="button" class="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span class="theme-label">Light</span>
+    </button>
+  </div>
+  <nav class="mobile-nav" aria-label="Sections">
+    <a href="#about" data-nav="about">About</a>
+    <a href="#journey" data-nav="journey">Journey</a>
+    <a href="#work" data-nav="work">Work</a>
+    <a href="#builds" data-nav="builds">Builds</a>
+    <a href="#thinking" data-nav="thinking">Thinking</a>
+    <a href="#connect" data-nav="connect">Connect</a>
+  </nav>
+</header>
 
 <!-- ======= SIDEBAR ======= -->
-<div class="sidebar" style="border-right:1px solid var(--ink)">
-<div class="sidebar-inner" style="position:sticky;top:0;height:100vh;box-sizing:border-box;padding:36px 24px;display:flex;flex-direction:column">
-  <a href="#s-about" style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;letter-spacing:-.01em">AG<span style="color:var(--accent)">.</span></a>
-  <div class="sidebar-tagline" style="margin-top:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:rgba(var(--ink-rgb),.5)">est. 2016,<br>still climbing</div>
-  <nav style="display:flex;flex-direction:column;gap:14px;margin-top:44px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">
-    <a href="#s-about" class="nav-link" data-nav="s-about" style="transition:color .2s">About</a>
-    <a href="#s-climb" class="nav-link" data-nav="s-climb" style="transition:color .2s">The Journey</a>
-    <a href="#s-work" class="nav-link" data-nav="s-work" style="transition:color .2s">Work</a>
-    <a href="#s-builds" class="nav-link" data-nav="s-builds" style="transition:color .2s">Builds</a>
-    <a href="#s-ahead" class="nav-link" data-nav="s-ahead" style="transition:color .2s">Keeping Up</a>
-    <a href="#s-stack" class="nav-link" data-nav="s-stack" style="transition:color .2s">The Stack</a>
-    <a href="#s-contact" class="nav-link" data-nav="s-contact" style="transition:color .2s">Contact</a>
-  </nav>
-  <button type="button" id="cmdk-open" class="cmdk-hint" style="margin-top:auto" aria-label="Open command palette">
-    <span>Search</span><kbd>⌘K</kbd>
-  </button>
-  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme (light / dark)">
-    <span class="theme-toggle-icon" aria-hidden="true"></span>
-    <span class="theme-toggle-label">Dark</span>
-  </button>
-</div>
-</div>
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <a class="brand" href="#about"><span class="brand-accent">ANANT</span><br>GUPTA</a>
+
+    <nav class="side-nav" aria-label="Sections">
+      <a href="#about" data-nav="about"><span class="n">01</span>About</a>
+      <a href="#journey" data-nav="journey"><span class="n">02</span>Journey</a>
+      <a href="#work" data-nav="work"><span class="n">03</span>Work</a>
+      <a href="#builds" data-nav="builds"><span class="n">04</span>Builds</a>
+      <a href="#thinking" data-nav="thinking"><span class="n">05</span>Thinking</a>
+      <a href="#connect" data-nav="connect"><span class="n">06</span>Connect</a>
+    </nav>
+
+    <div class="side-foot">
+      <button type="button" class="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span class="theme-label">Light</span>
+      </button>
+      <div class="foot-rule" aria-hidden="true"></div>
+      <a href="mailto:anant.gupta@utexas.edu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email</a>
+      <a href="https://github.com/anant-gupta-utexas" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub</a>
+      <a href="https://linkedin.com/in/anant-utexas" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1a6 6 0 0 1 2-2z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn</a>
+    </div>
+  </div>
+</aside>
 
 <!-- ======= MAIN ======= -->
-<div style="min-width:0">
+<main>
 
-<!-- 01 ABOUT / HERO -->
-<section id="s-about" data-screen-label="About" style="padding:96px 72px 72px;border-bottom:1px solid var(--ink);animation:fadeUp .7s ease both" data-num="01">
-  <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">Anant Gupta — Staff Data Scientist / AIML Engineer · Walmart Global Tech</div>
-  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,4.6vw,62px);line-height:1.08;letter-spacing:-.015em;margin:22px 0 0;max-width:14em">I build AI systems for production, and spend most of my time on whether they <em style="color:var(--accent)">actually</em> work.</h1>
-  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:30px;font-size:13.5px;color:rgba(var(--ink-rgb),.65)">
-    <span><strong style="color:var(--ink)">9+ years</strong> — analyst to specialist</span>
-    <span><strong style="color:var(--ink)">Deep on</strong> agentic systems, DevEx &amp; evaluation</span>
-    <span><strong style="color:var(--ink)">Happier with</strong> a number than a demo</span>
-  </div>
-  <div class="about-venn" style="display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;max-width:60em;margin-top:48px;border-top:1px solid rgba(var(--ink-rgb),.25);padding-top:36px;align-items:center">
-    <div>
-      <p style="font-size:16.5px;line-height:1.7;margin:0"><em style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 19px; color: var(--accent);">Namaste.</em> My title has usually said Data Scientist. In practice the work kept drifting — pipelines one year, models the next, agentic systems now. What's stayed constant is what I enjoy: writing framework code, helping people think through a hard problem, and having a good chuckle along the way.</p>
-      <p style="font-size:16.5px;line-height:1.7;margin:16px 0 0;color:rgba(var(--ink-rgb),.7)">I pick up a new hobby every year. Right now it's pottery. Before that, salsa and house dancing, which stuck — you'll often catch me breaking into something while a coding agent grinds through a task in the other window. It's the same reflex that took a civil engineering graduate into production generative AI: I keep taking the step where I understand the least.</p>
-    </div>
-    <div>
-      <svg viewBox="0 0 340 320" style="width:100%;max-width:320px;height:auto;overflow:visible;display:block;margin:0 auto">
-        <circle cx="110" cy="115" r="98" fill="var(--accent-11)"></circle>
-        <circle cx="230" cy="115" r="98" fill="var(--accent-11)"></circle>
-        <circle cx="170" cy="195" r="98" fill="var(--accent-11)"></circle>
-        <circle cx="110" cy="115" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
-        <circle cx="230" cy="115" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
-        <circle cx="170" cy="195" r="98" fill="none" stroke="var(--ink)" stroke-width="1.2"></circle>
-        <text x="82" y="98" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">DOMAIN</text>
-        <text x="82" y="111" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">EXPERTISE</text>
-        <text x="260" y="108" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">ENGINEERING</text>
-        <text x="170" y="268" font-family="Libre Franklin" font-weight="600" font-size="10" fill="var(--ink)" text-anchor="middle" letter-spacing="0.5">BUSINESS IMPACT</text>
-        <text x="170" y="150" font-family="Instrument Serif" font-style="italic" font-size="18" fill="var(--ink)" text-anchor="middle">judgment</text>
-      </svg>
-    </div>
-  </div>
-</section>
+  <!-- ======= 01 ABOUT ======= -->
+  <section id="about" class="hero" aria-label="About">
+    <p class="hero-hello">Namaste.</p>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title">I build AI systems<br>for production<span class="accent">.</span></h1>
+        <p class="hero-lede">Most of my work sits at the intersection of evaluation, agentic systems, and the infrastructure that makes them useful and reliable.</p>
+        <div class="hero-rule" aria-hidden="true"></div>
+        <p>My titles have mostly said Data Scientist, but over time the work has moved steadily toward engineering&mdash;data systems, ML infrastructure, LLM applications, evaluation, and now agentic systems.</p>
+        <p>I like ambiguous problems, building things from scratch, figuring out whether they actually work, and having a <span class="accent">good chuckle</span> along the way.</p>
+      </div>
 
-<!-- 02 THE JOURNEY -->
-<section id="s-climb" data-screen-label="The Journey" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="02">
-  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The journey</h2>
-  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:40em">Each role built on the last. None of them felt like a plan at the time — looking back, they stacked.</p>
-  <div style="display:flex;flex-direction:column;margin-top:32px;max-width:52em">
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:18px 0;border-top:1px solid var(--ink)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">Now</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">SPECIALIST</div></div>
-      <div>
-        <div style="font-weight:600;font-size:16px">The LLM chapter. Newer problems, same old habit of measuring things.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;color:rgba(var(--ink-rgb),.6);margin-top:5px">Currently deep in agentic systems, evaluation, and human-in-the-loop orchestration.</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:18px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2022–</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">ARCHITECT</div></div>
-      <div>
-        <div style="font-weight:600;font-size:16px">A mentor reset the whole trajectory with one idea.</div>
-        <div style="border-left:2px solid var(--accent);padding-left:16px;margin-top:10px;font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;line-height:1.45;color:var(--ink)">"ML without operations and engineering is just research with zero business value. Engineering is a one-time investment that compounds forever."</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;color:rgba(var(--ink-rgb),.6);margin-top:8px">Realized engineering skills are force multipliers.</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:18px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2020–22</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">DATA SCIENTIST</div></div>
-      <div>
-        <div style="font-weight:600;font-size:16px">Healthcare analytics, plus an intense analytics master's at UT Austin.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;color:rgba(var(--ink-rgb),.6);margin-top:5px">POCs teach; only production creates value. Learnt to bridge that gap.</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:18px 0;border-top:1px solid rgba(var(--ink-rgb),.25)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2016–19</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">ANALYST</div></div>
-      <div>
-        <div style="font-weight:600;font-size:16px">Learned the craft in fast, chaotic digital-marketing analytics.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;color:rgba(var(--ink-rgb),.6);margin-top:5px">The next door usually opens through people — stay connected.</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:18px 0;border-top:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid var(--ink)">
-      <div><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--accent)">2016</div><div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(var(--ink-rgb),.45);margin-top:4px">THE PIVOT</div></div>
-      <div>
-        <div style="font-weight:600;font-size:16px">Trained as a civil engineer. Started over in digital-marketing analytics.</div>
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;color:rgba(var(--ink-rgb),.6);margin-top:5px">At the bottom, with no network in tech.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 WORK -->
-<section id="s-work" data-screen-label="Work" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="03">
-  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I've built professionally</h2>
-  <p style="font-size:15.5px;line-height:1.7;color:rgba(var(--ink-rgb),.7);margin:18px 0 0;max-width:44em">Over 9+ years I've gone from operations analytics to building production generative-AI platforms at enterprise scale — evaluation systems, LLM frameworks used across teams, and automated analysis tools that put AI-generated insight in front of decision-makers. The common thread is production: systems other people build on, with enough measurement to tell whether they're holding up. I learned that one the hard way — a demo and a shipped system are different animals.</p>
-  <div class="work-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid var(--ink)">
-    <div class="work-card" style="display:flex;flex-direction:column;padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="font-weight:600;font-size:16.5px">A production evaluation platform for generative-AI systems.</div>
-      <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:8px">Replaced slow, subjective, manual testing with automated, objective, continuously-run evaluation wired into the delivery pipeline — quality measured on every change instead of guessed at, now foundational to how AI ships across the org.</div>
-      <div class="work-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px">
-        <span class="work-tag">distributed systems</span><span class="work-tag">async jobs</span><span class="work-tag">LLM-as-judge</span><span class="work-tag">retrieval quality</span><span class="work-tag">CI/CD</span><span class="work-tag">platform engineering</span>
-      </div>
-    </div>
-    <div class="work-card" style="display:flex;flex-direction:column;padding:28px;border-bottom:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="font-weight:600;font-size:16.5px">A root cause analysis framework that turns detection into action — at company scale.</div>
-      <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:8px">Built the framework that lets domain teams (pricing, replenishment, space) compose end-to-end workflows: detect an anomalous business signal, quantify what caused it, recommend the corrective action, keep a human-in-the-loop on the risky ones.</div>
-      <div class="work-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px">
-        <span class="work-tag">anomaly detection</span><span class="work-tag">causal attribution</span><span class="work-tag">agent orchestration</span><span class="work-tag">audit &amp; traceability</span><span class="work-tag">human-in-the-loop</span>
-      </div>
-    </div>
-    <div class="work-card" style="display:flex;flex-direction:column;padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="font-weight:600;font-size:16.5px">A natural-language-to-data query engine that opened data access up past the analysts.</div>
-      <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:8px">Let non-technical employees query complex databases in plain language — thousands of hours of manual pulls avoided, and the data team got their week back from repetitive support requests.</div>
-      <div class="work-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px">
-        <span class="work-tag">text-to-SQL</span><span class="work-tag">self-service analytics</span><span class="work-tag">semantic layers</span>
-      </div>
-    </div>
-    <div class="work-card" style="display:flex;flex-direction:column;padding:28px">
-      <div style="font-weight:600;font-size:16.5px">An LLM application framework adopted across multiple engineering teams.</div>
-      <div style="font-size:14px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin-top:8px">Extracted common patterns from production AI systems into a shared framework — provider-abstracted inference, memory management, agent orchestration, observability baked in — so teams stopped rebuilding the same infrastructure.</div>
-      <div class="work-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px">
-        <span class="work-tag">framework design</span><span class="work-tag">developer experience</span><span class="work-tag">agent orchestration</span><span class="work-tag">observability</span>
-      </div>
-    </div>
-  </div>
-  <p style="font-size:13px;line-height:1.6;color:rgba(var(--ink-rgb),.5);margin:20px 0 0;max-width:44em">The breadth beneath the depth: enterprise RAG on vector databases, a massive pipeline migration to distributed compute on cloud, A/B-testing frameworks and recommenders in marketing, healthcare risk-stratification modeling.</p>
-</section>
-
-<!-- 05 BUILDS -->
-<section id="s-builds" data-screen-label="Builds" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="04">
-  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">What I build personally</h2>
-  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:rgba(var(--ink-rgb),.55);margin-top:14px">Small enough to finish, real enough to break.</div>
-  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:42em">Instrumented systems for my own life and learning — one measurement layer, one orchestrator. Nobody assigned any of this. I build it because the problems are interesting and because it keeps me honest about whether I can still ship something end to end.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid var(--ink)">
-    <div style="padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25);border-bottom:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">plumb</span><a href="https://github.com/anant-gupta-utexas/plumb" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
-      <div style="font-weight:600;font-size:14px;margin-top:10px">A measurement spine for multi-agent systems.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Four tables, two entry points; everything else is a query. Measures what telemetry tools miss — human acceptance, routing quality, handoff quality, cost-per-resolved-task. A failing production run becomes a regression test in one call.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The whole design is an exercise in restraint.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · SQLite · Pydantic</div>
-    </div>
-    <div style="padding:28px;border-bottom:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">atlas</span><a href="https://github.com/anant-gupta-utexas/atlas" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
-      <div style="font-weight:600;font-size:14px;margin-top:10px">A local-first agent orchestrator and task runtime.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">First customer: a multi-stage dev workflow (research → spec → design → review → code) where every stage emits a measurement span — the pipeline measures itself end to end. Git worktrees as the code-gen boundary.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">Instrumented from the first commit.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · CLI · SQLite · git worktrees</div>
-    </div>
-    <div style="padding:28px;border-right:1px solid rgba(var(--ink-rgb),.25)">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">content-pipeline</span><a href="https://github.com/anant-gupta-utexas/content-pipeline" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
-      <div style="font-weight:600;font-size:14px;margin-top:10px">Curated ingestion for my knowledge base.</div>
-      <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Capture → extract → classify: turns a deliberately-chosen information diet into structured, usable knowledge. Instrumented with plumb from day one.</div>
-      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The engine behind what I actually end up reading.</div>
-      <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · LLM classification · plumb-instrumented</div>
-    </div>
-    <div style="padding:28px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Instrument Serif',serif;font-size:24px">slo-recommendation</span><a href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent)">repo ↗</a></div>
-      <div>
-        <div>
-          <div style="font-weight:600;font-size:14px;margin-top:10px">A GNN-based SLO recommender for microservice graphs.</div>
-          <div style="font-size:13.5px;line-height:1.6;color:rgba(var(--ink-rgb),.65);margin-top:6px">Models service dependencies as a directed graph and trains a graph neural network to suggest achievable availability/latency SLOs with confidence. Production-shaped: metrics, structured logging, tracing, CI/CD.</div>
+      <div class="hero-meta">
+        <div class="meta-block">
+          <p class="meta-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            Currently</p>
+          <p class="meta-value">Staff AI Engineer / Data Scientist, Walmart Global Tech</p>
         </div>
-        <div>
-          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:13.5px;color:rgba(var(--ink-rgb),.55);margin-top:10px">The research↔production bridge, made concrete — an ML-research-flavored technique wrapped in production engineering.</div>
-          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(var(--ink-rgb),.5);margin-top:12px">Python · FastAPI · PostgreSQL · GNN · OpenTelemetry</div>
+        <div class="meta-block">
+          <p class="meta-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+            Focus</p>
+          <p class="meta-value">Agentic systems &middot; Evaluation &middot; Developer infrastructure</p>
+        </div>
+        <div class="meta-block">
+          <p class="meta-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Outside work</p>
+          <p class="meta-value">Pottery, salsa, books, music festivals</p>
         </div>
       </div>
-    </div>
-  </div>
-  
-  <div style="margin-top:28px">
-    <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(var(--ink-rgb),.45)">Utilities &amp; templates</div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
-      <a href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">ai-workx — Claude Code plugin marketplace ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">python-scaffolding ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">go-scaffolding ↗</a>
-      <a href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px 14px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px;transition:border-color .2s" data-hv="hv1">react-scaffolding ↗</a>
-    </div>
-  </div>
-  
-</section>
 
-<!-- 06 STAYING AHEAD -->
-<section id="s-ahead" data-screen-label="Keeping Up" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="05">
-  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">How I keep up</h2>
-  <p style="font-size:15.5px;line-height:1.7;color:rgba(var(--ink-rgb),.7);margin:18px 0 0;max-width:44em">The field moves faster than I do, so I gave up on keeping up by reading more. What works instead is a ~200-page personal knowledge base — borrowed from Andrej Karpathy's habit of keeping a personal wiki — built from the articles, papers, talks, and authors I <em>choose</em> to learn from. I ingest a source, distill it, cross-link it, and periodically re-weave the whole thing so the ideas stay connected.</p>
-  <div style="display:flex;align-items:center;gap:0;margin-top:36px;flex-wrap:wrap">
-    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">SOURCES I TRUST</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
-    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CURATE</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
-    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">DISTILL</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
-    <div style="padding:16px 22px;border:1px solid var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">CONNECT</div>
-    <div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:0 12px;color:var(--accent)">→</div>
-    <div style="padding:16px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em">BUILD</div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;max-width:52em">
-    <div>
-      <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(var(--ink-rgb),.45)">Current topic clusters</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent evaluation</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent harnesses &amp; runtimes</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">agent security</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">dev-productivity measurement</span>
-        <span style="font-size:12.5px;padding:6px 12px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:999px">AI economics</span>
+      <figure class="hero-portrait">
+        <img src="assets/images/portrait.jpg" alt="Anant Gupta seated on a forest deck, holding a mug of coffee" width="704" height="880">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======= 02 JOURNEY ======= -->
+  <section id="journey" aria-label="The journey">
+    <p class="eyebrow">The Journey</p>
+    <h2 class="section-title">How the path unfolded<span class="accent">.</span></h2>
+    <p class="section-lede">The path wasn't particularly planned. Each role added a layer that became useful in the next one.</p>
+
+    <ol class="path">
+      <li>
+        <p class="path-era">2016 &ndash; 2018</p>
+        <h3 class="path-title">Foundations in analytics</h3>
+        <p class="path-desc">Started with business analytics, reporting, and building dashboards that helped teams make sense of their data.</p>
+      </li>
+      <li>
+        <p class="path-era">2018 &ndash; 2020</p>
+        <h3 class="path-title">Machine learning</h3>
+        <p class="path-desc">Dived into ML&mdash;models, experiments, and deployments. Built systems that turned insights into predictions.</p>
+      </li>
+      <li>
+        <p class="path-era">2020 &ndash; 2022</p>
+        <h3 class="path-title">Production AI systems</h3>
+        <p class="path-desc">Focused on taking models to production at scale. Reliability, monitoring, and feedback loops became center stage.</p>
+      </li>
+      <li>
+        <p class="path-era">2022 &ndash; 2024</p>
+        <h3 class="path-title">GenAI in production</h3>
+        <p class="path-desc">Worked on LLM applications, retrieval systems, evals, and tools to make them grounded and trustworthy.</p>
+      </li>
+      <li>
+        <p class="path-era">2024 &ndash; Now</p>
+        <h3 class="path-title">Agentic systems</h3>
+        <p class="path-desc">Building and operating agentic workflows and infrastructure that can reason, act, and learn in the real world.</p>
+      </li>
+    </ol>
+
+    <div class="edu">
+      <p class="edu-label">Education</p>
+      <div class="edu-rows">
+        <p class="edu-row"><span class="edu-degree">MS Business Analytics</span> <span class="edu-school">UT Austin &middot; 2022</span></p>
+        <p class="edu-row"><span class="edu-degree">B.Tech Civil Engineering</span> <span class="edu-school">NIT Kurukshetra &middot; 2016</span></p>
       </div>
     </div>
-    <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(var(--ink-rgb),.7);align-self:center">I'd rather pick what I read than have it picked for me. The pipeline that feeds this is a project card above.</div>
-  </div>
-</section>
+  </section>
 
-<!-- 07 THE STACK -->
-<section id="s-stack" data-screen-label="The Stack" style="padding:64px 72px 72px;border-bottom:1px solid var(--ink)" data-num="06">
-  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;margin:0">The agent stack, and where I work in it</h2>
-  <p style="font-size:15px;line-height:1.65;color:rgba(var(--ink-rgb),.65);margin:16px 0 0;max-width:42em">"Agent" hides more than it explains. The unit I find useful is the stack of layers that turns model output into bounded action. Here's that stack, and an honest map of where I've built, where I've shipped for myself, and where I've only read.</p>
-  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:18px;font-size:12.5px;color:rgba(var(--ink-rgb),.65)">
-    <span><span style="color:var(--accent)">●</span>&nbsp; built in production</span>
-    <span><span style="color:var(--accent-55)">◐</span>&nbsp; built for myself</span>
-    <span><span style="color:rgba(var(--ink-rgb),.4)">○</span>&nbsp; studied</span>
-    <span style="margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.04em;color:var(--accent)">Select a layer to explore →</span>
-  </div>
-  <div class="layer-explorer" style="display:grid;grid-template-columns:minmax(260px,400px) minmax(320px,1fr);gap:0;margin-top:28px;border:1px solid var(--ink)">
-    <div style="display:flex;flex-direction:column;border-right:1px solid var(--ink)">
-      <div class="layer-list">
-        <button type="button" class="layer-row" data-layer="0" data-tier="study" data-active="true">
-          <span class="layer-num">01</span>
-          <span class="layer-sym">○</span>
-          <span class="layer-name">Interfaces &amp; channels</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="1" data-tier="study">
-          <span class="layer-num">02</span>
-          <span class="layer-sym">○</span>
-          <span class="layer-name">Control plane &amp; session ownership</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="2" data-tier="self">
-          <span class="layer-num">03</span>
-          <span class="layer-sym">◐</span>
-          <span class="layer-name">Runtime, workflows &amp; durable execution</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="3" data-tier="study">
-          <span class="layer-num">04</span>
-          <span class="layer-sym">○</span>
-          <span class="layer-name">Model engine &amp; inference</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="4" data-tier="prod">
-          <span class="layer-num">05</span>
-          <span class="layer-sym">●</span>
-          <span class="layer-name">Context, retrieval &amp; memory</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="5" data-tier="prod">
-          <span class="layer-num">06</span>
-          <span class="layer-sym">●</span>
-          <span class="layer-name">Tools, MCP &amp; capability surfaces</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="6" data-tier="self">
-          <span class="layer-num">07</span>
-          <span class="layer-sym">◐</span>
-          <span class="layer-name">Execution surfaces</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="7" data-tier="study">
-          <span class="layer-num">08</span>
-          <span class="layer-sym">○</span>
-          <span class="layer-name">Identity, trust, policy &amp; approvals</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="8" data-tier="prod">
-          <span class="layer-num">09</span>
-          <span class="layer-sym">●</span>
-          <span class="layer-name">Observability, evaluation &amp; feedback loops</span>
-        </button>
-        <button type="button" class="layer-row" data-layer="9" data-tier="self">
-          <span class="layer-num">10</span>
-          <span class="layer-sym">◐</span>
-          <span class="layer-name">Infrastructure substrate</span>
-        </button>
+  <!-- ======= 03 WORK ======= -->
+  <section id="work" aria-label="Professional work">
+    <p class="eyebrow">The Work</p>
+    <h2 class="section-title">What I've built professionally<span class="accent">.</span></h2>
+    <p class="section-lede">Most of my recent work has been on the systems around production AI: evaluation, retrieval, orchestration, developer infrastructure, and the workflows that connect models to real decisions.</p>
+
+    <div class="card-grid">
+      <article class="card">
+        <h3>Production evaluation infrastructure for generative AI</h3>
+        <p>Built and owned evaluation infrastructure for production LLM applications, supporting both online and offline workflows across multiple teams.</p>
+        <p>The platform made evaluation part of the delivery process rather than a separate manual step, helping teams catch issues earlier, ship changes faster, and bring new data sources into the system with less custom work.</p>
+        <div class="tags">
+          <span class="tag">evaluation</span><span class="tag">distributed systems</span><span class="tag">LLM-as-judge</span><span class="tag">Kafka</span><span class="tag">CI/CD</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Root-cause analysis and signal detection</h3>
+        <p>Built a system for detecting anomalous business signals and generating structured analysis around them.</p>
+        <p>The work has since expanded into a broader root-cause-analysis framework that connects signal detection, causal attribution, and recommended actions, while keeping the workflow traceable and allowing people to remain involved where judgment is required.</p>
+        <div class="tags">
+          <span class="tag">anomaly detection</span><span class="tag">causal attribution</span><span class="tag">agent orchestration</span><span class="tag">human-in-the-loop</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Natural-language analytics</h3>
+        <p>Built a natural-language interface that lets business users ask questions in plain language and translates them into structured queries against a governed semantic layer.</p>
+        <p>The goal was to make analytical access more self-service without bypassing the definitions, business logic, and governance behind the underlying data. The system is now used by a large internal user base for recurring analytical questions that previously required more direct support from data and engineering teams.</p>
+        <div class="tags">
+          <span class="tag">natural-language analytics</span><span class="tag">semantic layers</span><span class="tag">self-service analytics</span><span class="tag">LLMs</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Shared framework for production LLM applications</h3>
+        <p>Designed a common framework for teams building LLM applications, covering agent orchestration, standardized interfaces, deployment workflows, and observability.</p>
+        <p>The framework was adopted across multiple engineering teams and replaced several pieces of duplicated infrastructure with a shared foundation that teams could extend for their own applications.</p>
+        <div class="tags">
+          <span class="tag">framework design</span><span class="tag">agent orchestration</span><span class="tag">developer experience</span><span class="tag">observability</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="earlier">
+      <h3>Earlier work</h3>
+      <div class="earlier-cols">
+        <p>Earlier projects included an enterprise retrieval-augmented conversational system with automated embedding pipelines, as well as the migration of a large-scale pricing data pipeline to distributed processing on GCP.</p>
+        <p>Those projects were where much of my work began shifting from applied analytics and modeling toward the infrastructure and engineering behind production ML systems.</p>
       </div>
     </div>
-          <div class="layer-detail" id="layer-detail">
-        <div class="layer-detail-meta">LAYER <span data-field="num">01</span> · <span data-field="tier">STUDIED</span></div>
-        <div class="layer-detail-name" data-field="name">Interfaces &amp; channels</div>
-        <p class="layer-detail-body" data-field="body">Where work enters the system — Slack, email, webhook, IDE, browser. Studied as the front of the request path; a capture front-end sits adjacent, turning a browser session into structured input.</p>
-        <div class="layer-detail-tags" data-field="tags">request path · capture front-ends</div>
+  </section>
+
+  <!-- ======= 04 BUILDS ======= -->
+  <section id="builds" aria-label="Personal builds">
+    <p class="eyebrow">The Builds</p>
+    <h2 class="section-title">What I build personally<span class="accent">.</span></h2>
+    <p class="section-lede">I use personal projects to explore problems that are interesting enough to build properly but small enough that I can own the system end to end.</p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div class="build-head">
+          <h3 class="build-name">plumb</h3>
+          <a class="repo-link" href="https://github.com/anant-gupta-utexas/plumb" target="_blank" rel="noopener">Repo &#8599;</a>
+        </div>
+        <p class="build-tagline">A measurement layer for multi-agent systems.</p>
+        <p class="build-desc">Captures the things ordinary telemetry often misses: human acceptance, routing quality, handoff quality, cost per resolved task, and other task-level outcomes.</p>
+        <p class="build-stack">Python &middot; SQLite &middot; Pydantic</p>
+      </article>
+
+      <article class="card">
+        <div class="build-head">
+          <h3 class="build-name">atlas</h3>
+          <a class="repo-link" href="https://github.com/anant-gupta-utexas/atlas" target="_blank" rel="noopener">Repo &#8599;</a>
+        </div>
+        <p class="build-tagline">A local-first agent orchestrator and task runtime.</p>
+        <p class="build-desc">Runs multi-stage development workflows &mdash; research, specification, design, review, and code &mdash; with each stage treated as a measurable span and isolated using git worktrees.</p>
+        <p class="build-stack">Python &middot; CLI &middot; SQLite &middot; git worktrees</p>
+      </article>
+
+      <article class="card">
+        <div class="build-head">
+          <h3 class="build-name">content-pipeline</h3>
+          <!-- Repo link intentionally omitted: the repository is private. -->
+        </div>
+        <p class="build-tagline">A curated ingestion pipeline for my personal knowledge base.</p>
+        <p class="build-desc">Captures source material, extracts and classifies it, and turns it into structured notes that I can search and connect later.</p>
+        <p class="build-stack">Python &middot; LLM classification &middot; plumb instrumentation</p>
+      </article>
+
+      <article class="card">
+        <div class="build-head">
+          <h3 class="build-name">slo-recommendation</h3>
+          <a class="repo-link" href="https://github.com/anant-gupta-utexas/slo-recommendation-engine" target="_blank" rel="noopener">Repo &#8599;</a>
+        </div>
+        <p class="build-tagline">A graph-based SLO recommendation system for microservices.</p>
+        <p class="build-desc">Models service dependencies as a graph and uses that structure to recommend achievable availability and latency SLOs with confidence estimates.</p>
+        <p class="build-stack">Python &middot; FastAPI &middot; PostgreSQL &middot; GNN &middot; OpenTelemetry</p>
+      </article>
+    </div>
+
+    <div class="utilities">
+      <span class="utilities-label">Utilities &amp; templates</span>
+      <div class="tags">
+        <a class="tag" href="https://github.com/anant-gupta-utexas/ai-workx" target="_blank" rel="noopener">ai-workx</a>
+        <a class="tag" href="https://github.com/anant-gupta-utexas/python-scaffolding" target="_blank" rel="noopener">python-scaffolding</a>
+        <a class="tag" href="https://github.com/anant-gupta-utexas/go-scaffolding" target="_blank" rel="noopener">go-scaffolding</a>
+        <a class="tag" href="https://github.com/anant-gupta-utexas/react-scaffolding" target="_blank" rel="noopener">react-scaffolding</a>
       </div>
     </div>
-  <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.55;color:rgba(var(--ink-rgb),.7);margin:28px 0 0;max-width:38em">Three layers I've shipped to production, three I've built for myself, four I've only read about closely enough to know roughly where they break. The gaps are the honest part.</p>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="s-contact" data-screen-label="Contact" style="padding:72px;background:var(--ink-fixed);color:var(--paper-fixed)" data-num="07">
-  <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.4;max-width:24em">The work I end up proudest of is usually the thing someone else kept building on after I'd moved to something else.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:36px;margin-top:48px;font-size:14px">
-    <a href="mailto:anant.gupta@utexas.edu" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">anant.gupta@utexas.edu</a>
-    <a href="https://linkedin.com/in/anant-utexas" target="_blank" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">LinkedIn ↗</a>
-    <a href="https://github.com/anant-gupta-utexas" target="_blank" style="color:var(--paper-fixed);border-bottom:1px solid rgba(var(--paper-fixed-rgb),.4);padding-bottom:3px" data-hv="hv2">GitHub ↗</a>
-  </div>
-  <div style="font-size:13px;color:rgba(var(--paper-fixed-rgb),.5);margin-top:48px;line-height:1.6">Also: music festivals, about 12 books a year, and cooking that ranges from "surprisingly good" to "let's order pizza."<br>Sunnyvale, CA · © 2026 Anant Gupta</div>
-</section>
+  <!-- ======= 05 THINKING ======= -->
+  <section id="thinking" aria-label="How I keep up and how I think">
+    <p class="eyebrow">Thinking</p>
+    <h2 class="section-title">How I keep up<span class="accent">.</span></h2>
+    <p class="section-lede">The field moves faster than I can follow by simply reading more.</p>
 
+    <div class="keepup-grid">
+      <div class="keepup-copy">
+        <p>Instead, I maintain a personal knowledge base built from papers, articles, talks, repositories, and authors I deliberately choose to follow. New material goes through a lightweight pipeline:</p>
+        <div class="pipeline" aria-label="Pipeline: curate, distill, connect, build">
+          <span class="step">curate</span><span class="arrow">&rarr;</span><span class="step">distill</span><span class="arrow">&rarr;</span><span class="step">connect</span><span class="arrow">&rarr;</span><span class="step">build</span>
+        </div>
+        <p>The useful part isn't collecting information. It's periodically revisiting it, connecting ideas across sources, and turning the ones that matter into something I can use.</p>
+      </div>
+
+      <div class="topics-panel">
+        <p class="meta-label">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Current topics</p>
+        <div class="tags">
+          <span class="tag">agent evaluation</span>
+          <span class="tag">agent harnesses &amp; runtimes</span>
+          <span class="tag">agent security</span>
+          <span class="tag">developer-productivity measurement</span>
+          <span class="tag">AI economics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="thinking-sub">
+      <h3 class="sub-title">How I think about agent systems<span class="accent">.</span></h3>
+      <p>I think of an agent as a system, not just a model with tools. In production, it has to manage context, execution, state, permissions, evaluation, and failure around the model itself.</p>
+      <p class="dim">This is the working model I use to reason about that system.</p>
+
+      <div class="stack-panel">
+        <div class="stack-caption">
+          <span>The agent stack &mdash; working model</span>
+          <span><span class="dot">&#9679;</span>&nbsp;Where my work concentrates</span>
+        </div>
+        <div class="stack-rows">
+          <div class="stack-row">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Interfaces</p>
+            <p class="layer-desc">Where work enters the system &mdash; applications, APIs, messaging surfaces, IDEs, and other entry points.</p>
+          </div>
+          <div class="stack-row focus">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Orchestration &amp; runtime</p>
+            <p class="layer-desc">Routing, session state, workflow execution, retries, checkpoints, and coordination across tasks and agents.</p>
+          </div>
+          <div class="stack-row focus">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Models, context &amp; memory</p>
+            <p class="layer-desc">Model selection and inference, retrieval, working context, persistent memory, and the knowledge available to the system.</p>
+          </div>
+          <div class="stack-row">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Tools &amp; execution</p>
+            <p class="layer-desc">The capabilities an agent can invoke and the environments in which those actions run.</p>
+          </div>
+          <div class="stack-row">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Trust &amp; control</p>
+            <p class="layer-desc">Identity, permissions, policy boundaries, approvals, and the points where human judgment is required.</p>
+          </div>
+          <div class="stack-row focus">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Evaluation &amp; observability</p>
+            <p class="layer-desc">Tracing what happened, measuring whether it worked, understanding failures, and feeding those results back into the system.</p>
+          </div>
+          <div class="stack-row focus foundation">
+            <span class="marker" aria-hidden="true"></span>
+            <p class="layer-name">Infrastructure</p>
+            <p class="layer-desc">The compute, storage, queues, databases, and distributed systems supporting the rest of the stack.</p>
+          </div>
+        </div>
+      </div>
+      <p class="stack-note">My work has been concentrated around orchestration, retrieval and context, evaluation, observability, and the infrastructure connecting these pieces.</p>
+    </div>
+  </section>
+
+  <!-- ======= 06 CONNECT ======= -->
+  <section id="connect" aria-label="Connect">
+    <p class="eyebrow">Connect</p>
+    <h2 class="connect-title">If you're working on interesting problems in production AI, agent infrastructure, evaluation, or developer tooling, I'd be happy to connect<span class="accent">.</span></h2>
+
+    <a class="connect-email" href="mailto:anant.gupta@utexas.edu">anant.gupta@utexas.edu</a>
+
+    <div class="connect-actions">
+      <a class="btn btn-primary" href="mailto:anant.gupta@utexas.edu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email</a>
+      <a class="btn" href="https://linkedin.com/in/anant-utexas" target="_blank" rel="noopener">LinkedIn
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      <a class="btn" href="https://github.com/anant-gupta-utexas" target="_blank" rel="noopener">GitHub
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+    </div>
+
+    <p class="connect-also">Also: music festivals, roughly a dozen books a year, pottery, dancing, and cooking that ranges from surprisingly good to ordering pizza.</p>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Anant Gupta</span>
+    <a href="https://github.com/anant-gupta-utexas/anant-gupta-utexas.github.io" target="_blank" rel="noopener">Plain HTML &middot; CSS &middot; JS &mdash; view source</a>
+  </footer>
+
+</main>
 </div>
-</div>
 
-  <!-- Command palette (⌘K / Ctrl+K) — progressive enhancement -->
-  <div id="cmdk" class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
-    <div class="cmdk-box" role="combobox" aria-expanded="true" aria-haspopup="listbox">
-      <input class="cmdk-input" type="text" placeholder="Jump to a section, open a repo…" autocomplete="off" spellcheck="false" aria-label="Command palette search">
-      <ul class="cmdk-list" role="listbox" aria-label="Commands"></ul>
-      <div class="cmdk-foot">
-        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
-        <span><kbd>↵</kbd> select</span>
-        <span><kbd>esc</kbd> close</span>
-      </div>
-    </div>
-  </div>
-  <div id="cmdk-toast" class="cmdk-toast" role="status" aria-live="polite"></div>
-
-  <!-- Layer dataset for the interactive stack explorer (progressive enhancement) -->
-  <script id="layers-data" type="application/json">[{"name": "Interfaces & channels", "tier": "study", "body": "Where work enters the system \u2014 Slack, email, webhook, IDE, browser. Studied as the front of the request path; a capture front-end sits adjacent, turning a browser session into structured input.", "tags": "request path \u00b7 capture front-ends", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Control plane & session ownership", "tier": "study", "body": "Which user, which session, which run owns this turn. The boundary I'm most careful to keep separate from authorization \u2014 session is not permission.", "tags": "session ownership \u00b7 run identity", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Runtime, workflows & durable execution", "tier": "self", "body": "atlas \u2014 a local-first agent orchestrator and task runtime. A multi-stage dev workflow (research \u2192 spec \u2192 design \u2192 review \u2192 code) where every stage emits a measurement span and git worktrees are the code-gen boundary. Instrumented from the first commit.", "tags": "durable execution \u00b7 retry/resume \u00b7 worktree isolation \u00b7 atlas", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Model engine & inference", "tier": "study", "body": "The one job the model owns: prepared request \u2192 output. Studied for provider abstraction and cost/latency trade-offs; the reason my professional framework was provider-abstracted from day one.", "tags": "provider abstraction \u00b7 cost/latency trade-offs", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Context, retrieval & memory", "tier": "prod", "body": "Shipped enterprise RAG on vector databases; refactored a retrieval-augmented conversational system to cut model hops, sharpen determinism, and add telemetry at every inference boundary. Transcript, context, and memory kept as three separate things \u2014 in code and in language.", "tags": "enterprise RAG \u00b7 retrieval optimization \u00b7 memory management \u00b7 designing for determinism", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Tools, MCP & capability surfaces", "tier": "prod", "body": "Authored an LLM framework adopted across engineering teams \u2014 provider-abstracted inference, agent orchestration, and capability surfaces with observability baked in. Also shipped a natural-language data query engine that exposes a semantic layer over governed datasets through an MCP tool layer \u2014 the capability surface is the semantic model, not raw SQL. I keep capability exposure and execution authority as separate concerns: a tool says what may be asked for, not what actually runs.", "tags": "framework design \u00b7 agent orchestration \u00b7 MCP \u00b7 semantic layers \u00b7 governed data access \u00b7 capability vs. execution", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Execution surfaces", "tier": "self", "body": "Where the system actually acts \u2014 browser, shell, filesystem, external API. I favor deliberately read-only execution surfaces: a human navigates, the tool only reads, local-only, no phone-home. Blast radius is the first thing I think about.", "tags": "read-only by design \u00b7 sandboxed capture", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}, {"name": "Identity, trust, policy & approvals", "tier": "study", "body": "Where side effects become real and a human decides whether an action proceeds. Mapped the threat landscape \u2014 prompt injection, system- vs model-level defenses, policy-as-code, sandboxing. Approval is not isolation; sensitive systems need both. A growing focus.", "tags": "prompt-injection defense \u00b7 policy-as-code \u00b7 approval gates", "sym": "\u25cb", "label": "STUDIED"}, {"name": "Observability, evaluation & feedback loops", "tier": "prod", "body": "Built a production evaluation platform for generative-AI systems \u2014 automated, objective, continuously-run eval wired into the delivery pipeline, before the org required it. Extended the instinct into the open with plumb, a measurement spine for multi-agent systems: four tables, two entry points, everything else a query. Observability gives evidence; evaluation turns evidence into judgment \u2014 I keep them distinct.", "tags": "eval-driven development \u00b7 LLM-as-judge \u00b7 trajectory vs. outcome \u00b7 pass^k \u00b7 plumb", "sym": "\u25cf", "label": "BUILT IN PRODUCTION"}, {"name": "Infrastructure substrate", "tier": "self", "body": "Every agent app inherits its substrate. Migrated a massive pipeline to distributed compute on cloud; every personal build runs on a shared SQLite measurement layer so the whole system is instrumented from the ground.", "tags": "distributed compute \u00b7 shared measurement layer", "sym": "\u25d0", "label": "BUILT FOR MYSELF"}]</script>
-  <script src="assets/js/main.js?v=20260724a" defer></script>
+<script src="assets/js/main.js?v=20260813" defer></script>
 </body>
 </html>
