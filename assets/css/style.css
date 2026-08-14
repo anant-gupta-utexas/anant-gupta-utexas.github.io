@@ -296,11 +296,14 @@ a.tag:hover { border-color: var(--accent-muted); color: var(--accent); }
 .pipeline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 22px 0; }
 .pipeline .step { font-family: var(--font-mono); font-size: 12px; color: var(--accent); border: 1px solid var(--accent-muted); border-radius: var(--radius-sm); padding: 6px 12px; }
 .pipeline .arrow { color: var(--accent); font-family: var(--font-mono); font-size: 12px; }
-.topics-panel { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
-.topics-panel .meta-label { margin-bottom: 16px; }
+/* The negative margin is optical alignment: it lifts the box by its own top
+   padding + border so the label lands on the copy's first line, instead of
+   the border landing there and the text sitting 25px low. */
+.topics-panel { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px 22px; margin-top: -21px; }
+.topics-panel .meta-label { margin-bottom: 12px; }
 /* One cluster per row, chips stretched so the list reads as a stack. */
-.topics-panel .tags { flex-direction: column; align-items: stretch; gap: 8px; }
-.topics-panel .tag { white-space: normal; padding: 6px 10px; }
+.topics-panel .tags { flex-direction: column; align-items: stretch; gap: 6px; }
+.topics-panel .tag { white-space: normal; padding: 4px 10px; }
 
 /* Agent-systems working model */
 .thinking-sub { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--border-subtle); }
@@ -414,6 +417,8 @@ footer a:hover { color: var(--accent); }
   .card-grid { grid-template-columns: 1fr; }
   .earlier-cols { grid-template-columns: 1fr; gap: 14px; }
   .keepup-grid { grid-template-columns: 1fr; gap: 36px; }
+  /* Stacked, so there is no adjacent column to optically align to. */
+  .topics-panel { margin-top: 0; }
   .stack-rows::before { display: none; }
   .stack-row { grid-template-columns: 20px 1fr; grid-template-areas: "m name" ". desc"; row-gap: 6px; }
   .stack-row .marker { grid-area: m; align-self: center; justify-self: start; }
