@@ -162,11 +162,8 @@ section:last-of-type { border-bottom: none; }
 /* ---------- Hero ---------- */
 .hero { padding-top: 88px; padding-bottom: 80px; }
 .hero-hello { font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.05em; color: var(--accent); }
-/* Two columns (copy | portrait) with the facts as a full-width band beneath.
-   Explicit placement keeps the band last regardless of DOM order. */
-.hero-grid { display: grid; grid-template-columns: 1.45fr 1fr; column-gap: 56px; row-gap: 72px; margin-top: 34px; align-items: start; }
-.hero-copy { grid-column: 1; grid-row: 1; }
-.hero-portrait { grid-column: 2; grid-row: 1; }
+/* Two columns: copy (with the facts band nested at its foot) | portrait. */
+.hero-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 56px; margin-top: 34px; align-items: start; }
 .hero-title {
   font-family: var(--font-serif);
   font-size: clamp(44px, 4.2vw, 62px);
@@ -179,16 +176,15 @@ section:last-of-type { border-bottom: none; }
 .hero-rule { width: 44px; height: 1px; background: var(--rule); margin: 30px 0; }
 .hero-copy > p + p { margin-top: 16px; }
 
-/* Hero facts band — full width under both columns, hairline-divided */
+/* Hero facts band — sits at the foot of the copy column, hairline-divided */
 .hero-meta {
-  grid-column: 1 / -1;
-  grid-row: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding-top: 30px;
+  margin-top: 40px;
+  padding-top: 28px;
   border-top: 1px solid var(--border-subtle);
 }
-.meta-block { padding: 0 34px; }
+.meta-block { padding: 0 20px; }
 .meta-block:first-child { padding-left: 0; }
 .meta-block:last-child { padding-right: 0; }
 .meta-block + .meta-block { border-left: 1px solid var(--border-subtle); }
@@ -247,15 +243,6 @@ section:last-of-type { border-bottom: none; }
   .path-desc { max-width: 560px; }
 }
 
-/* Education strip */
-.edu { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border-subtle); display: grid; grid-template-columns: 160px 1fr; gap: 24px; }
-.edu-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-/* Both degrees on one line; they wrap to two only when the column is too narrow. */
-.edu-rows { display: flex; flex-wrap: wrap; gap: 12px 64px; }
-.edu-row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
-.edu-row .edu-degree { font-size: 14.5px; color: var(--text-body); }
-.edu-row .edu-school { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
-
 /* ---------- Cards (work + builds) ---------- */
 .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
 .card {
@@ -307,11 +294,13 @@ a.tag:hover { border-color: var(--accent-muted); color: var(--accent); }
 .keepup-copy p + p { margin-top: 16px; }
 .keepup-copy p { font-size: 15px; line-height: 1.7; color: var(--text-body); }
 .pipeline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 22px 0; }
-.pipeline .step { font-family: var(--font-mono); font-size: 12px; color: var(--text-body); border: 1px solid var(--tag-border); border-radius: var(--radius-sm); padding: 6px 12px; }
-.pipeline .arrow { color: var(--text-faint); font-family: var(--font-mono); font-size: 12px; }
+.pipeline .step { font-family: var(--font-mono); font-size: 12px; color: var(--accent); border: 1px solid var(--accent-muted); border-radius: var(--radius-sm); padding: 6px 12px; }
+.pipeline .arrow { color: var(--accent); font-family: var(--font-mono); font-size: 12px; }
 .topics-panel { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
 .topics-panel .meta-label { margin-bottom: 16px; }
-.topics-panel .tags { gap: 8px; }
+/* One cluster per row, chips stretched so the list reads as a stack. */
+.topics-panel .tags { flex-direction: column; align-items: stretch; gap: 8px; }
+.topics-panel .tag { white-space: normal; padding: 6px 10px; }
 
 /* Agent-systems working model */
 .thinking-sub { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--border-subtle); }
@@ -354,10 +343,7 @@ a.tag:hover { border-color: var(--accent-muted); color: var(--accent); }
   margin-top: 18px;
   max-width: 21em;
 }
-.connect-email { display: inline-block; margin-top: 32px; font-family: var(--font-mono); font-size: clamp(16px, 1.8vw, 20px); color: var(--text-primary); border-bottom: 1px solid var(--tag-border); padding-bottom: 3px; }
-.connect-email:hover { color: var(--accent); border-color: var(--accent-muted); }
-.connect-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.connect-also { margin-top: 44px; font-size: 13.5px; color: var(--text-muted); max-width: 620px; }
+.connect-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 
 /* ---------- Footer ---------- */
 footer {
@@ -418,7 +404,6 @@ footer a:hover { color: var(--accent); }
   section { padding: 56px 0; scroll-margin-top: 92px; }
   .hero { padding-top: 48px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 28px; }
-  .hero-copy, .hero-portrait, .hero-meta { grid-column: auto; grid-row: auto; }
   .hero-portrait { max-width: 320px; justify-self: start; }
   /* Stacked: hairlines go back on top of each block instead of between columns. */
   .hero-meta { grid-template-columns: 1fr; padding-top: 0; border-top: none; }
@@ -429,7 +414,6 @@ footer a:hover { color: var(--accent); }
   .card-grid { grid-template-columns: 1fr; }
   .earlier-cols { grid-template-columns: 1fr; gap: 14px; }
   .keepup-grid { grid-template-columns: 1fr; gap: 36px; }
-  .edu { grid-template-columns: 1fr; gap: 12px; }
   .stack-rows::before { display: none; }
   .stack-row { grid-template-columns: 20px 1fr; grid-template-areas: "m name" ". desc"; row-gap: 6px; }
   .stack-row .marker { grid-area: m; align-self: center; justify-self: start; }

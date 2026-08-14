@@ -93,13 +93,18 @@ accent is enough; never colorize half a headline.
 - Sections and ids: `#about` (hero), `#journey`, `#work`, `#builds`,
   `#thinking`, `#connect`. Eyebrows are unnumbered (`The Journey`); only the
   sidebar nav carries the `01`–`06` numerals.
-- **Hero** is a two-column grid (copy | portrait) with the three facts
-  (Currently / Focus / Outside work) as a full-width band on row 2, divided by
-  vertical hairlines and sitting under a rule. Placement is explicit
-  (`grid-row`/`grid-column`) so the band stays last regardless of DOM order.
-  Below 880px everything stacks and the band's dividers flip from vertical to
-  horizontal — reset `.meta-block + .meta-block`'s `border-left`, not just
-  `.meta-block`, or the vertical rules survive the stack.
+- **Hero** is a two-column grid (copy | portrait). The three facts
+  (Currently / Focus / Outside work) are a three-up band nested at the foot of
+  `.hero-copy`, under a rule and divided by vertical hairlines, so they align
+  to the text column rather than the full page width. Keep the values short —
+  the column is ~570px, so each fact gets ~190px. Below 880px everything
+  stacks and the dividers flip from vertical to horizontal; reset
+  `.meta-block + .meta-block`'s `border-left`, not just `.meta-block`, or the
+  vertical rules survive the stack.
+- **Topic clusters** (`.topics-panel .tags`) is a stacked list — one
+  full-width chip per row, not the inline wrap used elsewhere. The entries
+  mirror the real clusters in the knowledge base, so update them when the
+  clusters change rather than inventing topics.
 
 **Breakpoints:** ≤1140px the hero meta column drops below the copy as a 4-up
 strip; ≤880px the sidebar is replaced by a sticky mobile top bar (brand + nav
