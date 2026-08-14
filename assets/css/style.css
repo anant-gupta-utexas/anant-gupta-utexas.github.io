@@ -231,7 +231,7 @@ section:last-of-type { border-bottom: none; }
 .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
 /* ---------- Journey path (horizontal timeline; vertical below 980px) ---------- */
-.path { list-style: none; padding: 0; margin: 64px 0 0; position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px; }
+.path { list-style: none; padding: 0; margin: 64px 0 0; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
 .path::before { content: ""; position: absolute; top: 6px; left: 0; right: 0; height: 1px; background: var(--timeline-rail); }
 .path li { position: relative; padding-top: 36px; }
 .path li::before { content: ""; position: absolute; top: 0; left: 0; width: 10px; height: 10px; border: 1.5px solid var(--accent); border-radius: 50%; background: var(--bg-page); z-index: 1; }
@@ -250,7 +250,8 @@ section:last-of-type { border-bottom: none; }
 /* Education strip */
 .edu { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border-subtle); display: grid; grid-template-columns: 160px 1fr; gap: 24px; }
 .edu-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-.edu-rows { display: flex; flex-direction: column; gap: 10px; }
+/* Both degrees on one line; they wrap to two only when the column is too narrow. */
+.edu-rows { display: flex; flex-wrap: wrap; gap: 12px 64px; }
 .edu-row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
 .edu-row .edu-degree { font-size: 14.5px; color: var(--text-body); }
 .edu-row .edu-school { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }

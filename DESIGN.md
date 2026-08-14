@@ -117,9 +117,11 @@ connect buttons go full-width.
   = accent border + accent text, hover fills with `--accent-bg` only.
 - **Journey path** (`.path`): horizontal timeline — a 1px full-width rail at
   accent-35% with a 10px hollow circle (1.5px accent border, page-color fill)
-  at the start of each of the five phase columns. Era in cyan mono, phase
-  title in Inter 600, description in secondary. Below 980px it flips to a
-  vertical rail with the same ingredients.
+  at the start of each phase column. Era in cyan mono, phase title in
+  Inter 600, description in secondary. Below 980px it flips to a vertical rail
+  with the same ingredients. The column count is hard-coded in
+  `grid-template-columns` — update it when adding or merging a phase, or the
+  rail runs past the last milestone.
 - **Stack panel** (`.stack-panel`): one outlined surface panel listing the
   seven agent-stack layers. Marker circles: hollow = adjacent layer, filled
   cyan = concentration area. `Infrastructure` is the foundation row —
